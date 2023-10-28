@@ -1,30 +1,34 @@
 package ScrumMaster;
 
+import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
-import javax.swing.JScrollBar;
+import javax.swing.JTextArea;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTree;
+import javax.swing.JList;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
 
-public class SprintDuration extends JFrame {
+public class BacklogMgmt extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField textField_1;
+	private JTextField textField_2;
 	private JTextField textField;
 
 	/**
@@ -34,7 +38,7 @@ public class SprintDuration extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SprintDuration frame = new SprintDuration();
+					BacklogMgmt frame = new BacklogMgmt();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +50,7 @@ public class SprintDuration extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SprintDuration() {
+	public BacklogMgmt() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 700);
 		contentPane = new JPanel();
@@ -82,6 +86,7 @@ public class SprintDuration extends JFrame {
 		txtrHerosOfThe.setBackground(Color.BLACK);
 		panel.add(txtrHerosOfThe);
 		
+		
 		JPanel panel_SM = new JPanel();
 		panel_SM.setBorder(new LineBorder(new Color(128, 128, 128), 3));
 		panel_SM.setBackground(new Color(0, 0, 0));
@@ -94,87 +99,92 @@ public class SprintDuration extends JFrame {
 		lbl_Scrum_Master.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lbl_Scrum_Master.setBounds(10, 11, 217, 48);
 		panel_SM.add(lbl_Scrum_Master);
+
 		
-//		JPanel panel_2 = new JPanel();
-//		panel_2.setBorder(new LineBorder(new Color(255, 255, 255)));
-//		panel_2.setBackground(new Color(0, 0, 0));
-//		panel_2.setBounds(0, 488, 1283, 104);
-//		contentPane.add(panel_2);
-//		panel_2.setLayout(null);
-//		
-//		JLabel lblNewLabel_3 = new JLabel("About");
-//		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-//		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-//		lblNewLabel_3.setBounds(183, 38, 55, 30);
-//		panel_2.add(lblNewLabel_3);
-//		
-//		JLabel lblNewLabel_3_1 = new JLabel("Terms of Use");
-//		lblNewLabel_3_1.setForeground(new Color(255, 255, 255));
-//		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-//		lblNewLabel_3_1.setBounds(374, 38, 117, 30);
-//		panel_2.add(lblNewLabel_3_1);
-//		
-//		JLabel lblNewLabel_3_1_1 = new JLabel("Rules of Play");
-//		lblNewLabel_3_1_1.setForeground(new Color(255, 255, 255));
-//		lblNewLabel_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-//		lblNewLabel_3_1_1.setBounds(607, 38, 117, 30);
-//		panel_2.add(lblNewLabel_3_1_1);
-//		
-//		JLabel lblNewLabel_3_1_1_1 = new JLabel("Privacy Policy");
-//		lblNewLabel_3_1_1_1.setForeground(new Color(255, 255, 255));
-//		lblNewLabel_3_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-//		lblNewLabel_3_1_1_1.setBounds(822, 38, 127, 30);
-//		panel_2.add(lblNewLabel_3_1_1_1);
-//		
-//		JLabel lblNewLabel_3_1_1_1_1 = new JLabel("Credits");
-//		lblNewLabel_3_1_1_1_1.setForeground(new Color(255, 255, 255));
-//		lblNewLabel_3_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-//		lblNewLabel_3_1_1_1_1.setBounds(1061, 38, 72, 30);
-//		panel_2.add(lblNewLabel_3_1_1_1_1);
+		JLabel lblNewLabel = new JLabel("Product Backlog");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(536, 171, 254, 43);
+		contentPane.add(lblNewLabel);
+			
 		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(231, 225, 907, 171);
+		contentPane.add(tabbedPane);
+
+		
+		JPanel US_1 = new JPanel();
+		tabbedPane.addTab("User Story 1", null, US_1, null);
+		US_1.setLayout(null);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(264, 11, 293, 121);
+		US_1.add(layeredPane);
+
+		JLayeredPane layeredPane_1 = new JLayeredPane();
+		layeredPane_1.setBounds(20, 11, 195, 121);
+		US_1.add(layeredPane_1);
+
+		JLayeredPane layeredPane_2 = new JLayeredPane();
+		layeredPane_2.setBounds(599, 11, 293, 121);
+		US_1.add(layeredPane_2);
+		
+		JLabel AsA_label = new JLabel("As a");
+		AsA_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		AsA_label.setBounds(10, 11, 175, 31);
+		layeredPane_1.add(AsA_label);
+		
+		JLabel IWantTo_label = new JLabel("I want to");
+		IWantTo_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		IWantTo_label.setBounds(10, 11, 175, 31);
+		layeredPane.add(IWantTo_label);
+
+		JLabel SoThat_label = new JLabel("So that");
+		SoThat_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		SoThat_label.setBounds(10, 11, 175, 31);
+		layeredPane_2.add(SoThat_label);
+		
+		
+		textField = new JTextField();
+		textField.setBounds(10, 61, 96, 20);
+		layeredPane_1.add(textField);
+		textField.setColumns(10);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(10, 53, 273, 57);
+		layeredPane.add(textField_1);				
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(10, 53, 273, 57);
+		layeredPane_2.add(textField_2);
+		
+		JPanel US_2 = new JPanel();
+		tabbedPane.addTab("User Story 2", null, US_2, null);
 				
-		JLabel lbl_Sprint_Duration = new JLabel("Define Sprint Duration");
-		lbl_Sprint_Duration.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lbl_Sprint_Duration.setForeground(Color.WHITE);
-		lbl_Sprint_Duration.setBounds(500, 161, 369, 62);
-		contentPane.add(lbl_Sprint_Duration);
-		
-		JButton btn_Set_Duration = new JButton("Set Sprint Duration");
-		btn_Set_Duration.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btn_Set_Duration.addActionListener(new ActionListener() {
+		JPanel US_3 = new JPanel();
+		tabbedPane.addTab("User Story 3", null, US_3, null);
+
+
+		JButton btnNewButton = new JButton("Ask Product Owner");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btn_Set_Duration.setBounds(543, 406, 273, 62);
-		contentPane.add(btn_Set_Duration);
+		btnNewButton.setBounds(370, 425, 209, 43);
+		contentPane.add(btnNewButton);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setBounds(595, 234, 151, 55);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		JButton btnAs = new JButton("Ask Developer");
+		btnAs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAs.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAs.setBounds(773, 425, 209, 43);
+		contentPane.add(btnAs);
 		
-		JRadioButton rdbtnRadioButton_Months = new JRadioButton("Months");
-		rdbtnRadioButton_Months.setForeground(Color.WHITE);
-		rdbtnRadioButton_Months.setBackground(Color.BLACK);
-		rdbtnRadioButton_Months.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		rdbtnRadioButton_Months.setBounds(862, 324, 117, 47);
-		contentPane.add(rdbtnRadioButton_Months);
-		
-		JRadioButton rdbtnRadioButton_Days = new JRadioButton("Days");
-		rdbtnRadioButton_Days.setForeground(Color.WHITE);
-		rdbtnRadioButton_Days.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		rdbtnRadioButton_Days.setBackground(Color.BLACK);
-		rdbtnRadioButton_Days.setBounds(384, 324, 99, 47);
-		contentPane.add(rdbtnRadioButton_Days);
-		
-		JRadioButton rdbtnRadioButton_Weeks = new JRadioButton("Weeks");
-		rdbtnRadioButton_Weeks.setForeground(Color.WHITE);
-		rdbtnRadioButton_Weeks.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		rdbtnRadioButton_Weeks.setBackground(Color.BLACK);
-		rdbtnRadioButton_Weeks.setBounds(609, 324, 117, 47);
-		contentPane.add(rdbtnRadioButton_Weeks);		
-
 		JPanel Footer = new JPanel();
 		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
 		Footer.setBackground(new Color(0, 0, 0));
