@@ -28,22 +28,6 @@ public class NewUser extends JFrame implements ActionListener {
 	private JTextField textField_1;
 	private JTextField textField_2;
 
-//	Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run(){
-				try {
-					NewUser frame = new NewUser();
-					frame.setTitle("New User Registration");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 //	Create the frame.
 	
 	public NewUser() {
@@ -111,7 +95,17 @@ public class NewUser extends JFrame implements ActionListener {
 		button.setForeground(new Color(255, 255, 255));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Login();
+				EventQueue.invokeLater(new Runnable() {
+					public void run(){
+						try {
+							Login frame = new Login();
+							frame.setTitle("User Login");
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 			}
 		});
 		panel.setLayout(null);
@@ -123,15 +117,13 @@ public class NewUser extends JFrame implements ActionListener {
 		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(162, 574, 172, 26);
 		
-		JLabel hyperlinkLabel = new JLabel("Login");
+		Button hyperlinkLabel = new Button("Login");
 		hyperlinkLabel.setForeground(new Color(0, 128, 255));
 		hyperlinkLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Hey there--");
 				Login login = new Login();
 				login.setVisible(true);
-				System.out.println("Milind--");
 			}
 		});
 		panel.add(lblNewLabel_3);

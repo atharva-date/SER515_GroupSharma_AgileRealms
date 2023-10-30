@@ -37,35 +37,17 @@ public class Login extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+//	Create the frame.
+ 
 	public Login() {
 		
-		frame.setTitle("User Login");
-		
-//		JPanel contentPane;
-//		JTextField textField;
-//		JPasswordField passwordField;
-//		
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Login frame = new Login();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 1080);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-//
+
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -75,13 +57,13 @@ public class Login extends JFrame {
 		panel.setAlignmentX(CENTER_ALIGNMENT);
 		panel.setAlignmentY(CENTER_ALIGNMENT);
 		contentPane.add(panel);
-//		
+		
 		Button button = new Button("Sign In");
 		button.setActionCommand("Sign In");
 		button.setBounds(176, 365, 188, 43);
 		button.setFont(new Font("Verdana", Font.BOLD, 15));
 		button.setForeground(new Color(255, 255, 255));
-//		
+
 		panel.setLayout(null);
 		button.setBackground(new Color(192, 192, 192));
 		panel.add(button);
@@ -90,7 +72,7 @@ public class Login extends JFrame {
 		textField.setBounds(104, 173, 315, 34);
 		panel.add(textField);
 		textField.setColumns(10);
-//		
+		
 		JLabel lblNewLabel = new JLabel("Username");
 		lblNewLabel.setBounds(104, 142, 103, 20);
 		lblNewLabel.setForeground(new Color(255, 255, 255));
