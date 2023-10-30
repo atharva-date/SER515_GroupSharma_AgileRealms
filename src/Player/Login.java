@@ -58,6 +58,35 @@ public class Login extends JFrame {
 		panel.setAlignmentY(CENTER_ALIGNMENT);
 		contentPane.add(panel);
 		
+		JLabel lblNewLabel_2 = new JLabel("Login");
+		lblNewLabel_2.setBounds(102, 39, 250, 50);
+		lblNewLabel_2.setBackground(new Color(0, 0, 0));
+		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 40));
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setBounds(104, 142, 103, 20);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 15));
+		panel.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(104, 173, 315, 34);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1.setBounds(104, 237, 103, 20);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 15));
+		panel.add(lblNewLabel_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(104, 268, 315, 34);
+		panel.add(passwordField);
+		
 		Button button = new Button("Sign In");
 		button.setActionCommand("Sign In");
 		button.setBounds(176, 365, 188, 43);
@@ -67,34 +96,5 @@ public class Login extends JFrame {
 		panel.setLayout(null);
 		button.setBackground(new Color(192, 192, 192));
 		panel.add(button);
-		
-		textField = new JTextField();
-		textField.setBounds(104, 173, 315, 34);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setBounds(104, 142, 103, 20);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBackground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 15));
-		panel.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Password");
-		lblNewLabel_1.setBounds(104, 237, 103, 20);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 15));
-		panel.add(lblNewLabel_1);
-
-		JLabel lblNewLabel_2 = new JLabel("Login");
-		lblNewLabel_2.setBounds(102, 39, 250, 50);
-		lblNewLabel_2.setBackground(new Color(0, 0, 0));
-		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 40));
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_2);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(104, 268, 315, 34);
-		panel.add(passwordField);
 	}
 }
