@@ -95,25 +95,25 @@ public class NewUser extends JFrame implements ActionListener {
 		panel.add(lblNewLabel_3);
 				
 		Button button_1 = new Button("Login");
-//		button_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				EventQueue.invokeLater(new Runnable() {
-//					public void run(){
-//						try {
-//							Login frame = new Login();
-//							frame.setTitle("User Login");
-//							frame.setVisible(true);
-//						} catch (Exception e) {
-//							e.printStackTrace();
-//						}
-//					}
-//				});
-//			}
-//		});
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run(){
+						try {
+							Login frame = new Login();
+							frame.setTitle("User Login");
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
 		button_1.setFont(new Font("Verdana", Font.BOLD, 15));
 		button_1.setForeground(new Color(0, 128, 255));
 		button_1.setBackground(new Color(0, 0, 0));
-		button_1.setBounds(340, 579, 67, 21);
+		button_1.setBounds(342, 580, 67, 21);
 		panel.add(button_1);
 		
 		textField = new JTextField();
