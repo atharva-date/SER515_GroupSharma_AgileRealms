@@ -45,12 +45,7 @@ public class NewUser extends JFrame implements ActionListener {
 		panel.setBackground(new Color(0, 0, 0));
 		panel.setBounds(391, 40, 562, 600);
 		contentPane.add(panel);
-		
-		textField = new JTextField();
-		textField.setBounds(104, 323, 315, 34);
-		panel.add(textField);
-		textField.setColumns(10);
-		
+				
 		JLabel lblFirstName = new JLabel("First Name");
 		lblFirstName.setForeground(Color.WHITE);
 		lblFirstName.setFont(new Font("Verdana", Font.BOLD, 15));
@@ -84,50 +79,48 @@ public class NewUser extends JFrame implements ActionListener {
 		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 40));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		panel.add(lblNewLabel_2);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(104, 415, 315, 34);
-		panel.add(passwordField);
-		
+				
 		Button button = new Button("Register");
 		button.setBounds(178, 503, 188, 43);
 		button.setFont(new Font("Verdana", Font.BOLD, 15));
-		button.setForeground(new Color(255, 255, 255));
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				EventQueue.invokeLater(new Runnable() {
-					public void run(){
-						try {
-							Login frame = new Login();
-							frame.setTitle("User Login");
-							frame.setVisible(true);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-			}
-		});
 		panel.setLayout(null);
+		button.setForeground(new Color(255, 255, 255));
 		button.setBackground(new Color(192, 192, 192));
 		panel.add(button);
 		
 		JLabel lblNewLabel_3 = new JLabel("Already Registered?");
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(162, 574, 172, 26);
-		
-		Button hyperlinkLabel = new Button("Login");
-		hyperlinkLabel.setForeground(new Color(0, 128, 255));
-		hyperlinkLabel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Login login = new Login();
-				login.setVisible(true);
-			}
-		});
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setBounds(161, 579, 173, 21);
 		panel.add(lblNewLabel_3);
+				
+		Button button_1 = new Button("Login");
+//		button_1.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				EventQueue.invokeLater(new Runnable() {
+//					public void run(){
+//						try {
+//							Login frame = new Login();
+//							frame.setTitle("User Login");
+//							frame.setVisible(true);
+//						} catch (Exception e) {
+//							e.printStackTrace();
+//						}
+//					}
+//				});
+//			}
+//		});
+		button_1.setFont(new Font("Verdana", Font.BOLD, 15));
+		button_1.setForeground(new Color(0, 128, 255));
+		button_1.setBackground(new Color(0, 0, 0));
+		button_1.setBounds(340, 579, 67, 21);
+		panel.add(button_1);
 		
+		textField = new JTextField();
+		textField.setBounds(104, 323, 315, 34);
+		panel.add(textField);
+		textField.setColumns(10);
+				
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(104, 231, 315, 34);
@@ -138,16 +131,9 @@ public class NewUser extends JFrame implements ActionListener {
 		textField_2.setBounds(104, 137, 315, 34);
 		panel.add(textField_2);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Login");
-		lblNewLabel_3_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-		});
-		lblNewLabel_3_1.setForeground(new Color(0, 128, 255));
-		lblNewLabel_3_1.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblNewLabel_3_1.setBounds(344, 577, 53, 20);
-		panel.add(lblNewLabel_3_1);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(104, 415, 315, 34);
+		panel.add(passwordField);
 	}
 
 @Override
