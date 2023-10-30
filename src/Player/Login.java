@@ -59,7 +59,7 @@ public class Login extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel_2 = new JLabel("Login");
-		lblNewLabel_2.setBounds(102, 39, 250, 50);
+		lblNewLabel_2.setBounds(102, 39, 135, 50);
 		lblNewLabel_2.setBackground(new Color(0, 0, 0));
 		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 40));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
@@ -89,12 +89,40 @@ public class Login extends JFrame {
 		
 		Button button = new Button("Sign In");
 		button.setActionCommand("Sign In");
-		button.setBounds(176, 365, 188, 43);
+		button.setBounds(176, 400, 188, 43);
 		button.setFont(new Font("Verdana", Font.BOLD, 15));
 		button.setForeground(new Color(255, 255, 255));
 
 		panel.setLayout(null);
 		button.setBackground(new Color(192, 192, 192));
 		panel.add(button);
+		
+		JLabel lblNewLabel_3 = new JLabel("New to AgileRealms?");
+		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 15));
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setBounds(141, 457, 181, 32);
+		panel.add(lblNewLabel_3);
+		
+		Button button_1 = new Button("Register");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run(){
+						try {
+							NewUser frame = new NewUser();
+							frame.setTitle("New User Registration");
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
+		button_1.setFont(new Font("Verdana", Font.BOLD, 15));
+		button_1.setBackground(new Color(0, 0, 0));
+		button_1.setForeground(new Color(0, 128, 255));
+		button_1.setBounds(332, 465, 80, 20);
+		panel.add(button_1);
 	}
 }
