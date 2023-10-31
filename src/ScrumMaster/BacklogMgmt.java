@@ -101,34 +101,42 @@ public class BacklogMgmt extends JFrame {
 		panel_SM.add(lbl_Scrum_Master);
 
 		
+		JLayeredPane LayeredPane_PB = new JLayeredPane();
+		LayeredPane_PB.setBounds(175, 159, 1053, 255);
+		contentPane.add(LayeredPane_PB);
+		
+		JPanel ProductBacklog_panel = new JPanel();
+		ProductBacklog_panel.setBounds(0, 0, 1053, 255);
+		LayeredPane_PB.add(ProductBacklog_panel);
+		ProductBacklog_panel.setLayout(null);
+		
 		JLabel lblNewLabel = new JLabel("Product Backlog");
+		lblNewLabel.setBounds(361, 18, 249, 43);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(536, 171, 254, 43);
-		contentPane.add(lblNewLabel);
-			
-		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(231, 225, 907, 171);
-		contentPane.add(tabbedPane);
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		ProductBacklog_panel.add(lblNewLabel);		
 
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(54, 72, 989, 170);
+		ProductBacklog_panel.add(tabbedPane);
 		
+				
 		JPanel US_1 = new JPanel();
 		tabbedPane.addTab("User Story 1", null, US_1, null);
 		US_1.setLayout(null);
-		
+
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(264, 11, 293, 121);
 		US_1.add(layeredPane);
-
+		
 		JLayeredPane layeredPane_1 = new JLayeredPane();
 		layeredPane_1.setBounds(20, 11, 195, 121);
 		US_1.add(layeredPane_1);
-
+				
 		JLayeredPane layeredPane_2 = new JLayeredPane();
 		layeredPane_2.setBounds(599, 11, 293, 121);
 		US_1.add(layeredPane_2);
-		
+						
 		JLabel AsA_label = new JLabel("As a");
 		AsA_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		AsA_label.setBounds(10, 11, 175, 31);
@@ -143,8 +151,8 @@ public class BacklogMgmt extends JFrame {
 		SoThat_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		SoThat_label.setBounds(10, 11, 175, 31);
 		layeredPane_2.add(SoThat_label);
-		
-		
+
+
 		textField = new JTextField();
 		textField.setBounds(10, 61, 96, 20);
 		layeredPane_1.add(textField);
@@ -162,28 +170,108 @@ public class BacklogMgmt extends JFrame {
 		
 		JPanel US_2 = new JPanel();
 		tabbedPane.addTab("User Story 2", null, US_2, null);
-				
+																
 		JPanel US_3 = new JPanel();
 		tabbedPane.addTab("User Story 3", null, US_3, null);
-
-
-		JButton btnNewButton = new JButton("Ask Product Owner");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(370, 425, 209, 43);
-		contentPane.add(btnNewButton);
 		
-		JButton btnAs = new JButton("Ask Developer");
-		btnAs.addActionListener(new ActionListener() {
+		JPanel AskPO_panel = new JPanel();
+		AskPO_panel.setBounds(0, 0, 1053, 255);
+		LayeredPane_PB.add(AskPO_panel);
+	
+		JLabel lblNewLabelConv_1 = new JLabel("Conversation with the Product Owner");
+		lblNewLabelConv_1.setBounds(209, 18, 598, 43);
+		lblNewLabelConv_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblNewLabelConv_1.setForeground(new Color(0, 0, 0));
+		AskPO_panel.add(lblNewLabelConv_1);		
+				
+		JButton btnAskPO_12 = new JButton("Ask about the acceptance criteria");
+		btnAskPO_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAskPO_12.setBounds(29, 163, 302, 43);
+		AskPO_panel.add(btnAskPO_12);
+		
+		JButton btnAskPO_13 = new JButton("Potential risks in the upcoming sprint");
+		btnAskPO_13.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAskPO_13.setBounds(741, 163, 302, 43);
+		AskPO_panel.add(btnAskPO_13);
+
+		JButton btnAskPO_14 = new JButton("Request clarification for the user story");
+		btnAskPO_14.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAskPO_14.setBounds(741, 86, 302, 43);
+		AskPO_panel.add(btnAskPO_14);
+		
+		JButton btnAskPO_11 = new JButton("Tell me about Top priority user story");
+		btnAskPO_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAskPO_11.setBounds(29, 86, 302, 43);
+		AskPO_panel.add(btnAskPO_11);
+		
+		
+		
+		
+		JPanel AskDev_panel = new JPanel();
+		AskDev_panel.setBounds(0, 0, 1053, 255);
+		LayeredPane_PB.add(AskDev_panel);		
+		
+		JLabel lblNewLabelConv_2 = new JLabel("Conversation with the Developer");
+		lblNewLabelConv_2.setForeground(Color.BLACK);
+		lblNewLabelConv_2.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		AskDev_panel.add(lblNewLabelConv_2);
+		
+		JButton btnAskDev_11 = new JButton("Tell me about the progress of the user story");
+		btnAskDev_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		AskDev_panel.add(btnAskDev_11);
+		
+		JButton btnAskDev_12 = new JButton("Discuss any blockers for the user story");
+		btnAskDev_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		AskDev_panel.add(btnAskDev_12);
+		
+		JButton btnAskDev_13 = new JButton("Potential technical challenges in the user story");
+		btnAskDev_13.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		AskDev_panel.add(btnAskDev_13);
+		
+		JButton btnAskDev_14 = new JButton("Request clarification on the user story");
+		btnAskDev_14.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		AskDev_panel.add(btnAskDev_14);
+				
+
+		JButton btnPO = new JButton("Ask Product Owner");
+		btnPO.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnPO.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LayeredPane_PB.removeAll();
+				LayeredPane_PB.add(AskPO_panel);
+				LayeredPane_PB.repaint();
+				LayeredPane_PB.revalidate();				
 			}
 		});
-		btnAs.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAs.setBounds(773, 425, 209, 43);
-		contentPane.add(btnAs);
+		btnPO.setBounds(590, 425, 209, 43);
+		contentPane.add(btnPO);
+		
+		JButton btnDev = new JButton("Ask Developer");
+		btnDev.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LayeredPane_PB.removeAll();
+				LayeredPane_PB.add(AskDev_panel);
+				LayeredPane_PB.repaint();
+				LayeredPane_PB.revalidate();				
+			}
+		});
+		btnDev.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnDev.setBounds(969, 425, 209, 43);
+		contentPane.add(btnDev);
+		
+		JButton btnSeePO = new JButton("See Product Backlog");
+		btnSeePO.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LayeredPane_PB.removeAll();
+				LayeredPane_PB.add(ProductBacklog_panel);
+				LayeredPane_PB.repaint();
+				LayeredPane_PB.revalidate();				
+			}
+		});
+		btnSeePO.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnSeePO.setBounds(214, 425, 209, 43);
+		contentPane.add(btnSeePO);
+
 		
 		JPanel Footer = new JPanel();
 		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
@@ -239,6 +327,7 @@ public class BacklogMgmt extends JFrame {
 		sendTop.setFont(new Font("Arial", Font.PLAIN, 13));
 		sendTop.setBounds(650, 37, 26, 29);
 		Footer.add(sendTop);
+						
 		
 	}
 }
