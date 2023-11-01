@@ -14,14 +14,22 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 public class UpdateLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField usernameField;
 	private JPasswordField passwordField;
-	private JTextField txtOldUsername;
 	private JButton ChangePassword;
+	private JTextField cusrnm;
+	private JTextField nusrnm;
+	private JPasswordField opassword;
+	private JPasswordField npassword;
+	private JPasswordField cfmpassword;
+	private JPanel Chngusrnm;
+	private JPanel Chngpswrd;
 
 	/**
 	 * Launch the application.
@@ -106,11 +114,15 @@ public class UpdateLogin extends JFrame {
 		lblgroupS.setBounds(634, 136, 270, 13);
 		Footer.add(lblgroupS);
 		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(300, 90, 870, 450);
+		contentPane.add(layeredPane);
+		layeredPane.setLayout(new CardLayout(0, 0));
+		
 		JPanel panel = new JPanel();
+		layeredPane.add(panel, "name_63381204762209");
 		panel.setBorder(null);
 		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(300, 90, 870, 450);
-		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel Usericon = new JLabel("Usericon");
@@ -123,13 +135,13 @@ public class UpdateLogin extends JFrame {
 		panel.add(Username);
 		Username.setBackground(new Color(192, 192, 192));
 		Username.setForeground(new Color(254, 255, 255));
-		Username.setFont(QuillSwordB);
+		Username.setFont(new Font("Quill Sword", Font.BOLD, 24));
 		
 		usernameField = new JTextField();
 		usernameField.setBounds(460, 233, 200, 26);
 		panel.add(usernameField);
-		usernameField.setForeground(new Color(254, 255, 255));
-		usernameField.setFont(new Font("Verdana", Font.PLAIN, 14));
+		usernameField.setForeground(new Color(0, 0, 0));
+		usernameField.setFont(new Font("Quill Sword", Font.PLAIN, 20));
 		usernameField.setBackground(new Color(254, 255, 255));
 		usernameField.setColumns(10);
 		
@@ -144,7 +156,7 @@ public class UpdateLogin extends JFrame {
 		passwordField.setBounds(460, 281, 200, 26);
 		panel.add(passwordField);
 		passwordField.setBackground(new Color(254, 255, 255));
-		passwordField.setFont(new Font("Verdana", Font.PLAIN, 14));
+		passwordField.setFont(new Font("Quill Sword", Font.PLAIN, 20));
 		
 		JButton ChangeUsername = new JButton("Change Username");
 		ChangeUsername.setBounds(330, 360, 220, 38);
@@ -152,6 +164,14 @@ public class UpdateLogin extends JFrame {
 		ChangeUsername.setForeground(new Color(105, 105, 105));
 		ChangeUsername.setBackground(new Color(105, 105, 105));
 		ChangeUsername.setFont(QuillSwordB);
+		ChangeUsername.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(Chngusrnm);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
 		
 		ChangePassword = new JButton("Change Password");
 		ChangePassword.setBounds(330, 410, 220, 38);
@@ -159,5 +179,134 @@ public class UpdateLogin extends JFrame {
 		ChangePassword.setForeground(new Color(105, 105, 105));
 		ChangePassword.setFont(QuillSwordB);
 		ChangePassword.setBackground(new Color(105, 105, 105));
+		ChangePassword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(Chngpswrd);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		
+		Chngusrnm = new JPanel();
+		Chngusrnm.setBackground(new Color(0, 0, 0));
+		layeredPane.add(Chngusrnm, "name_63528839746167");
+		Chngusrnm.setLayout(null);
+		
+		JLabel CurrentUsername = new JLabel("Current Username");
+		CurrentUsername.setBounds(245, 180, 160, 24);
+		Chngusrnm.add(CurrentUsername);
+		CurrentUsername.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		CurrentUsername.setForeground(new Color(254, 255, 255));
+		
+		JLabel NewUsername = new JLabel("New Username");
+		NewUsername.setBounds(245, 230, 160, 24);
+		Chngusrnm.add(NewUsername);
+		NewUsername.setForeground(new Color(254, 255, 255));
+		NewUsername.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		
+		cusrnm = new JTextField();
+		cusrnm.setBounds(470, 179, 200, 26);
+		Chngusrnm.add(cusrnm);
+		cusrnm.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		cusrnm.setForeground(new Color(0, 0, 0));
+		cusrnm.setBackground(new Color(192, 192, 192));
+		cusrnm.setColumns(10);
+		
+		nusrnm = new JTextField();
+		nusrnm.setBounds(470, 229, 200, 26);
+		Chngusrnm.add(nusrnm);
+		nusrnm.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		nusrnm.setColumns(10);
+		
+		JLabel ChangeUsrnm = new JLabel("Change Username");
+		ChangeUsrnm.setBounds(245, 80, 186, 40);
+		Chngusrnm.add(ChangeUsrnm);
+		ChangeUsrnm.setFont(new Font("Quill Sword", Font.BOLD, 32));
+		ChangeUsrnm.setForeground(new Color(254, 255, 255));
+		
+		JButton saveButton = new JButton("Save Changes");
+		saveButton.setBounds(245, 300, 132, 34);
+		Chngusrnm.add(saveButton);
+		saveButton.setForeground(new Color(105, 105, 105));
+		saveButton.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		
+		JButton cancelButton = new JButton("Cancel");
+		cancelButton.setBounds(470, 300, 92, 34);
+		Chngusrnm.add(cancelButton);
+		cancelButton.setForeground(new Color(105, 105, 105));
+		cancelButton.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(panel);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		
+		Chngpswrd = new JPanel();
+		Chngpswrd.setBackground(new Color(0, 0, 0));
+		layeredPane.add(Chngpswrd, "name_67999821990916");
+		Chngpswrd.setLayout(null);
+		
+		JLabel ChangePassword = new JLabel("Change Password");
+		ChangePassword.setBounds(245, 80, 186, 40);
+		Chngpswrd.add(ChangePassword);
+		ChangePassword.setFont(new Font("Quill Sword", Font.BOLD, 32));
+		ChangePassword.setForeground(new Color(254, 255, 255));
+		
+		JLabel OldPassword = new JLabel("Old Password");
+		OldPassword.setBounds(245, 180, 160, 24);
+		Chngpswrd.add(OldPassword);
+		OldPassword.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		OldPassword.setForeground(new Color(254, 255, 255));
+		
+		JLabel NewPassword = new JLabel("New Password");
+		NewPassword.setBounds(245, 230, 160, 24);
+		Chngpswrd.add(NewPassword);
+		NewPassword.setForeground(new Color(254, 255, 255));
+		NewPassword.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		
+		JLabel CfrmPassword = new JLabel("Confirm Password");
+		CfrmPassword.setBounds(245, 280, 160, 24);
+		Chngpswrd.add(CfrmPassword);
+		CfrmPassword.setForeground(new Color(254, 255, 255));
+		CfrmPassword.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBounds(245, 350, 92, 34);
+		Chngpswrd.add(btnSubmit);
+		btnSubmit.setForeground(new Color(105, 105, 105));
+		btnSubmit.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.setBounds(470, 350, 92, 34);
+		Chngpswrd.add(btnCancel);
+		btnCancel.setForeground(new Color(105, 105, 105));
+		btnCancel.setFont(new Font("Quill Sword", Font.BOLD, 24));
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(panel);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		
+		opassword = new JPasswordField();
+		opassword.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		opassword.setBounds(470, 178, 200, 26);
+		Chngpswrd.add(opassword);
+		
+		npassword = new JPasswordField();
+		npassword.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		npassword.setBounds(470, 228, 200, 26);
+		Chngpswrd.add(npassword);
+		
+		cfmpassword = new JPasswordField();
+		cfmpassword.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		cfmpassword.setBounds(470, 278, 200, 26);
+		Chngpswrd.add(cfmpassword);
 	}
 }
