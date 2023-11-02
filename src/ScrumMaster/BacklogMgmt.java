@@ -22,6 +22,7 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
+import java.awt.CardLayout;
 
 public class BacklogMgmt extends JFrame {
 
@@ -104,10 +105,10 @@ public class BacklogMgmt extends JFrame {
 		JLayeredPane LayeredPane_PB = new JLayeredPane();
 		LayeredPane_PB.setBounds(175, 159, 1053, 255);
 		contentPane.add(LayeredPane_PB);
+		LayeredPane_PB.setLayout(new CardLayout(0, 0));
 		
 		JPanel ProductBacklog_panel = new JPanel();
-		ProductBacklog_panel.setBounds(0, 0, 1053, 255);
-		LayeredPane_PB.add(ProductBacklog_panel);
+		LayeredPane_PB.add(ProductBacklog_panel, "name_696851389597800");
 		ProductBacklog_panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Product Backlog");
@@ -175,60 +176,69 @@ public class BacklogMgmt extends JFrame {
 		tabbedPane.addTab("User Story 3", null, US_3, null);
 		
 		JPanel AskPO_panel = new JPanel();
-		AskPO_panel.setBounds(0, 0, 1053, 255);
-		LayeredPane_PB.add(AskPO_panel);
+		LayeredPane_PB.add(AskPO_panel, "name_696851434058700");
+		AskPO_panel.setLayout(null);
 	
 		JLabel lblNewLabelConv_1 = new JLabel("Conversation with the Product Owner");
-		lblNewLabelConv_1.setBounds(209, 18, 598, 43);
+		lblNewLabelConv_1.setBounds(238, 27, 587, 43);
 		lblNewLabelConv_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
 		lblNewLabelConv_1.setForeground(new Color(0, 0, 0));
 		AskPO_panel.add(lblNewLabelConv_1);		
 				
 		JButton btnAskPO_12 = new JButton("Ask about the acceptance criteria");
+		btnAskPO_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAskPO_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAskPO_12.setBounds(29, 163, 302, 43);
+		btnAskPO_12.setBounds(136, 160, 299, 27);
 		AskPO_panel.add(btnAskPO_12);
 		
 		JButton btnAskPO_13 = new JButton("Potential risks in the upcoming sprint");
 		btnAskPO_13.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAskPO_13.setBounds(741, 163, 302, 43);
+		btnAskPO_13.setBounds(136, 99, 299, 27);
 		AskPO_panel.add(btnAskPO_13);
 
 		JButton btnAskPO_14 = new JButton("Request clarification for the user story");
 		btnAskPO_14.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAskPO_14.setBounds(741, 86, 302, 43);
+		btnAskPO_14.setBounds(607, 99, 323, 27);
 		AskPO_panel.add(btnAskPO_14);
 		
 		JButton btnAskPO_11 = new JButton("Tell me about Top priority user story");
 		btnAskPO_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAskPO_11.setBounds(29, 86, 302, 43);
+		btnAskPO_11.setBounds(607, 160, 323, 27);
 		AskPO_panel.add(btnAskPO_11);
 		
 		
 		
 		
 		JPanel AskDev_panel = new JPanel();
-		AskDev_panel.setBounds(0, 0, 1053, 255);
-		LayeredPane_PB.add(AskDev_panel);		
+		LayeredPane_PB.add(AskDev_panel, "name_696851474122400");		
+		AskDev_panel.setLayout(null);
 		
 		JLabel lblNewLabelConv_2 = new JLabel("Conversation with the Developer");
 		lblNewLabelConv_2.setForeground(Color.BLACK);
+		lblNewLabelConv_2.setBounds(246, 29, 511, 43);
 		lblNewLabelConv_2.setFont(new Font("Tahoma", Font.PLAIN, 35));
 		AskDev_panel.add(lblNewLabelConv_2);
 		
 		JButton btnAskDev_11 = new JButton("Tell me about the progress of the user story");
+		btnAskDev_11.setBounds(109, 171, 358, 27);
 		btnAskDev_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		AskDev_panel.add(btnAskDev_11);
 		
 		JButton btnAskDev_12 = new JButton("Discuss any blockers for the user story");
+		btnAskDev_12.setBounds(109, 107, 358, 27);
 		btnAskDev_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		AskDev_panel.add(btnAskDev_12);
 		
 		JButton btnAskDev_13 = new JButton("Potential technical challenges in the user story");
+		btnAskDev_13.setBounds(568, 107, 366, 27);
 		btnAskDev_13.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		AskDev_panel.add(btnAskDev_13);
 		
 		JButton btnAskDev_14 = new JButton("Request clarification on the user story");
+		btnAskDev_14.setBounds(568, 171, 366, 27);
 		btnAskDev_14.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		AskDev_panel.add(btnAskDev_14);
 				
