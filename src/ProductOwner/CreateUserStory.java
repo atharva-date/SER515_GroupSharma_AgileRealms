@@ -16,6 +16,9 @@ import javax.swing.JButton;
 import java.awt.Panel;
 import java.awt.ScrollPane;
 import javax.swing.border.LineBorder;
+
+import Player.Customizations;
+
 import java.awt.TextField;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -244,6 +247,8 @@ public class CreateUserStory extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				UserStories frame = new UserStories();
 				frame.setVisible(true);
+				
+				dispose();
 			}
 		});
 		btnNewUserStory.setBackground(Color.LIGHT_GRAY);
@@ -366,15 +371,6 @@ public class CreateUserStory extends JFrame {
 		txtrGuide.setBounds(874, 11, 58, 32);
 		contentPane.add(txtrGuide);
 		
-		JTextArea txtrCustomizations = new JTextArea();
-		txtrCustomizations.setText("Customizations");
-		txtrCustomizations.setForeground(Color.WHITE);
-		txtrCustomizations.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrCustomizations.setEditable(false);
-		txtrCustomizations.setBackground(Color.BLACK);
-		txtrCustomizations.setBounds(988, 11, 159, 32);
-		contentPane.add(txtrCustomizations);
-		
 		JTextArea txtrPlayNow = new JTextArea();
 		txtrPlayNow.setText("play Now");
 		txtrPlayNow.setForeground(Color.WHITE);
@@ -383,5 +379,18 @@ public class CreateUserStory extends JFrame {
 		txtrPlayNow.setBackground(Color.BLACK);
 		txtrPlayNow.setBounds(1188, 11, 95, 32);
 		contentPane.add(txtrPlayNow);
+		
+		JButton btnNewButton_3 = new JButton("Customizations");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_3.setFont(new Font("Quill Sword", Font.PLAIN, 30));
+		btnNewButton_3.setBackground(Color.BLACK);
+		btnNewButton_3.setBounds(957, 6, 219, 50);
+		contentPane.add(btnNewButton_3);
 	}
 }

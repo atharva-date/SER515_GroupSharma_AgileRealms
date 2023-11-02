@@ -1,4 +1,5 @@
 package ProductOwner;
+import Player.Customizations;
 
 import java.awt.EventQueue;
 
@@ -362,9 +363,10 @@ public class UserStories extends JFrame {
 		JButton btnNewButton_2 = new JButton("Create User Story");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreateUserStory frame = new CreateUserStory();
-				frame.setVisible(true);	
+				CreateUserStory screen = new CreateUserStory();
+				screen.setVisible(true);
 				
+				dispose();
 			}
 		});
 		btnNewButton_2.setBackground(Color.BLACK);
@@ -487,15 +489,6 @@ public class UserStories extends JFrame {
 		txtrPlayNow.setBackground(Color.BLACK);
 		contentPane.add(txtrPlayNow);
 		
-		JTextArea txtrCustomizations = new JTextArea();
-		txtrCustomizations.setBounds(988, 11, 159, 32);
-		txtrCustomizations.setText("Customizations");
-		txtrCustomizations.setForeground(Color.WHITE);
-		txtrCustomizations.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrCustomizations.setEditable(false);
-		txtrCustomizations.setBackground(Color.BLACK);
-		contentPane.add(txtrCustomizations);
-		
 		JTextArea txtrGuide = new JTextArea();
 		txtrGuide.setBounds(874, 11, 58, 32);
 		txtrGuide.setText("Guide");
@@ -504,5 +497,18 @@ public class UserStories extends JFrame {
 		txtrGuide.setEditable(false);
 		txtrGuide.setBackground(Color.BLACK);
 		contentPane.add(txtrGuide);
+		
+		JButton btnNewButton_3 = new JButton("Customizations");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_3.setBackground(Color.BLACK);
+		btnNewButton_3.setFont(new Font("Quill Sword", Font.PLAIN, 30));
+		btnNewButton_3.setBounds(957, 9, 219, 50);
+		contentPane.add(btnNewButton_3);
 	}
 }
