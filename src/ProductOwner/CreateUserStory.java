@@ -16,8 +16,14 @@ import javax.swing.JButton;
 import java.awt.Panel;
 import java.awt.ScrollPane;
 import javax.swing.border.LineBorder;
+
+import Player.Customizations;
+import Player.Home;
+
 import java.awt.TextField;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JProgressBar;
 import java.awt.Button;
@@ -57,40 +63,25 @@ public class CreateUserStory extends JFrame {
 	public CreateUserStory() {
 		setBackground(Color.BLACK);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1289, 700);
+		setBounds(100, 100, 1366, 700);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel card = new JPanel();
-		card.setBounds(-33, 55, 1366, 478);
-		card.setBackground(Color.BLACK);
-		card.setBorder(new LineBorder(Color.LIGHT_GRAY, 1, true));
-		contentPane.add(card);
-		card.setLayout(null);
-		
-		JPanel progress = new JPanel();
-		progress.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
-		progress.setForeground(Color.LIGHT_GRAY);
-		progress.setBackground(Color.BLACK);
-		progress.setBounds(882, 6, 246, 46);
-		card.add(progress);
-		progress.setLayout(null);
-		
-		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(0, 17, 246, 12);
-		progress.add(progressBar);
-		progressBar.setValue(75);
-		progressBar.setForeground(Color.WHITE);
-		progressBar.setBackground(Color.WHITE);
+		JPanel body = new JPanel();
+		body.setBounds(-33, 75, 1476, 458);
+		body.setBackground(Color.BLACK);
+		body.setBorder(new LineBorder(Color.LIGHT_GRAY, 1, true));
+		contentPane.add(body);
+		body.setLayout(null);
 		
 		JPanel mainContents = new JPanel();
 		mainContents.setBackground(Color.BLACK);
 		mainContents.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
-		mainContents.setBounds(-43, 60, 1391, 418);
-		card.add(mainContents);
+		mainContents.setBounds(-43, 38, 1513, 420);
+		body.add(mainContents);
 		mainContents.setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -244,54 +235,16 @@ public class CreateUserStory extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				UserStories frame = new UserStories();
 				frame.setVisible(true);
+				
+				dispose();
 			}
 		});
 		btnNewUserStory.setBackground(Color.LIGHT_GRAY);
 		btnNewUserStory.setBounds(689, 399, 140, 19);
 		mainContents.add(btnNewUserStory);
 		
-		JTextArea txtrProductOwner = new JTextArea();
-		txtrProductOwner.setText("Product Owner");
-		txtrProductOwner.setForeground(Color.RED);
-		txtrProductOwner.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrProductOwner.setEditable(false);
-		txtrProductOwner.setBackground(Color.BLACK);
-		txtrProductOwner.setBounds(151, 16, 145, 32);
-		card.add(txtrProductOwner);
-		
-		JTextArea txtrSprint = new JTextArea();
-		txtrSprint.setText("Sprint 1");
-		txtrSprint.setForeground(Color.WHITE);
-		txtrSprint.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrSprint.setEditable(false);
-		txtrSprint.setBackground(Color.BLACK);
-		txtrSprint.setBounds(1159, 16, 87, 32);
-		card.add(txtrSprint);
-		
-		JButton btnNewButton_1_2 = new JButton("");
-		btnNewButton_1_2.setForeground(Color.WHITE);
-		btnNewButton_1_2.setBackground(Color.WHITE);
-		btnNewButton_1_2.setBounds(1269, 1, 42, 51);
-		card.add(btnNewButton_1_2);
-		
-		JButton btnNewButton_1_1 = new JButton("");
-		btnNewButton_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_1.setBackground(Color.WHITE);
-		btnNewButton_1_1.setBounds(92, 1, 42, 51);
-		card.add(btnNewButton_1_1);
-		
-		JButton btnNewButton_1_4 = new JButton("");
-		btnNewButton_1_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1_4.setForeground(Color.WHITE);
-		btnNewButton_1_4.setBackground(Color.WHITE);
-		btnNewButton_1_4.setBounds(50, 1, 42, 51);
-		card.add(btnNewButton_1_4);
-		
 		JPanel footer = new JPanel();
-		footer.setBounds(-60, 500, 1366, 193);
+		footer.setBounds(-60, 500, 1470, 193);
 		footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
 		footer.setBackground(new Color(0, 0, 0));
 		contentPane.add(footer);
@@ -339,49 +292,73 @@ public class CreateUserStory extends JFrame {
 		btnNewButton_1_3.setBounds(657, 48, 42, 51);
 		footer.add(btnNewButton_1_3);
 		
-		JTextArea txtrAgilerealmsHerosOf = new JTextArea();
-		txtrAgilerealmsHerosOf.setText("AgileRealms");
-		txtrAgilerealmsHerosOf.setForeground(Color.WHITE);
-		txtrAgilerealmsHerosOf.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrAgilerealmsHerosOf.setEditable(false);
-		txtrAgilerealmsHerosOf.setBackground(Color.BLACK);
-		txtrAgilerealmsHerosOf.setBounds(28, 0, 145, 32);
-		contentPane.add(txtrAgilerealmsHerosOf);
+		Panel NavBar = new Panel();
+		NavBar.setBackground(Color.BLACK);
+		NavBar.setBounds(0, 0, 1352, 77);
+		contentPane.add(NavBar);
+		NavBar.setLayout(null);
 		
-		JTextArea txtrHerosOfThe = new JTextArea();
-		txtrHerosOfThe.setText("heros of the Backlog");
-		txtrHerosOfThe.setForeground(Color.WHITE);
-		txtrHerosOfThe.setFont(new Font("Quill Sword", Font.PLAIN, 20));
-		txtrHerosOfThe.setEditable(false);
-		txtrHerosOfThe.setBackground(Color.BLACK);
-		txtrHerosOfThe.setBounds(28, 33, 145, 26);
-		contentPane.add(txtrHerosOfThe);
+		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
+		gameSubHeading.setBounds(10, 52, 298, 25);
+		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
+		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		gameSubHeading.setForeground(Color.WHITE);
+		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		NavBar.add(gameSubHeading);
 		
-		JTextArea txtrGuide = new JTextArea();
-		txtrGuide.setText("Guide");
-		txtrGuide.setForeground(Color.WHITE);
-		txtrGuide.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrGuide.setEditable(false);
-		txtrGuide.setBackground(Color.BLACK);
-		txtrGuide.setBounds(874, 11, 58, 32);
-		contentPane.add(txtrGuide);
+		JButton guideButton = new JButton("Guide");
+		guideButton.setBounds(635, 0, 140, 77);
+		guideButton.setForeground(Color.WHITE);
+		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		guideButton.setBorder(null);
+		guideButton.setBackground(Color.BLACK);
+		NavBar.add(guideButton);
 		
-		JTextArea txtrCustomizations = new JTextArea();
-		txtrCustomizations.setText("Customizations");
-		txtrCustomizations.setForeground(Color.WHITE);
-		txtrCustomizations.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrCustomizations.setEditable(false);
-		txtrCustomizations.setBackground(Color.BLACK);
-		txtrCustomizations.setBounds(988, 11, 159, 32);
-		contentPane.add(txtrCustomizations);
+		JButton customizationsButton = new JButton("Customizations");
+		customizationsButton.setBounds(803, 0, 252, 77);
+		customizationsButton.setForeground(Color.WHITE);
+		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		customizationsButton.setBorder(null);
+		customizationsButton.setBackground(Color.BLACK);
+		customizationsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(customizationsButton);
 		
-		JTextArea txtrPlayNow = new JTextArea();
-		txtrPlayNow.setText("play Now");
-		txtrPlayNow.setForeground(Color.WHITE);
-		txtrPlayNow.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrPlayNow.setEditable(false);
-		txtrPlayNow.setBackground(Color.BLACK);
-		txtrPlayNow.setBounds(1188, 11, 95, 32);
-		contentPane.add(txtrPlayNow);
+		JButton playnowButton = new JButton("Play Now");
+		playnowButton.setBounds(1090, 0, 164, 77);
+		playnowButton.setForeground(Color.WHITE);
+		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		playnowButton.setBorder(null);
+		playnowButton.setBackground(Color.BLACK);
+		NavBar.add(playnowButton);
+		
+		JButton homeButton = new JButton("AgileRealms");
+		homeButton.setBounds(10, 0, 298, 56);
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
+		homeButton.setBorder(null);
+		homeButton.setBackground(Color.BLACK);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(homeButton);
+		
+		JButton profileButton = new JButton("");
+		profileButton.setBounds(1275, 0, 77, 77);
+		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		profileButton.setForeground(Color.WHITE);
+		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		profileButton.setBorder(null);
+		profileButton.setBackground(Color.BLACK);
+		NavBar.add(profileButton);
 	}
 }
