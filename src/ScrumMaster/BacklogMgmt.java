@@ -3,6 +3,8 @@ package ScrumMaster;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import Player.Customizations;
+import Player.Home;
+
 import javax.swing.JTextArea;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
@@ -62,31 +68,74 @@ public class BacklogMgmt extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setForeground(new Color(0, 0, 0));
-		panel.setBorder(new LineBorder(new Color(128, 128, 128), 3));
-		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(0, 0, 1283, 78);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		Panel NavBar = new Panel();
+		NavBar.setLayout(null);
+		NavBar.setBackground(Color.BLACK);
+		NavBar.setBounds(0, 0, 1352, 77);
+		contentPane.add(NavBar);
 		
-		JLabel txtrAgilerealmsHerosOf = new JLabel();
-		txtrAgilerealmsHerosOf.setFont(new Font("Quill Sword", Font.BOLD, 30));
-		txtrAgilerealmsHerosOf.setText("AgileRealms");
-		txtrAgilerealmsHerosOf.setForeground(Color.WHITE);
-		txtrAgilerealmsHerosOf.setBackground(Color.BLACK);
-		txtrAgilerealmsHerosOf.setBounds(6, 6, 191, 39);
-		panel.add(txtrAgilerealmsHerosOf);
-
+		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
+		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
+		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		gameSubHeading.setForeground(Color.WHITE);
+		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		gameSubHeading.setBounds(10, 52, 298, 25);
+		NavBar.add(gameSubHeading);
 		
-		JLabel txtrHerosOfThe = new JLabel();
-		txtrHerosOfThe.setBounds(49, 41, 249, 26);
-		txtrHerosOfThe.setText("heroes of the Backlog");
-		txtrHerosOfThe.setForeground(Color.WHITE);
-		txtrHerosOfThe.setFont(new Font("Quill Sword", Font.BOLD, 20));
-		txtrHerosOfThe.setBackground(Color.BLACK);
-		panel.add(txtrHerosOfThe);
+		JButton guideButton = new JButton("Guide");
+		guideButton.setForeground(Color.WHITE);
+		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		guideButton.setBorder(null);
+		guideButton.setBackground(Color.BLACK);
+		guideButton.setBounds(635, 0, 140, 77);
+		NavBar.add(guideButton);
 		
+		JButton customizationsButton = new JButton("Customizations");
+		customizationsButton.setForeground(Color.WHITE);
+		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		customizationsButton.setBorder(null);
+		customizationsButton.setBackground(Color.BLACK);
+		customizationsButton.setBounds(803, 0, 252, 77);
+		customizationsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(customizationsButton);
+		
+		JButton playnowButton = new JButton("Play Now");
+		playnowButton.setForeground(Color.WHITE);
+		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		playnowButton.setBorder(null);
+		playnowButton.setBackground(Color.BLACK);
+		playnowButton.setBounds(1090, 0, 164, 77);
+		NavBar.add(playnowButton);
+		
+		JButton homeButton = new JButton("AgileRealms");
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
+		homeButton.setBorder(null);
+		homeButton.setBackground(Color.BLACK);
+		homeButton.setBounds(10, 0, 298, 56);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(homeButton);
+		
+		JButton profileButton = new JButton("");
+		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		profileButton.setForeground(Color.WHITE);
+		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		profileButton.setBorder(null);
+		profileButton.setBackground(Color.BLACK);
+		profileButton.setBounds(1275, 0, 77, 77);
+		NavBar.add(profileButton);
 		
 		JPanel panel_SM = new JPanel();
 		panel_SM.setBorder(new LineBorder(new Color(128, 128, 128), 3));
@@ -100,7 +149,7 @@ public class BacklogMgmt extends JFrame {
 		lbl_Scrum_Master.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lbl_Scrum_Master.setBounds(10, 11, 217, 48);
 		panel_SM.add(lbl_Scrum_Master);
-
+		
 		
 		JLayeredPane LayeredPane_PB = new JLayeredPane();
 		LayeredPane_PB.setBounds(175, 159, 1053, 255);
