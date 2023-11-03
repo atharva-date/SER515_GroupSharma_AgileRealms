@@ -54,7 +54,7 @@ public class SprintDuration extends JFrame {
 	 */
 	public SprintDuration() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1366, 700);
+		setBounds(100, 100, 1366, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setForeground(new Color(255, 255, 255));
@@ -155,6 +155,9 @@ public class SprintDuration extends JFrame {
 		btn_Set_Duration.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btn_Set_Duration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BacklogMgmt screen = new BacklogMgmt();
+				screen.setVisible(true);
+				dispose();
 			}
 		});
 		btn_Set_Duration.setBounds(543, 406, 273, 62);
@@ -187,59 +190,56 @@ public class SprintDuration extends JFrame {
 		rdbtnRadioButton_Weeks.setBounds(609, 324, 117, 47);
 		contentPane.add(rdbtnRadioButton_Weeks);		
 
+		//footer
 		JPanel Footer = new JPanel();
-		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
-		Footer.setBackground(new Color(0, 0, 0));
-		Footer.setBounds(0, 479, 1352, 184);
-		contentPane.add(Footer);
 		Footer.setLayout(null);
+		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
+		Footer.setBackground(Color.BLACK);
+		Footer.setBounds(0, 505, 1283, 184);
+		contentPane.add(Footer);
 		
 		JLabel About = new JLabel("About");
+		About.setForeground(Color.WHITE);
 		About.setFont(new Font("Arial", Font.PLAIN, 13));
-		About.setForeground(new Color(255, 255, 255));
-		About.setBounds(284, 103, 49, 13);
+		About.setBounds(297, 101, 41, 13);
 		Footer.add(About);
 		
 		JLabel termsOfUse = new JLabel("Terms of Use");
+		termsOfUse.setForeground(Color.WHITE);
 		termsOfUse.setFont(new Font("Arial", Font.PLAIN, 13));
-		termsOfUse.setForeground(new Color(255, 255, 255));
-		termsOfUse.setBounds(429, 103, 84, 13);
+		termsOfUse.setBounds(442, 101, 84, 13);
 		Footer.add(termsOfUse);
 		
 		JLabel rulesOfPlay = new JLabel("Rules of Play");
 		rulesOfPlay.setForeground(Color.WHITE);
 		rulesOfPlay.setFont(new Font("Arial", Font.PLAIN, 13));
-		rulesOfPlay.setBounds(625, 103, 77, 13);
+		rulesOfPlay.setBounds(638, 101, 77, 13);
 		Footer.add(rulesOfPlay);
 		
 		JLabel privacyPolicy = new JLabel("Privacy Policy");
 		privacyPolicy.setForeground(Color.WHITE);
 		privacyPolicy.setFont(new Font("Arial", Font.PLAIN, 13));
-		privacyPolicy.setBounds(811, 103, 84, 13);
+		privacyPolicy.setBounds(824, 101, 84, 13);
 		Footer.add(privacyPolicy);
 		
 		JLabel credits = new JLabel("Credits");
 		credits.setForeground(Color.WHITE);
 		credits.setFont(new Font("Arial", Font.PLAIN, 13));
-		credits.setBounds(985, 103, 49, 13);
+		credits.setBounds(998, 101, 50, 13);
 		Footer.add(credits);
 		
 		JLabel lblgroupS = new JLabel("©2023 Group Sharma LLC. All rights reserved.");
 		lblgroupS.setForeground(Color.WHITE);
 		lblgroupS.setFont(new Font("Arial", Font.PLAIN, 13));
-		lblgroupS.setBounds(530, 138, 287, 13);
+		lblgroupS.setBounds(543, 136, 269, 13);
 		Footer.add(lblgroupS);
 		
 		JButton sendTop = new JButton("");
-		sendTop.setForeground(new Color(0, 0, 0));
-		sendTop.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		sendTop.setIcon(new ImageIcon("IMAGE_PATH"));
-		sendTop.setBackground(new Color(0, 0, 0));
+		sendTop.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/smallWhiteArrowUp.png")).getImage().getScaledInstance(26, 29, Image.SCALE_SMOOTH)));
+		sendTop.setForeground(Color.BLACK);
 		sendTop.setFont(new Font("Arial", Font.PLAIN, 13));
-		sendTop.setBounds(650, 37, 26, 29);
+		sendTop.setBackground(Color.BLACK);
+		sendTop.setBounds(663, 35, 26, 29);
 		Footer.add(sendTop);
 		
 	}
