@@ -20,8 +20,6 @@ public class UpdateLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField usernameField;
-	private JPasswordField passwordField;
 	private JButton ChangePassword;
 	private JTextField cusrnm;
 	private JTextField nusrnm;
@@ -61,32 +59,149 @@ public class UpdateLogin extends JFrame {
 			e.printStackTrace();
 		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1366, 1400);
+		setBounds(100, 100, 1366, 800);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(0, 0, 0));
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		//NavBar
+		
+		Panel NavBar = new Panel();
+		NavBar.setLayout(null);
+		NavBar.setBackground(Color.BLACK);
+		NavBar.setBounds(0, 0, 1462, 77);
+		contentPane.add(NavBar);
+		
+		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
+		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
+		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		gameSubHeading.setForeground(Color.WHITE);
+		gameSubHeading.setFont(new Font("Quill Sword Bold", Font.BOLD, 20));
+		gameSubHeading.setBounds(-48, 52, 298, 25);
+		NavBar.add(gameSubHeading);
+		
+		JButton guideButton = new JButton("Guide");
+		guideButton.setForeground(Color.WHITE);
+		guideButton.setFont(new Font("Quill Sword Bold", Font.BOLD, 30));
+		guideButton.setBackground(Color.BLACK);
+		guideButton.setBounds(666, 0, 140, 77);
+		guideButton.setBorder(null);
+		guideButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Guide screen = new Guide();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(guideButton);
+		
+		JButton customizationsButton = new JButton("Customizations");
+		customizationsButton.setForeground(Color.WHITE);
+		customizationsButton.setFont(new Font("Quill Sword Bold", Font.BOLD, 30));
+		customizationsButton.setBackground(Color.BLACK);
+		customizationsButton.setBounds(840, 0, 252, 77);
+		customizationsButton.setBorder(null);
+		customizationsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(customizationsButton);
+		
+		JButton playnowButton = new JButton("Play Now");
+		playnowButton.setForeground(Color.WHITE);
+		playnowButton.setFont(new Font("Quill Sword Bold", Font.BOLD, 30));
+		playnowButton.setBackground(Color.BLACK);
+		playnowButton.setBounds(1130, 0, 164, 77);
+		playnowButton.setBorder(null);
+		NavBar.add(playnowButton);
+		
+		JButton homeButton = new JButton("AgileRealms");
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("Quill Sword Bold", Font.BOLD, 45));
+		homeButton.setBackground(Color.BLACK);
+		homeButton.setBounds(-48, 0, 298, 56);
+		homeButton.setBorder(null);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(homeButton);
+		
+		JButton profileButton = new JButton("");
+		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		profileButton.setForeground(Color.WHITE);
+		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		profileButton.setBorder(null);
+		profileButton.setBackground(Color.BLACK);
+		profileButton.setBounds(1377, 0, 77, 77);
+		NavBar.add(profileButton);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		Image img = new ImageIcon(this.getClass().getResource("/images/Profile.png")).getImage();
 		
+		//Footer
+		
+		/*
+		 * JPanel Footer = new JPanel(); Footer.setBorder(new LineBorder(new Color(128,
+		 * 128, 128), 3)); Footer.setBackground(new Color(0, 0, 0));
+		 * Footer.setBounds(-40, 760, 2500, 560); contentPane.add(Footer);
+		 * Footer.setLayout(null);
+		 * 
+		 * JLabel About = new JLabel("About"); About.setFont(new Font("Arial",
+		 * Font.PLAIN, 13)); About.setForeground(new Color(255, 255, 255));
+		 * About.setBounds(390, 100, 34, 13); Footer.add(About);
+		 * 
+		 * JLabel termsOfUse = new JLabel("Terms of Use"); termsOfUse.setFont(new
+		 * Font("Arial", Font.PLAIN, 13)); termsOfUse.setForeground(new Color(255, 255,
+		 * 255)); termsOfUse.setBounds(535, 100, 84, 13); Footer.add(termsOfUse);
+		 * 
+		 * JLabel rulesOfPlay = new JLabel("Rules of Play");
+		 * rulesOfPlay.setForeground(Color.WHITE); rulesOfPlay.setFont(new Font("Arial",
+		 * Font.PLAIN, 13)); rulesOfPlay.setBounds(731, 100, 78, 13);
+		 * Footer.add(rulesOfPlay);
+		 * 
+		 * JLabel privacyPolicy = new JLabel("Privacy Policy");
+		 * privacyPolicy.setForeground(Color.WHITE); privacyPolicy.setFont(new
+		 * Font("Arial", Font.PLAIN, 13)); privacyPolicy.setBounds(917, 100, 84, 13);
+		 * Footer.add(privacyPolicy);
+		 * 
+		 * JLabel credits = new JLabel("Credits"); credits.setForeground(Color.WHITE);
+		 * credits.setFont(new Font("Arial", Font.PLAIN, 13)); credits.setBounds(1091,
+		 * 100, 41, 13); Footer.add(credits);
+		 * 
+		 * JLabel lblgroupS = new
+		 * JLabel("©2023 Group Sharma LLC. All rights reserved.");
+		 * lblgroupS.setForeground(Color.WHITE); lblgroupS.setFont(new Font("Arial",
+		 * Font.PLAIN, 13)); lblgroupS.setBounds(634, 136, 270, 13);
+		 * Footer.add(lblgroupS);
+		 */
+		
+		//nFooter
+		
 		JPanel Footer = new JPanel();
+		Footer.setLayout(null);
 		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
-		Footer.setBackground(new Color(0, 0, 0));
+		Footer.setBackground(Color.BLACK);
 		Footer.setBounds(-40, 760, 2500, 560);
 		contentPane.add(Footer);
-		Footer.setLayout(null);
 		
 		JLabel About = new JLabel("About");
+		About.setForeground(Color.WHITE);
 		About.setFont(new Font("Arial", Font.PLAIN, 13));
-		About.setForeground(new Color(255, 255, 255));
 		About.setBounds(390, 100, 34, 13);
 		Footer.add(About);
 		
 		JLabel termsOfUse = new JLabel("Terms of Use");
+		termsOfUse.setForeground(Color.WHITE);
 		termsOfUse.setFont(new Font("Arial", Font.PLAIN, 13));
-		termsOfUse.setForeground(new Color(255, 255, 255));
 		termsOfUse.setBounds(535, 100, 84, 13);
 		Footer.add(termsOfUse);
 		
@@ -114,8 +229,16 @@ public class UpdateLogin extends JFrame {
 		lblgroupS.setBounds(634, 136, 270, 13);
 		Footer.add(lblgroupS);
 		
+		JButton sendTop = new JButton("");
+		sendTop.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/smallWhiteArrowUp.png")).getImage().getScaledInstance(26, 29, Image.SCALE_SMOOTH)));
+		sendTop.setForeground(Color.BLACK);
+		sendTop.setFont(new Font("Arial", Font.PLAIN, 13));
+		sendTop.setBackground(Color.BLACK);
+		sendTop.setBounds(750, 35, 36, 36);
+		Footer.add(sendTop);
+		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(300, 90, 870, 450);
+		layeredPane.setBounds(300, 150, 870, 450);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
@@ -137,26 +260,12 @@ public class UpdateLogin extends JFrame {
 		Username.setForeground(new Color(254, 255, 255));
 		Username.setFont(new Font("Quill Sword", Font.BOLD, 24));
 		
-		usernameField = new JTextField();
-		usernameField.setBounds(460, 233, 200, 26);
-		panel.add(usernameField);
-		usernameField.setForeground(new Color(0, 0, 0));
-		usernameField.setFont(new Font("Quill Sword", Font.PLAIN, 20));
-		usernameField.setBackground(new Color(254, 255, 255));
-		usernameField.setColumns(10);
-		
-		JLabel Password = new JLabel("Password");
+		JLabel Password = new JLabel("Email ID");
 		Password.setBounds(330, 286, 85, 25);
 		panel.add(Password);
 		Password.setForeground(new Color(254, 255, 255));
 		Password.setBackground(new Color(192, 192, 192));
-		Password.setFont(QuillSwordB);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(460, 281, 200, 26);
-		panel.add(passwordField);
-		passwordField.setBackground(new Color(254, 255, 255));
-		passwordField.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		Password.setFont(new Font("Quill Sword", Font.BOLD, 24));
 		
 		JButton ChangeUsername = new JButton("Change Username");
 		ChangeUsername.setBounds(330, 360, 220, 38);
@@ -179,6 +288,20 @@ public class UpdateLogin extends JFrame {
 		ChangePassword.setForeground(new Color(105, 105, 105));
 		ChangePassword.setFont(QuillSwordB);
 		ChangePassword.setBackground(new Color(105, 105, 105));
+		
+		JLabel User_name = new JLabel("Admin");
+		User_name.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		User_name.setForeground(new Color(254, 255, 255));
+		User_name.setBackground(new Color(0, 0, 0));
+		User_name.setBounds(460, 237, 50, 26);
+		panel.add(User_name);
+		
+		JLabel lblNewLabel = new JLabel("admin_ar@gmail.com");
+		lblNewLabel.setForeground(new Color(254, 255, 255));
+		lblNewLabel.setBackground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		lblNewLabel.setBounds(460, 285, 138, 26);
+		panel.add(lblNewLabel);
 		ChangePassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
