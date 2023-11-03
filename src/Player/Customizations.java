@@ -67,25 +67,6 @@ public class Customizations extends JFrame {
 	 */
 	public Customizations() {
 		
-		/*	
-		//Method to create the image slider
-		public String[] takeImage() {
-			File f = new File(getClass().getResources("").getFile());
-			String[] Images = f.list();
-			return Images;
-		}
-		
-		
-		
-		public void show(int index) {
-			String[] Images = takeimage();
-			String img = Images[index];
-			ImageIcon icon = new ImageIcon(getClass().getResource(""+img));
-			Image image=icon.getImage().getScaledInstance(roleSelectionPanel.getWidth(), roleSelectionPanel.getHeight(), Image.SCALE_SMOOTH);
-			roleSelectionPanel.setIcon(new ImageIcon(image));
-		}
-		*/
-		
         JLabel label = new JLabel("Hello, World!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 800);
@@ -94,28 +75,6 @@ public class Customizations extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		Panel NavBar = new Panel();
-		NavBar.setBackground(new Color(0, 0, 0));
-		NavBar.setBounds(0, 0, 1352, 77);
-		contentPane.add(NavBar);
-		NavBar.setLayout(null);
-		
-		JLabel lblHeroesOfThe = new JLabel("Heroes of the Backlog");
-		lblHeroesOfThe.setVerticalAlignment(SwingConstants.TOP);
-		lblHeroesOfThe.setBounds(21, 52, 298, 25);
-		NavBar.add(lblHeroesOfThe);
-		lblHeroesOfThe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeroesOfThe.setForeground(Color.WHITE);
-		lblHeroesOfThe.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		
-		JLabel lblNewLabel = new JLabel("AgileRealms");
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setBounds(10, 0, 298, 77);
-		NavBar.add(lblNewLabel);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("ArnoldBoeD", Font.PLAIN, 53));
-		lblNewLabel.setForeground(new Color(255, 255, 255));
 		
 		JPanel Body = new JPanel();
 		Body.setForeground(new Color(0, 0, 0));
@@ -144,140 +103,140 @@ public class Customizations extends JFrame {
 		role_sm.setBounds(10, 0, 273, 43);
 		SM_panel.add(role_sm);
 		
-		JTextArea txtrAsTheScrum = new JTextArea();
-		txtrAsTheScrum.setWrapStyleWord(true);
-		txtrAsTheScrum.setText("As the Scrum Master in AgileRealms, you are the guardian of Agile principles, a beacon of guidance for your team. Your primary mission is to ensure the Agile process runs Smoothly, allowing you team to work at its best. You facilitate daily stand-up meetings, sprint planning, and retrospectives, fostering effective communication and collaboration. With your leadership, impediments are swiftly removed, and the path to project success is cleared. AgileRealms depends on your expertise and wisdom to lead the way.");
-		txtrAsTheScrum.setLineWrap(true);
-		txtrAsTheScrum.setForeground(Color.WHITE);
-		txtrAsTheScrum.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		txtrAsTheScrum.setEditable(false);
-		txtrAsTheScrum.setBackground(Color.BLACK);
-		txtrAsTheScrum.setBounds(10, 53, 617, 221);
-		SM_panel.add(txtrAsTheScrum);
+		JTextArea sm_desc = new JTextArea();
+		sm_desc.setWrapStyleWord(true);
+		sm_desc.setText("As the Scrum Master in AgileRealms, you are the guardian of Agile principles, a beacon of guidance for your team. Your primary mission is to ensure the Agile process runs Smoothly, allowing you team to work at its best. You facilitate daily stand-up meetings, sprint planning, and retrospectives, fostering effective communication and collaboration. With your leadership, impediments are swiftly removed, and the path to project success is cleared. AgileRealms depends on your expertise and wisdom to lead the way.");
+		sm_desc.setLineWrap(true);
+		sm_desc.setForeground(Color.WHITE);
+		sm_desc.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		sm_desc.setEditable(false);
+		sm_desc.setBackground(Color.BLACK);
+		sm_desc.setBounds(10, 53, 617, 221);
+		SM_panel.add(sm_desc);
 		
-		JLabel lblNewLabel_1 = new JLabel("Traits: Leadership, Problem Solver, Empathy and communication");
-		lblNewLabel_1.setForeground(new Color(80, 80, 80));
-		lblNewLabel_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(10, 264, 626, 61);
-		SM_panel.add(lblNewLabel_1);
+		JLabel sm_trait = new JLabel("Traits: Leadership, Problem Solver, Empathy and communication");
+		sm_trait.setForeground(new Color(80, 80, 80));
+		sm_trait.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		sm_trait.setBounds(10, 264, 626, 61);
+		SM_panel.add(sm_trait);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/scrumMaster.png")).getImage().getScaledInstance(145, 315, Image.SCALE_SMOOTH)));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setBounds(628, 10, 145, 315);
-		SM_panel.add(lblNewLabel_2);
+		JLabel sm_img = new JLabel("");
+		sm_img.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/scrumMaster.png")).getImage().getScaledInstance(145, 315, Image.SCALE_SMOOTH)));
+		sm_img.setHorizontalAlignment(SwingConstants.CENTER);
+		sm_img.setForeground(Color.WHITE);
+		sm_img.setBounds(628, 10, 145, 315);
+		SM_panel.add(sm_img);
 		
 		PO_panel = new JPanel();
 		PO_panel.setBackground(new Color(0, 0, 0));
 		layeredPane.add(PO_panel, "name_254989202407000");
 		PO_panel.setLayout(null);
 		
-		JLabel role_sm_1 = new JLabel("Product Owner");
-		role_sm_1.setVerticalAlignment(SwingConstants.TOP);
-		role_sm_1.setHorizontalAlignment(SwingConstants.LEFT);
-		role_sm_1.setForeground(new Color(255, 0, 0));
-		role_sm_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 40));
-		role_sm_1.setBounds(10, 0, 273, 43);
-		PO_panel.add(role_sm_1);
+		JLabel role_po = new JLabel("Product Owner");
+		role_po.setVerticalAlignment(SwingConstants.TOP);
+		role_po.setHorizontalAlignment(SwingConstants.LEFT);
+		role_po.setForeground(new Color(255, 0, 0));
+		role_po.setFont(new Font("ArnoldBoeD", Font.PLAIN, 40));
+		role_po.setBounds(10, 0, 273, 43);
+		PO_panel.add(role_po);
 		
-		JTextArea txtrAsTheProduct = new JTextArea();
-		txtrAsTheProduct.setWrapStyleWord(true);
-		txtrAsTheProduct.setText("As the Product Owner, you are the visionary behind the project. Your role is to define and prioritize the product backlog, ensuring that the team is always working on the most valuable features. You bridge the gap between stakeholders and the development team, making strategic decisions to maximize the product’s value. Your ability to make tough decisions and prioritize effectively is crucial in shaping the project's success.");
-		txtrAsTheProduct.setLineWrap(true);
-		txtrAsTheProduct.setForeground(Color.WHITE);
-		txtrAsTheProduct.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		txtrAsTheProduct.setEditable(false);
-		txtrAsTheProduct.setBackground(Color.BLACK);
-		txtrAsTheProduct.setBounds(10, 53, 521, 221);
-		PO_panel.add(txtrAsTheProduct);
+		JTextArea po_desc = new JTextArea();
+		po_desc.setWrapStyleWord(true);
+		po_desc.setText("As the Product Owner, you are the visionary behind the project. Your role is to define and prioritize the product backlog, ensuring that the team is always working on the most valuable features. You bridge the gap between stakeholders and the development team, making strategic decisions to maximize the product’s value. Your ability to make tough decisions and prioritize effectively is crucial in shaping the project's success.");
+		po_desc.setLineWrap(true);
+		po_desc.setForeground(Color.WHITE);
+		po_desc.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		po_desc.setEditable(false);
+		po_desc.setBackground(Color.BLACK);
+		po_desc.setBounds(10, 53, 521, 221);
+		PO_panel.add(po_desc);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Traits: Visionary Decision-Maker Stakeholder Management Strategic Thinking");
-		lblNewLabel_1_1.setForeground(Color.ORANGE);
-		lblNewLabel_1_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(10, 264, 694, 61);
-		PO_panel.add(lblNewLabel_1_1);
+		JLabel po_trait = new JLabel("Traits: Visionary Decision-Maker Stakeholder Management Strategic Thinking");
+		po_trait.setForeground(Color.ORANGE);
+		po_trait.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		po_trait.setBounds(10, 264, 694, 61);
+		PO_panel.add(po_trait);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("");
-		lblNewLabel_2_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/productOwner.png")).getImage().getScaledInstance(238, 214, Image.SCALE_SMOOTH)));
-		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1.setForeground(Color.WHITE);
-		lblNewLabel_2_1.setBounds(535, 10, 238, 274);
-		PO_panel.add(lblNewLabel_2_1);
+		JLabel po_img = new JLabel("");
+		po_img.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/productOwner.png")).getImage().getScaledInstance(238, 214, Image.SCALE_SMOOTH)));
+		po_img.setHorizontalAlignment(SwingConstants.CENTER);
+		po_img.setForeground(Color.WHITE);
+		po_img.setBounds(535, 10, 238, 274);
+		PO_panel.add(po_img);
 		
 		TM_panel = new JPanel();
 		TM_panel.setBackground(new Color(0, 0, 0));
 		layeredPane.add(TM_panel, "name_254991586145100");
 		TM_panel.setLayout(null);
 		
-		JLabel role_sm_1_1 = new JLabel("Team Member");
-		role_sm_1_1.setVerticalAlignment(SwingConstants.TOP);
-		role_sm_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		role_sm_1_1.setForeground(new Color(128, 255, 255));
-		role_sm_1_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 40));
-		role_sm_1_1.setBounds(10, 0, 273, 43);
-		TM_panel.add(role_sm_1_1);
+		JLabel role_tm = new JLabel("Team Member");
+		role_tm.setVerticalAlignment(SwingConstants.TOP);
+		role_tm.setHorizontalAlignment(SwingConstants.LEFT);
+		role_tm.setForeground(new Color(128, 255, 255));
+		role_tm.setFont(new Font("ArnoldBoeD", Font.PLAIN, 40));
+		role_tm.setBounds(10, 0, 273, 43);
+		TM_panel.add(role_tm);
 		
-		JTextArea txtrYouAreA = new JTextArea();
-		txtrYouAreA.setWrapStyleWord(true);
-		txtrYouAreA.setText("You are a vital member of the development team, contributing your skills and expertise to the project. Your role is to collaborate closely with your teammates, bringing your technical proficiency and creativity to the table. You actively participate in all SCRUM events, ensuring that the tasks are completed on time and the quality of the work is exceptional. Your dedication and teamwork are essential for the project’s success.");
-		txtrYouAreA.setLineWrap(true);
-		txtrYouAreA.setForeground(Color.WHITE);
-		txtrYouAreA.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		txtrYouAreA.setEditable(false);
-		txtrYouAreA.setBackground(Color.BLACK);
-		txtrYouAreA.setBounds(10, 53, 536, 221);
-		TM_panel.add(txtrYouAreA);
+		JTextArea tm_desc = new JTextArea();
+		tm_desc.setWrapStyleWord(true);
+		tm_desc.setText("You are a vital member of the development team, contributing your skills and expertise to the project. Your role is to collaborate closely with your teammates, bringing your technical proficiency and creativity to the table. You actively participate in all SCRUM events, ensuring that the tasks are completed on time and the quality of the work is exceptional. Your dedication and teamwork are essential for the project’s success.");
+		tm_desc.setLineWrap(true);
+		tm_desc.setForeground(Color.WHITE);
+		tm_desc.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		tm_desc.setEditable(false);
+		tm_desc.setBackground(Color.BLACK);
+		tm_desc.setBounds(10, 53, 536, 221);
+		TM_panel.add(tm_desc);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Traits: Collaborative, Technical Proficiency, Adaptability and Detail-Oriented");
-		lblNewLabel_1_1_1.setForeground(new Color(0, 64, 0));
-		lblNewLabel_1_1_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(10, 264, 666, 61);
-		TM_panel.add(lblNewLabel_1_1_1);
+		JLabel tm_trait = new JLabel("Traits: Collaborative, Technical Proficiency, Adaptability and Detail-Oriented");
+		tm_trait.setForeground(new Color(0, 64, 0));
+		tm_trait.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		tm_trait.setBounds(10, 264, 666, 61);
+		TM_panel.add(tm_trait);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("");
-		lblNewLabel_2_1_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teamMember.png")).getImage().getScaledInstance(200, 235, Image.SCALE_SMOOTH)));
-		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1.setForeground(Color.WHITE);
-		lblNewLabel_2_1_1.setBounds(548, 10, 216, 270);
-		TM_panel.add(lblNewLabel_2_1_1);
+		JLabel tm_img = new JLabel("");
+		tm_img.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teamMember.png")).getImage().getScaledInstance(200, 235, Image.SCALE_SMOOTH)));
+		tm_img.setHorizontalAlignment(SwingConstants.CENTER);
+		tm_img.setForeground(Color.WHITE);
+		tm_img.setBounds(548, 10, 216, 270);
+		TM_panel.add(tm_img);
 		
 		Auditor_panel = new JPanel();
 		Auditor_panel.setBackground(new Color(0, 0, 0));
 		layeredPane.add(Auditor_panel, "name_254993752198600");
 		Auditor_panel.setLayout(null);
 		
-		JLabel role_sm_1_1_1 = new JLabel("Auditor");
-		role_sm_1_1_1.setVerticalAlignment(SwingConstants.TOP);
-		role_sm_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		role_sm_1_1_1.setForeground(new Color(128, 64, 64));
-		role_sm_1_1_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 40));
-		role_sm_1_1_1.setBounds(10, 0, 273, 43);
-		Auditor_panel.add(role_sm_1_1_1);
+		JLabel role_aud = new JLabel("Auditor");
+		role_aud.setVerticalAlignment(SwingConstants.TOP);
+		role_aud.setHorizontalAlignment(SwingConstants.LEFT);
+		role_aud.setForeground(new Color(128, 64, 64));
+		role_aud.setFont(new Font("ArnoldBoeD", Font.PLAIN, 40));
+		role_aud.setBounds(10, 0, 273, 43);
+		Auditor_panel.add(role_aud);
 		
-		JTextArea txtrAsAnAuditor = new JTextArea();
-		txtrAsAnAuditor.setWrapStyleWord(true);
-		txtrAsAnAuditor.setText("As an Auditor, you play a vital role in ensuring that the SCRUM process is followed meticulously. You analyze the team's performance, processes, and outcomes, providing valuable insights to enhance efficiency and productivity. Your attention to detail and analytical skills make you adept at identifying areas for improvement and suggesting optimizations. You are an essential part of the team, helping them fine-tune their processes for optimal results.");
-		txtrAsAnAuditor.setLineWrap(true);
-		txtrAsAnAuditor.setForeground(Color.WHITE);
-		txtrAsAnAuditor.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		txtrAsAnAuditor.setEditable(false);
-		txtrAsAnAuditor.setBackground(Color.BLACK);
-		txtrAsAnAuditor.setBounds(10, 53, 575, 221);
-		Auditor_panel.add(txtrAsAnAuditor);
+		JTextArea aud_desc = new JTextArea();
+		aud_desc.setWrapStyleWord(true);
+		aud_desc.setText("As an Auditor, you play a vital role in ensuring that the SCRUM process is followed meticulously. You analyze the team's performance, processes, and outcomes, providing valuable insights to enhance efficiency and productivity. Your attention to detail and analytical skills make you adept at identifying areas for improvement and suggesting optimizations. You are an essential part of the team, helping them fine-tune their processes for optimal results.");
+		aud_desc.setLineWrap(true);
+		aud_desc.setForeground(Color.WHITE);
+		aud_desc.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		aud_desc.setEditable(false);
+		aud_desc.setBackground(Color.BLACK);
+		aud_desc.setBounds(10, 53, 575, 221);
+		Auditor_panel.add(aud_desc);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Traits: Analytical, Attention to Detail, Process-Oriented and Communication");
-		lblNewLabel_1_1_1_1.setForeground(new Color(0, 64, 128));
-		lblNewLabel_1_1_1_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		lblNewLabel_1_1_1_1.setBounds(10, 264, 657, 61);
-		Auditor_panel.add(lblNewLabel_1_1_1_1);
+		JLabel aud_trait = new JLabel("Traits: Analytical, Attention to Detail, Process-Oriented and Communication");
+		aud_trait.setForeground(new Color(0, 64, 128));
+		aud_trait.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		aud_trait.setBounds(10, 264, 657, 61);
+		Auditor_panel.add(aud_trait);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("");
-		lblNewLabel_2_1_1_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/auditor.png")).getImage().getScaledInstance(126, 280, Image.SCALE_SMOOTH)));
-		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_2_1_1_1.setBounds(595, -13, 156, 315);
-		Auditor_panel.add(lblNewLabel_2_1_1_1);
+		JLabel aud_img = new JLabel("");
+		aud_img.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/auditor.png")).getImage().getScaledInstance(126, 280, Image.SCALE_SMOOTH)));
+		aud_img.setHorizontalAlignment(SwingConstants.CENTER);
+		aud_img.setForeground(Color.WHITE);
+		aud_img.setBounds(595, -13, 156, 315);
+		Auditor_panel.add(aud_img);
 		
 		sm_button = new JButton("SCRUM Master");
 		sm_button.addActionListener(new ActionListener() {
@@ -395,11 +354,80 @@ public class Customizations extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		sendTop.setIcon(new ImageIcon("C:\\Users\\kvvid\\Desktop\\Pro_clone\\SER515_GroupSharma_AgileRealms\\src\\images\\smallWhiteArrowUp.png"));
+		sendTop.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/smallWhiteArrowUp.png")).getImage().getScaledInstance(26, 29, Image.SCALE_SMOOTH)));
 		sendTop.setBackground(new Color(0, 0, 0));
 		sendTop.setFont(new Font("Arial", Font.PLAIN, 13));
 		sendTop.setBounds(663, 35, 26, 29);
 		Footer.add(sendTop);
+		
+		Panel NavBar = new Panel();
+		NavBar.setLayout(null);
+		NavBar.setBackground(Color.BLACK);
+		NavBar.setBounds(0, 0, 1352, 77);
+		contentPane.add(NavBar);
+		
+		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
+		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
+		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		gameSubHeading.setForeground(Color.WHITE);
+		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		gameSubHeading.setBounds(10, 52, 298, 25);
+		NavBar.add(gameSubHeading);
+		
+		JButton guideButton = new JButton("Guide");
+		guideButton.setForeground(Color.WHITE);
+		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		guideButton.setBorder(null);
+		guideButton.setBackground(Color.BLACK);
+		guideButton.setBounds(635, 0, 140, 77);
+		NavBar.add(guideButton);
+		
+		JButton customizationsButton = new JButton("Customizations");
+		customizationsButton.setForeground(Color.WHITE);
+		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		customizationsButton.setBorder(null);
+		customizationsButton.setBackground(Color.BLACK);
+		customizationsButton.setBounds(803, 0, 252, 77);
+		customizationsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(customizationsButton);
+		
+		JButton playnowButton = new JButton("Play Now");
+		playnowButton.setForeground(Color.WHITE);
+		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		playnowButton.setBorder(null);
+		playnowButton.setBackground(Color.BLACK);
+		playnowButton.setBounds(1090, 0, 164, 77);
+		NavBar.add(playnowButton);
+		
+		JButton homeButton = new JButton("AgileRealms");
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
+		homeButton.setBorder(null);
+		homeButton.setBackground(Color.BLACK);
+		homeButton.setBounds(10, 0, 298, 56);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(homeButton);
+		
+		JButton profileButton = new JButton("");
+		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		profileButton.setForeground(Color.WHITE);
+		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		profileButton.setBorder(null);
+		profileButton.setBackground(Color.BLACK);
+		profileButton.setBounds(1275, 0, 77, 77);
+		NavBar.add(profileButton);
 		
 	}
 }
