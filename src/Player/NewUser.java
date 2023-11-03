@@ -65,105 +65,6 @@ public class NewUser extends JFrame implements ActionListener {
 		layeredPane.setBounds(380, 30, 550, 580);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
-				
-		// Create Account Panel
-		
-		createAccPanel = new JPanel();
-		createAccPanel.setBackground(new Color(0, 0, 0));
-		layeredPane.add(createAccPanel, "name_361890388473000");
-		createAccPanel.setLayout(null);
-				
-		JLabel lblNewLabel_2 = new JLabel("Create Account");
-		lblNewLabel_2.setBounds(93, 11, 347, 68);
-		lblNewLabel_2.setBackground(new Color(0, 0, 0));
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		createAccPanel.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(QuillSwordB);
-		
-		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setForeground(Color.WHITE);
-		lblFirstName.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblFirstName.setBackground(Color.WHITE);
-		lblFirstName.setBounds(104, 92, 103, 34);
-		lblFirstName.setFont(QuillSwordB2);
-		createAccPanel.add(lblFirstName);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(104, 137, 315, 34);
-		createAccPanel.add(textField_2);
-		
-		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setForeground(Color.WHITE);
-		lblLastName.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblLastName.setBackground(Color.WHITE);
-		lblLastName.setBounds(104, 193, 103, 27);
-		lblLastName.setFont(QuillSwordB2);
-		createAccPanel.add(lblLastName);
-				
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(104, 231, 315, 34);
-		createAccPanel.add(textField_1);
-		
-		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setBounds(104, 285, 103, 27);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBackground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblNewLabel.setFont(QuillSwordB2);
-		createAccPanel.add(lblNewLabel);
-		
-		textField = new JTextField();
-		textField.setBounds(104, 323, 315, 34);
-		createAccPanel.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("Password");
-		lblNewLabel_1.setBounds(104, 377, 103, 27);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblNewLabel_1.setFont(QuillSwordB2);
-		createAccPanel.add(lblNewLabel_1);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(104, 415, 315, 34);
-		createAccPanel.add(passwordField);
-		
-		button = new JButton("Register");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		button.setBounds(201, 486, 148, 34);
-		createAccPanel.setLayout(null);
-		button.setForeground(new Color(255, 255, 255));
-		button.setBackground(new Color(192, 192, 192));
-		button.setFont(QuillSwordB3);
-		createAccPanel.add(button);
-		
-		JLabel lblNewLabel_3 = new JLabel("Already Registered?");
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(150, 535, 179, 45);
-		lblNewLabel_3.setFont(QuillSwordB2);
-		createAccPanel.add(lblNewLabel_3);
-		
-		button = new JButton("Login");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				layeredPane.removeAll();
-				layeredPane.add(loginPanel);
-				layeredPane.repaint();
-				layeredPane.revalidate();
-			}
-		});
-		button.setBackground(new Color(0, 0, 0));
-		button.setForeground(new Color(255, 255, 255));
-		button.setBounds(330, 542, 80, 25);
-		button.setFont(QuillSwordB3);
-		createAccPanel.add(button);
 		
 		// Login Panel
 		
@@ -235,6 +136,105 @@ public class NewUser extends JFrame implements ActionListener {
 		button_1.setBounds(309, 470, 95, 25);
 		button_1.setFont(QuillSwordB3);
 		loginPanel.add(button_1);
+		
+		// Create Account Panel
+		
+				createAccPanel = new JPanel();
+				createAccPanel.setBackground(new Color(0, 0, 0));
+				layeredPane.add(createAccPanel, "name_361890388473000");
+				createAccPanel.setLayout(null);
+						
+				JLabel lblNewLabel_2 = new JLabel("Create Account");
+				lblNewLabel_2.setBounds(93, 11, 347, 68);
+				lblNewLabel_2.setBackground(new Color(0, 0, 0));
+				lblNewLabel_2.setForeground(new Color(255, 255, 255));
+				createAccPanel.add(lblNewLabel_2);
+				lblNewLabel_2.setFont(QuillSwordB);
+				
+				JLabel lblFirstName = new JLabel("First Name");
+				lblFirstName.setForeground(Color.WHITE);
+				lblFirstName.setFont(new Font("Verdana", Font.BOLD, 15));
+				lblFirstName.setBackground(Color.WHITE);
+				lblFirstName.setBounds(104, 92, 103, 34);
+				lblFirstName.setFont(QuillSwordB2);
+				createAccPanel.add(lblFirstName);
+				
+				textField_2 = new JTextField();
+				textField_2.setColumns(10);
+				textField_2.setBounds(104, 137, 315, 34);
+				createAccPanel.add(textField_2);
+				
+				JLabel lblLastName = new JLabel("Last Name");
+				lblLastName.setForeground(Color.WHITE);
+				lblLastName.setFont(new Font("Verdana", Font.BOLD, 15));
+				lblLastName.setBackground(Color.WHITE);
+				lblLastName.setBounds(104, 193, 103, 27);
+				lblLastName.setFont(QuillSwordB2);
+				createAccPanel.add(lblLastName);
+						
+				textField_1 = new JTextField();
+				textField_1.setColumns(10);
+				textField_1.setBounds(104, 231, 315, 34);
+				createAccPanel.add(textField_1);
+				
+				JLabel lblNewLabel = new JLabel("Username");
+				lblNewLabel.setBounds(104, 285, 103, 27);
+				lblNewLabel.setForeground(new Color(255, 255, 255));
+				lblNewLabel.setBackground(new Color(255, 255, 255));
+				lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 15));
+				lblNewLabel.setFont(QuillSwordB2);
+				createAccPanel.add(lblNewLabel);
+				
+				textField = new JTextField();
+				textField.setBounds(104, 323, 315, 34);
+				createAccPanel.add(textField);
+				textField.setColumns(10);
+				
+				JLabel lblNewLabel_1 = new JLabel("Password");
+				lblNewLabel_1.setBounds(104, 377, 103, 27);
+				lblNewLabel_1.setForeground(new Color(255, 255, 255));
+				lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 15));
+				lblNewLabel_1.setFont(QuillSwordB2);
+				createAccPanel.add(lblNewLabel_1);
+				
+				passwordField = new JPasswordField();
+				passwordField.setBounds(104, 415, 315, 34);
+				createAccPanel.add(passwordField);
+				
+				button = new JButton("Register");
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				button.setBounds(201, 486, 148, 34);
+				createAccPanel.setLayout(null);
+				button.setForeground(new Color(255, 255, 255));
+				button.setBackground(new Color(192, 192, 192));
+				button.setFont(QuillSwordB3);
+				createAccPanel.add(button);
+				
+				JLabel lblNewLabel_3 = new JLabel("Already Registered?");
+				lblNewLabel_3.setForeground(new Color(255, 255, 255));
+				lblNewLabel_3.setBounds(150, 535, 179, 45);
+				lblNewLabel_3.setFont(QuillSwordB2);
+				createAccPanel.add(lblNewLabel_3);
+				
+				button = new JButton("Login");
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						layeredPane.removeAll();
+						layeredPane.add(loginPanel);
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+				});
+				button.setBackground(new Color(0, 0, 0));
+				button.setForeground(new Color(255, 255, 255));
+				button.setBounds(330, 542, 80, 25);
+				button.setFont(QuillSwordB3);
+				createAccPanel.add(button);
 	}
 
 @Override
