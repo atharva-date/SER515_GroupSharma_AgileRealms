@@ -86,6 +86,7 @@ public class Customizations extends JFrame {
 		}
 		*/
 		
+        JLabel label = new JLabel("Hello, World!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 800);
 		contentPane = new JPanel();
@@ -93,6 +94,28 @@ public class Customizations extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		Panel NavBar = new Panel();
+		NavBar.setBackground(new Color(0, 0, 0));
+		NavBar.setBounds(0, 0, 1352, 77);
+		contentPane.add(NavBar);
+		NavBar.setLayout(null);
+		
+		JLabel lblHeroesOfThe = new JLabel("Heroes of the Backlog");
+		lblHeroesOfThe.setVerticalAlignment(SwingConstants.TOP);
+		lblHeroesOfThe.setBounds(21, 52, 298, 25);
+		NavBar.add(lblHeroesOfThe);
+		lblHeroesOfThe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHeroesOfThe.setForeground(Color.WHITE);
+		lblHeroesOfThe.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		
+		JLabel lblNewLabel = new JLabel("AgileRealms");
+		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel.setBounds(10, 0, 298, 77);
+		NavBar.add(lblNewLabel);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("ArnoldBoeD", Font.PLAIN, 53));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		
 		JPanel Body = new JPanel();
 		Body.setForeground(new Color(0, 0, 0));
@@ -138,6 +161,13 @@ public class Customizations extends JFrame {
 		lblNewLabel_1.setBounds(10, 264, 626, 61);
 		SM_panel.add(lblNewLabel_1);
 		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/scrumMaster.png")).getImage().getScaledInstance(145, 315, Image.SCALE_SMOOTH)));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setBounds(628, 10, 145, 315);
+		SM_panel.add(lblNewLabel_2);
+		
 		PO_panel = new JPanel();
 		PO_panel.setBackground(new Color(0, 0, 0));
 		layeredPane.add(PO_panel, "name_254989202407000");
@@ -167,6 +197,13 @@ public class Customizations extends JFrame {
 		lblNewLabel_1_1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
 		lblNewLabel_1_1.setBounds(10, 264, 694, 61);
 		PO_panel.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("");
+		lblNewLabel_2_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/productOwner.png")).getImage().getScaledInstance(238, 214, Image.SCALE_SMOOTH)));
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setBounds(535, 10, 238, 274);
+		PO_panel.add(lblNewLabel_2_1);
 		
 		TM_panel = new JPanel();
 		TM_panel.setBackground(new Color(0, 0, 0));
@@ -198,6 +235,13 @@ public class Customizations extends JFrame {
 		lblNewLabel_1_1_1.setBounds(10, 264, 666, 61);
 		TM_panel.add(lblNewLabel_1_1_1);
 		
+		JLabel lblNewLabel_2_1_1 = new JLabel("");
+		lblNewLabel_2_1_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teamMember.png")).getImage().getScaledInstance(200, 235, Image.SCALE_SMOOTH)));
+		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1_1.setBounds(548, 10, 216, 270);
+		TM_panel.add(lblNewLabel_2_1_1);
+		
 		Auditor_panel = new JPanel();
 		Auditor_panel.setBackground(new Color(0, 0, 0));
 		layeredPane.add(Auditor_panel, "name_254993752198600");
@@ -228,6 +272,13 @@ public class Customizations extends JFrame {
 		lblNewLabel_1_1_1_1.setBounds(10, 264, 657, 61);
 		Auditor_panel.add(lblNewLabel_1_1_1_1);
 		
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("");
+		lblNewLabel_2_1_1_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/auditor.png")).getImage().getScaledInstance(126, 280, Image.SCALE_SMOOTH)));
+		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1_1_1.setBounds(595, -13, 156, 315);
+		Auditor_panel.add(lblNewLabel_2_1_1_1);
+		
 		sm_button = new JButton("SCRUM Master");
 		sm_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -242,6 +293,13 @@ public class Customizations extends JFrame {
 		sm_button.setForeground(Color.CYAN);
 		sm_button.setBounds(290, 375, 141, 42);
 		Body.add(sm_button);
+		
+		JButton startGame = new JButton("START GAME");
+		startGame.setForeground(Color.WHITE);
+		startGame.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		startGame.setBackground(new Color(80, 80, 80));
+		startGame.setBounds(591, 443, 164, 42);
+		Body.add(startGame);
 		
 		JButton po_button = new JButton("Product Owner");
 		po_button.addActionListener(new ActionListener() {
@@ -298,7 +356,7 @@ public class Customizations extends JFrame {
 		JLabel About = new JLabel("About");
 		About.setFont(new Font("Arial", Font.PLAIN, 13));
 		About.setForeground(new Color(255, 255, 255));
-		About.setBounds(297, 101, 92, 13);
+		About.setBounds(297, 101, 33, 13);
 		Footer.add(About);
 		
 		JLabel termsOfUse = new JLabel("Terms of Use");
@@ -310,7 +368,7 @@ public class Customizations extends JFrame {
 		JLabel rulesOfPlay = new JLabel("Rules of Play");
 		rulesOfPlay.setForeground(Color.WHITE);
 		rulesOfPlay.setFont(new Font("Arial", Font.PLAIN, 13));
-		rulesOfPlay.setBounds(638, 101, 124, 13);
+		rulesOfPlay.setBounds(638, 101, 77, 13);
 		Footer.add(rulesOfPlay);
 		
 		JLabel privacyPolicy = new JLabel("Privacy Policy");
@@ -330,6 +388,18 @@ public class Customizations extends JFrame {
 		lblgroupS.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblgroupS.setBounds(543, 136, 269, 13);
 		Footer.add(lblgroupS);
+		
+		JButton sendTop = new JButton("");
+		sendTop.setForeground(new Color(0, 0, 0));
+		sendTop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		sendTop.setIcon(new ImageIcon("C:\\Users\\kvvid\\Desktop\\Pro_clone\\SER515_GroupSharma_AgileRealms\\src\\images\\smallWhiteArrowUp.png"));
+		sendTop.setBackground(new Color(0, 0, 0));
+		sendTop.setFont(new Font("Arial", Font.PLAIN, 13));
+		sendTop.setBounds(663, 35, 26, 29);
+		Footer.add(sendTop);
 		
 	}
 }
