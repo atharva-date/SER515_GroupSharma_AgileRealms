@@ -15,6 +15,10 @@ import java.awt.Panel;
 import java.io.File;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import ProductOwner.UserStories;
+import ScrumMaster.SprintDuration;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -45,6 +49,7 @@ public class Customizations extends JFrame {
 	private JPanel TM_panel;
 	private JPanel Auditor_panel;
 	private JButton sm_button;
+	int button_num = 1;
 
 	/**
 	 * Launch the application.
@@ -76,6 +81,86 @@ public class Customizations extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		Panel NavBar = new Panel();
+		NavBar.setLayout(null);
+		NavBar.setBackground(Color.BLACK);
+		NavBar.setBounds(0, 0, 1352, 77);
+		contentPane.add(NavBar);
+		
+		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
+		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
+		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		gameSubHeading.setForeground(Color.WHITE);
+		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		gameSubHeading.setBounds(10, 52, 298, 25);
+		NavBar.add(gameSubHeading);
+		
+		JButton guideButton = new JButton("Guide");
+		guideButton.setForeground(Color.WHITE);
+		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		guideButton.setBorder(null);
+		guideButton.setBackground(Color.BLACK);
+		guideButton.setBounds(635, 0, 140, 77);
+		guideButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Guide screen = new Guide();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(guideButton);
+		
+		JButton customizationsButton = new JButton("Customizations");
+		customizationsButton.setForeground(Color.WHITE);
+		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		customizationsButton.setBorder(null);
+		customizationsButton.setBackground(Color.BLACK);
+		customizationsButton.setBounds(803, 0, 252, 77);
+		customizationsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(customizationsButton);
+		
+		JButton playnowButton = new JButton("Play Now");
+		playnowButton.setForeground(Color.WHITE);
+		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		playnowButton.setBorder(null);
+		playnowButton.setBackground(Color.BLACK);
+		playnowButton.setBounds(1090, 0, 164, 77);
+		NavBar.add(playnowButton);
+		
+		JButton homeButton = new JButton("AgileRealms");
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
+		homeButton.setBorder(null);
+		homeButton.setBackground(Color.BLACK);
+		homeButton.setBounds(10, 0, 298, 56);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(homeButton);
+		
+		JButton profileButton = new JButton("");
+		profileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		profileButton.setForeground(Color.WHITE);
+		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		profileButton.setBorder(null);
+		profileButton.setBackground(Color.BLACK);
+		profileButton.setBounds(1275, 0, 77, 77);
+		NavBar.add(profileButton);
+		
 		JPanel Body = new JPanel();
 		Body.setForeground(new Color(0, 0, 0));
 		Body.setBackground(new Color(0, 0, 0));
@@ -95,7 +180,7 @@ public class Customizations extends JFrame {
 		layeredPane.add(SM_panel, "name_254978624573000");
 		SM_panel.setLayout(null);
 		
-		JLabel role_sm = new JLabel("Scrum Master");
+		JLabel role_sm = new JLabel("SCRUM Master");
 		role_sm.setVerticalAlignment(SwingConstants.TOP);
 		role_sm.setHorizontalAlignment(SwingConstants.LEFT);
 		role_sm.setForeground(new Color(0, 206, 209));
@@ -241,6 +326,7 @@ public class Customizations extends JFrame {
 		sm_button = new JButton("SCRUM Master");
 		sm_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				button_num=1;
 				layeredPane.removeAll();
 				layeredPane.add(SM_panel);
 				layeredPane.repaint();
@@ -254,6 +340,20 @@ public class Customizations extends JFrame {
 		Body.add(sm_button);
 		
 		JButton startGame = new JButton("START GAME");
+		startGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if ( button_num == 2) {
+					UserStories screen = new UserStories();
+					screen.setVisible(true);
+					dispose();							
+				}
+				else {
+					SprintDuration screen = new SprintDuration();
+					screen.setVisible(true);
+					dispose();
+				}
+			}
+		});
 		startGame.setForeground(Color.WHITE);
 		startGame.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
 		startGame.setBackground(new Color(80, 80, 80));
@@ -263,6 +363,7 @@ public class Customizations extends JFrame {
 		JButton po_button = new JButton("Product Owner");
 		po_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				button_num=2;
 				layeredPane.removeAll();
 				layeredPane.add(PO_panel);
 				layeredPane.repaint();
@@ -278,6 +379,7 @@ public class Customizations extends JFrame {
 		JButton tm_button = new JButton("Team Member");
 		tm_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				button_num=3;
 				layeredPane.removeAll();
 				layeredPane.add(TM_panel);
 				layeredPane.repaint();
@@ -293,6 +395,7 @@ public class Customizations extends JFrame {
 		JButton auditor_button = new JButton("Auditor");
 		auditor_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				button_num=4;
 				layeredPane.removeAll();
 				layeredPane.add(Auditor_panel);
 				layeredPane.repaint();
@@ -359,75 +462,6 @@ public class Customizations extends JFrame {
 		sendTop.setFont(new Font("Arial", Font.PLAIN, 13));
 		sendTop.setBounds(663, 35, 26, 29);
 		Footer.add(sendTop);
-		
-		Panel NavBar = new Panel();
-		NavBar.setLayout(null);
-		NavBar.setBackground(Color.BLACK);
-		NavBar.setBounds(0, 0, 1352, 77);
-		contentPane.add(NavBar);
-		
-		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
-		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
-		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
-		gameSubHeading.setForeground(Color.WHITE);
-		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		gameSubHeading.setBounds(10, 52, 298, 25);
-		NavBar.add(gameSubHeading);
-		
-		JButton guideButton = new JButton("Guide");
-		guideButton.setForeground(Color.WHITE);
-		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		guideButton.setBorder(null);
-		guideButton.setBackground(Color.BLACK);
-		guideButton.setBounds(635, 0, 140, 77);
-		NavBar.add(guideButton);
-		
-		JButton customizationsButton = new JButton("Customizations");
-		customizationsButton.setForeground(Color.WHITE);
-		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		customizationsButton.setBorder(null);
-		customizationsButton.setBackground(Color.BLACK);
-		customizationsButton.setBounds(803, 0, 252, 77);
-		customizationsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Customizations screen = new Customizations();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(customizationsButton);
-		
-		JButton playnowButton = new JButton("Play Now");
-		playnowButton.setForeground(Color.WHITE);
-		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		playnowButton.setBorder(null);
-		playnowButton.setBackground(Color.BLACK);
-		playnowButton.setBounds(1090, 0, 164, 77);
-		NavBar.add(playnowButton);
-		
-		JButton homeButton = new JButton("AgileRealms");
-		homeButton.setForeground(Color.WHITE);
-		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
-		homeButton.setBorder(null);
-		homeButton.setBackground(Color.BLACK);
-		homeButton.setBounds(10, 0, 298, 56);
-		homeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Home screen = new Home();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(homeButton);
-		
-		JButton profileButton = new JButton("");
-		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		profileButton.setForeground(Color.WHITE);
-		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		profileButton.setBorder(null);
-		profileButton.setBackground(Color.BLACK);
-		profileButton.setBounds(1275, 0, 77, 77);
-		NavBar.add(profileButton);
 		
 	}
 }

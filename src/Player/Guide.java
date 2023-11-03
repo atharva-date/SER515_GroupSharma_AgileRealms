@@ -1,36 +1,27 @@
 package Player;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.*;
-import java.io.File;
+
 import javax.swing.ImageIcon;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.SwingConstants;
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.JLayeredPane;
-import java.awt.CardLayout;
-import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
-public class Home extends JFrame {
+public class Guide extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JButton customizationsButton;
 
 	/**
 	 * Launch the application.
@@ -39,7 +30,7 @@ public class Home extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Home frame = new Home();
+					Guide frame = new Guide();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,16 +42,16 @@ public class Home extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Home() {
+	public Guide() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 800);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//header
 		Panel NavBar = new Panel();
 		NavBar.setLayout(null);
 		NavBar.setBackground(Color.BLACK);
@@ -90,7 +81,7 @@ public class Home extends JFrame {
 		});
 		NavBar.add(guideButton);
 		
-		customizationsButton = new JButton("Customizations");
+		JButton customizationsButton = new JButton("Customizations");
 		customizationsButton.setForeground(Color.WHITE);
 		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
 		customizationsButton.setBackground(Color.BLACK);
@@ -137,6 +128,7 @@ public class Home extends JFrame {
 		profileButton.setBounds(1275, 0, 77, 77);
 		NavBar.add(profileButton);
 		
+		//body
 		JPanel Body = new JPanel();
 		Body.setForeground(Color.BLACK);
 		Body.setBorder(new LineBorder(new Color(128, 128, 128), 3));
@@ -145,47 +137,85 @@ public class Home extends JFrame {
 		contentPane.add(Body);
 		Body.setLayout(null);
 		
-		JButton startGame = new JButton("START GAME");
-		startGame.setBounds(591, 443, 164, 42);
-		startGame.setForeground(Color.WHITE);
-		startGame.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		startGame.setBackground(new Color(80, 80, 80));
-		startGame.setBorder(null);
-		Body.add(startGame);
+		JLabel lblMasteringScrum = new JLabel("Mastering SCRUM:");
+		lblMasteringScrum.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMasteringScrum.setForeground(Color.WHITE);
+		lblMasteringScrum.setFont(new Font("ArnoldBoeD", Font.PLAIN, 25));
+		lblMasteringScrum.setBounds(884, 297, 300, 31);
+		Body.add(lblMasteringScrum);
 		
-		JTextArea homeDesc2 = new JTextArea();
-		homeDesc2.setForeground(new Color(255, 255, 255));
-		homeDesc2.setWrapStyleWord(true);
-		homeDesc2.setLineWrap(true);
-		homeDesc2.setEditable(false);
-		homeDesc2.setBackground(new Color(0, 0, 0, 80));
-		homeDesc2.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		homeDesc2.setText("Welcome to AgileRealms: heroes of the Backlog, an immersive text-based RPG that transports you into a world where project management becomes a grand adventure. You have the power to shape your destiny by choosing one of the four pivotal roles: Scrum Master, Product Owner, Team Member, or Auditor.");
-		homeDesc2.setBounds(292, 318, 769, 115);
-		Body.add(homeDesc2);
+		JLabel lblUnderstandingTheRoles = new JLabel("Understanding the roles");
+		lblUnderstandingTheRoles.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUnderstandingTheRoles.setForeground(Color.WHITE);
+		lblUnderstandingTheRoles.setFont(new Font("ArnoldBoeD", Font.PLAIN, 25));
+		lblUnderstandingTheRoles.setBounds(202, 297, 300, 25);
+		Body.add(lblUnderstandingTheRoles);
 		
-		JLabel homeDesc1 = new JLabel("Where the forces of innovation and teamwork intertwines, a heroic journey beckon.");
-		homeDesc1.setForeground(new Color(255, 255, 255));
-		homeDesc1.setHorizontalAlignment(SwingConstants.CENTER);
-		homeDesc1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		homeDesc1.setBounds(292, 123, 769, 34);
-		homeDesc1.setBackground(new Color(0, 0, 0, 80));
-		Body.add(homeDesc1);
+		JLabel guideheading = new JLabel("Game Guide");
+		guideheading.setHorizontalAlignment(SwingConstants.CENTER);
+		guideheading.setForeground(new Color(255, 255, 255));
+		guideheading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 35));
+		guideheading.setBounds(577, 10, 196, 43);
+		Body.add(guideheading);
 		
-		JLabel homeHeading = new JLabel("AgileRealms: Heroes of the Backlog");
-		homeHeading.setHorizontalAlignment(SwingConstants.CENTER);
-		homeHeading.setForeground(Color.WHITE);
-		homeHeading.setBackground(new Color(0, 0, 0, 80));
-		homeHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		homeHeading.setBounds(292, 10, 769, 73);
-		Body.add(homeHeading);
+		JLabel gIcon1 = new JLabel("");
+		gIcon1.setIcon(new ImageIcon(Guide.class.getResource("/images/3.jpg")));
+		gIcon1.setBackground(new Color(255, 255, 0));
+		gIcon1.setBounds(542, 69, 300, 228);
+		Body.add(gIcon1);
 		
-		JLabel body_bg = new JLabel("");
-		body_bg.setHorizontalAlignment(SwingConstants.CENTER);
-		body_bg.setIcon(new ImageIcon(Home.class.getResource("/images/bg.png")));
-		body_bg.setBounds(0, 0, 1352, 506);
-		Body.add(body_bg);
+		JLabel gIcon2 = new JLabel("");
+		gIcon2.setHorizontalAlignment(SwingConstants.CENTER);
+		gIcon2.setIcon(new ImageIcon(Guide.class.getResource("/images/g2.jpg")));
+		gIcon2.setBounds(202, 69, 300, 228);
+		Body.add(gIcon2);
 		
+		JLabel gIcon3 = new JLabel("");
+		gIcon3.setIcon(new ImageIcon(Guide.class.getResource("/images/g3.jpg")));
+		gIcon3.setBounds(884, 69, 300, 228);
+		Body.add(gIcon3);
+		
+		JTextArea gDesc1 = new JTextArea();
+		gDesc1.setLineWrap(true);
+		gDesc1.setWrapStyleWord(true);
+		gDesc1.setText("Learn the basics of the game and understand the fundamental mechanics, roles, and objectives.");
+		gDesc1.setForeground(Color.WHITE);
+		gDesc1.setFont(new Font("ArnoldBoeD", Font.PLAIN, 16));
+		gDesc1.setEditable(false);
+		gDesc1.setBackground(Color.BLACK);
+		gDesc1.setBounds(542, 322, 300, 109);
+		Body.add(gDesc1);
+		
+		JTextArea gDesc2 = new JTextArea();
+		gDesc2.setLineWrap(true);
+		gDesc2.setWrapStyleWord(true);
+		gDesc2.setText("Familiarize yourself with the four key roles: Scrum Master, Product Owner, Team Member, and Auditor. Each role has unique responsibilities and abilities crucial to the team’s success.");
+		gDesc2.setForeground(Color.WHITE);
+		gDesc2.setFont(new Font("ArnoldBoeD", Font.PLAIN, 16));
+		gDesc2.setEditable(false);
+		gDesc2.setBackground(Color.BLACK);		
+		gDesc2.setBounds(202, 322, 300, 109);
+		Body.add(gDesc2);
+		
+		JTextArea gDesc3 = new JTextArea();
+		gDesc3.setLineWrap(true);
+		gDesc3.setWrapStyleWord(true);
+		gDesc3.setText("Learn about SCRUM principles such as transparency, inspection, and adaptation. Understand how these principles guide the team's workflow and decision-making processes.");
+		gDesc3.setForeground(Color.WHITE);
+		gDesc3.setFont(new Font("ArnoldBoeD", Font.PLAIN, 16));
+		gDesc3.setEditable(false);
+		gDesc3.setBackground(Color.BLACK);	
+		gDesc3.setBounds(884, 322, 300, 109);
+		Body.add(gDesc3);
+		
+		JLabel lblIntroduction = new JLabel("Introduction");
+		lblIntroduction.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIntroduction.setForeground(Color.WHITE);
+		lblIntroduction.setFont(new Font("ArnoldBoeD", Font.PLAIN, 25));
+		lblIntroduction.setBounds(542, 297, 300, 25);
+		Body.add(lblIntroduction);
+		
+		//footer
 		JPanel Footer = new JPanel();
 		Footer.setLayout(null);
 		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
@@ -236,5 +266,8 @@ public class Home extends JFrame {
 		sendTop.setBackground(Color.BLACK);
 		sendTop.setBounds(663, 35, 26, 29);
 		Footer.add(sendTop);
+		
+		
+		
 	}
 }
