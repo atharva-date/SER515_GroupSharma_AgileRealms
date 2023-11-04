@@ -2,6 +2,8 @@ package ProductOwner;
 
 
 import java.awt.EventQueue;
+import Player.UpdateLogin;
+import Player.Main;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +21,7 @@ import javax.swing.border.LineBorder;
 
 import Player.Customizations;
 import Player.Home;
+import Player.UpdateLogin;
 
 import java.awt.TextField;
 import java.awt.Font;
@@ -30,8 +33,14 @@ import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
+import javax.swing.JMenuItem;
+
 import java.awt.CardLayout;
 import javax.swing.SwingConstants;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 public class CreateUserStory extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -70,30 +79,132 @@ public class CreateUserStory extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel body = new JPanel();
-		body.setBounds(-33, 75, 1476, 458);
-		body.setBackground(Color.BLACK);
-		body.setBorder(new LineBorder(Color.LIGHT_GRAY, 1, true));
-		contentPane.add(body);
-		body.setLayout(null);
+		Panel NavBar = new Panel();
+		NavBar.setBackground(Color.BLACK);
+		NavBar.setBounds(0, 0, 1352, 77);
+		contentPane.add(NavBar);
+		NavBar.setLayout(null);
+		
+		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
+		gameSubHeading.setBounds(10, 52, 298, 25);
+		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
+		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		gameSubHeading.setForeground(Color.WHITE);
+		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
+		NavBar.add(gameSubHeading);
+		
+		JButton guideButton = new JButton("Guide");
+		guideButton.setBounds(635, 0, 140, 77);
+		guideButton.setForeground(Color.WHITE);
+		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		guideButton.setBorder(null);
+		guideButton.setBackground(Color.BLACK);
+		NavBar.add(guideButton);
+		
+		JButton customizationsButton = new JButton("Customizations");
+		customizationsButton.setBounds(803, 0, 252, 77);
+		customizationsButton.setForeground(Color.WHITE);
+		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		customizationsButton.setBorder(null);
+		customizationsButton.setBackground(Color.BLACK);
+		customizationsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(customizationsButton);
+		
+		JButton playnowButton = new JButton("Play Now");
+		playnowButton.setBounds(1090, 0, 164, 77);
+		playnowButton.setForeground(Color.WHITE);
+		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		playnowButton.setBorder(null);
+		playnowButton.setBackground(Color.BLACK);
+		NavBar.add(playnowButton);
+		
+		JButton homeButton = new JButton("AgileRealms");
+		homeButton.setBounds(10, 0, 298, 56);
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
+		homeButton.setBorder(null);
+		homeButton.setBackground(Color.BLACK);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		NavBar.add(homeButton);
+		
+		JPopupMenu popupMenu = new JPopupMenu();
+		popupMenu.setBackground(Color.LIGHT_GRAY);
+		addPopup(NavBar, popupMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Hello Admin!");
+		mntmNewMenuItem.setForeground(Color.WHITE);
+		mntmNewMenuItem.setBackground(Color.BLACK);
+		popupMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem1 = new JMenuItem("View Profile");
+		mntmNewMenuItem1.setBackground(Color.BLACK);
+		mntmNewMenuItem1.setForeground(Color.WHITE);
+		popupMenu.add(mntmNewMenuItem1);
+		mntmNewMenuItem1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateLogin screen = new UpdateLogin();
+				screen.setVisible(true);
+				
+				dispose();
+			}
+		});
+		
+		JMenuItem mntmNewMenuItem2 = new JMenuItem("Log Out");
+		mntmNewMenuItem2.setForeground(Color.WHITE);
+		mntmNewMenuItem2.setBackground(Color.BLACK);
+		popupMenu.add(mntmNewMenuItem2);
+		
+		
+		JButton profileButton = new JButton("");
+		profileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				popupMenu.show(profileButton, 0, profileButton.getHeight());
+			}
+		});
+		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		profileButton.setForeground(Color.WHITE);
+		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
+		profileButton.setBorder(null);
+		profileButton.setBackground(Color.BLACK);
+		profileButton.setBounds(1275, 0, 77, 77);
+		NavBar.add(profileButton);
+		
+		JPanel Body = new JPanel();
+		Body.setBounds(-33, 77, 1476, 456);
+		Body.setBackground(Color.BLACK);
+		Body.setBorder(new LineBorder(Color.LIGHT_GRAY, 1, true));
+		contentPane.add(Body);
+		Body.setLayout(null);
 		
 		JPanel mainContents = new JPanel();
 		mainContents.setBackground(Color.BLACK);
 		mainContents.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
-		mainContents.setBounds(-43, 38, 1513, 420);
-		body.add(mainContents);
+		mainContents.setBounds(-43, 38, 1513, 418);
+		Body.add(mainContents);
 		mainContents.setLayout(null);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(402, 17, 586, 382);
-		layeredPane.setBackground(Color.BLACK);
-		layeredPane.setBorder(new LineBorder(Color.LIGHT_GRAY, 3, true));
-		mainContents.add(layeredPane);
-		layeredPane.setLayout(new CardLayout(0, 0));
+		JLayeredPane userStoryCarousel = new JLayeredPane();
+		userStoryCarousel.setBounds(402, 17, 586, 382);
+		userStoryCarousel.setBackground(Color.BLACK);
+		userStoryCarousel.setBorder(new LineBorder(Color.LIGHT_GRAY, 3, true));
+		mainContents.add(userStoryCarousel);
+		userStoryCarousel.setLayout(new CardLayout(0, 0));
 		
 		JPanel userStoryTemplate = new JPanel();
 		userStoryTemplate.setBackground(Color.BLACK);
-		layeredPane.add(userStoryTemplate, "name_56719457652006");
+		userStoryCarousel.add(userStoryTemplate, "name_56719457652006");
 		userStoryTemplate.setLayout(null);
 		
 		textField = new JTextField();
@@ -201,7 +312,7 @@ public class CreateUserStory extends JFrame {
 		
 		JPanel storyAdded = new JPanel();
 		storyAdded.setBackground(Color.BLACK);
-		layeredPane.add(storyAdded, "name_56914860268955");
+		userStoryCarousel.add(storyAdded, "name_56914860268955");
 		storyAdded.setLayout(null);
 		
 		txtStoryAdded = new JTextField();
@@ -221,16 +332,17 @@ public class CreateUserStory extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				layeredPane.removeAll();
-				layeredPane.repaint();
-				layeredPane.revalidate();
-				layeredPane.add(storyAdded);
+				userStoryCarousel.removeAll();
+				userStoryCarousel.repaint();
+				userStoryCarousel.revalidate();
+				userStoryCarousel.add(storyAdded);
 			}
 		});
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		
 		
 		JButton btnNewUserStory = new JButton("New User Story");
+		btnNewUserStory.setBounds(689, 399, 140, 19);
 		btnNewUserStory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserStories frame = new UserStories();
@@ -239,126 +351,58 @@ public class CreateUserStory extends JFrame {
 				dispose();
 			}
 		});
-		btnNewUserStory.setBackground(Color.LIGHT_GRAY);
-		btnNewUserStory.setBounds(689, 399, 140, 19);
+		btnNewUserStory.setBackground(Color.BLACK);
 		mainContents.add(btnNewUserStory);
 		
-		JPanel footer = new JPanel();
-		footer.setBounds(-60, 500, 1470, 193);
-		footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
-		footer.setBackground(new Color(0, 0, 0));
-		contentPane.add(footer);
-		footer.setLayout(null);
+		JPanel Footer = new JPanel();
+		Footer.setBounds(-60, 500, 1470, 193);
+		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
+		Footer.setBackground(new Color(0, 0, 0));
+		contentPane.add(Footer);
+		Footer.setLayout(null);
 		
 		JLabel About = new JLabel("About");
 		About.setFont(new Font("Arial", Font.PLAIN, 13));
 		About.setForeground(new Color(255, 255, 255));
 		About.setBounds(297, 115, 47, 13);
-		footer.add(About);
+		Footer.add(About);
 		
 		JLabel termsOfUse = new JLabel("Terms of Use");
 		termsOfUse.setFont(new Font("Arial", Font.PLAIN, 13));
 		termsOfUse.setForeground(new Color(255, 255, 255));
 		termsOfUse.setBounds(442, 115, 84, 13);
-		footer.add(termsOfUse);
+		Footer.add(termsOfUse);
 		
 		JLabel rulesOfPlay = new JLabel("Rules of Play");
 		rulesOfPlay.setForeground(Color.WHITE);
 		rulesOfPlay.setFont(new Font("Arial", Font.PLAIN, 13));
 		rulesOfPlay.setBounds(638, 115, 104, 13);
-		footer.add(rulesOfPlay);
+		Footer.add(rulesOfPlay);
 		
 		JLabel privacyPolicy = new JLabel("Privacy Policy");
 		privacyPolicy.setForeground(Color.WHITE);
 		privacyPolicy.setFont(new Font("Arial", Font.PLAIN, 13));
 		privacyPolicy.setBounds(824, 115, 84, 13);
-		footer.add(privacyPolicy);
+		Footer.add(privacyPolicy);
 		
 		JLabel credits = new JLabel("Credits");
 		credits.setForeground(Color.WHITE);
 		credits.setFont(new Font("Arial", Font.PLAIN, 13));
 		credits.setBounds(998, 115, 41, 13);
-		footer.add(credits);
+		Footer.add(credits);
 		
 		JLabel lblgroupS = new JLabel("©2023 Group Sharma LLC. All rights reserved.");
 		lblgroupS.setForeground(Color.WHITE);
 		lblgroupS.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblgroupS.setBounds(543, 150, 294, 13);
-		footer.add(lblgroupS);
+		Footer.add(lblgroupS);
 		
 		JButton btnNewButton_1_3 = new JButton("");
 		btnNewButton_1_3.setForeground(Color.WHITE);
 		btnNewButton_1_3.setBackground(Color.WHITE);
 		btnNewButton_1_3.setBounds(657, 48, 42, 51);
-		footer.add(btnNewButton_1_3);
-		
-		Panel NavBar = new Panel();
-		NavBar.setBackground(Color.BLACK);
-		NavBar.setBounds(0, 0, 1352, 77);
-		contentPane.add(NavBar);
-		NavBar.setLayout(null);
-		
-		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
-		gameSubHeading.setBounds(10, 52, 298, 25);
-		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
-		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
-		gameSubHeading.setForeground(Color.WHITE);
-		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		NavBar.add(gameSubHeading);
-		
-		JButton guideButton = new JButton("Guide");
-		guideButton.setBounds(635, 0, 140, 77);
-		guideButton.setForeground(Color.WHITE);
-		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		guideButton.setBorder(null);
-		guideButton.setBackground(Color.BLACK);
-		NavBar.add(guideButton);
-		
-		JButton customizationsButton = new JButton("Customizations");
-		customizationsButton.setBounds(803, 0, 252, 77);
-		customizationsButton.setForeground(Color.WHITE);
-		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		customizationsButton.setBorder(null);
-		customizationsButton.setBackground(Color.BLACK);
-		customizationsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Customizations screen = new Customizations();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(customizationsButton);
-		
-		JButton playnowButton = new JButton("Play Now");
-		playnowButton.setBounds(1090, 0, 164, 77);
-		playnowButton.setForeground(Color.WHITE);
-		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		playnowButton.setBorder(null);
-		playnowButton.setBackground(Color.BLACK);
-		NavBar.add(playnowButton);
-		
-		JButton homeButton = new JButton("AgileRealms");
-		homeButton.setBounds(10, 0, 298, 56);
-		homeButton.setForeground(Color.WHITE);
-		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
-		homeButton.setBorder(null);
-		homeButton.setBackground(Color.BLACK);
-		homeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Home screen = new Home();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(homeButton);
-		
-		JButton profileButton = new JButton("");
-		profileButton.setBounds(1275, 0, 77, 77);
-		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		profileButton.setForeground(Color.WHITE);
-		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		profileButton.setBorder(null);
-		profileButton.setBackground(Color.BLACK);
-		NavBar.add(profileButton);
+		Footer.add(btnNewButton_1_3);
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
 	}
 }
