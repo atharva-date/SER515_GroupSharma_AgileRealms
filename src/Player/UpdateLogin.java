@@ -149,43 +149,6 @@ public class UpdateLogin extends JFrame {
 		
 		//Footer
 		
-		/*
-		 * JPanel Footer = new JPanel(); Footer.setBorder(new LineBorder(new Color(128,
-		 * 128, 128), 3)); Footer.setBackground(new Color(0, 0, 0));
-		 * Footer.setBounds(-40, 760, 2500, 560); contentPane.add(Footer);
-		 * Footer.setLayout(null);
-		 * 
-		 * JLabel About = new JLabel("About"); About.setFont(new Font("Arial",
-		 * Font.PLAIN, 13)); About.setForeground(new Color(255, 255, 255));
-		 * About.setBounds(390, 100, 34, 13); Footer.add(About);
-		 * 
-		 * JLabel termsOfUse = new JLabel("Terms of Use"); termsOfUse.setFont(new
-		 * Font("Arial", Font.PLAIN, 13)); termsOfUse.setForeground(new Color(255, 255,
-		 * 255)); termsOfUse.setBounds(535, 100, 84, 13); Footer.add(termsOfUse);
-		 * 
-		 * JLabel rulesOfPlay = new JLabel("Rules of Play");
-		 * rulesOfPlay.setForeground(Color.WHITE); rulesOfPlay.setFont(new Font("Arial",
-		 * Font.PLAIN, 13)); rulesOfPlay.setBounds(731, 100, 78, 13);
-		 * Footer.add(rulesOfPlay);
-		 * 
-		 * JLabel privacyPolicy = new JLabel("Privacy Policy");
-		 * privacyPolicy.setForeground(Color.WHITE); privacyPolicy.setFont(new
-		 * Font("Arial", Font.PLAIN, 13)); privacyPolicy.setBounds(917, 100, 84, 13);
-		 * Footer.add(privacyPolicy);
-		 * 
-		 * JLabel credits = new JLabel("Credits"); credits.setForeground(Color.WHITE);
-		 * credits.setFont(new Font("Arial", Font.PLAIN, 13)); credits.setBounds(1091,
-		 * 100, 41, 13); Footer.add(credits);
-		 * 
-		 * JLabel lblgroupS = new
-		 * JLabel("©2023 Group Sharma LLC. All rights reserved.");
-		 * lblgroupS.setForeground(Color.WHITE); lblgroupS.setFont(new Font("Arial",
-		 * Font.PLAIN, 13)); lblgroupS.setBounds(634, 136, 270, 13);
-		 * Footer.add(lblgroupS);
-		 */
-		
-		//nFooter
-		
 		JPanel Footer = new JPanel();
 		Footer.setLayout(null);
 		Footer.setBorder(new LineBorder(new Color(128, 128, 128), 3));
