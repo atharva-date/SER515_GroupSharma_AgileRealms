@@ -171,6 +171,9 @@ public class CreateUserStory extends JFrame {
 		profileButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				popupMenu.show(profileButton, 0, profileButton.getHeight());
+				UpdateLogin screen = new UpdateLogin();
+				screen.setVisible(true);
+				dispose();
 			}
 		});
 		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));

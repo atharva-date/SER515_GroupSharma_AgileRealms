@@ -151,6 +151,9 @@ public class Customizations extends JFrame {
 		JButton profileButton = new JButton("");
 		profileButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				UpdateLogin screen = new UpdateLogin();
+				screen.setVisible(true);
+				dispose();
 			}
 		});
 		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));

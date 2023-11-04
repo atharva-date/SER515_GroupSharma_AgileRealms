@@ -24,6 +24,7 @@ import javax.swing.border.LineBorder;
 
 import Player.Customizations;
 import Player.Home;
+import Player.UpdateLogin;
 
 import javax.swing.JScrollBar;
 
@@ -126,6 +127,13 @@ public class SprintDuration extends JFrame {
 		JButton profileButton = new JButton("");
 		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 		profileButton.setForeground(Color.WHITE);
+		profileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateLogin screen = new UpdateLogin();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
 		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
 		profileButton.setBorder(null);
 		profileButton.setBackground(Color.BLACK);
