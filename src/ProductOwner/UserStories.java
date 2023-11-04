@@ -1,6 +1,8 @@
 package ProductOwner;
 import Player.Customizations;
+import Player.UpdateLogin;
 import Player.Home;
+import Player.Main;
 
 import java.awt.EventQueue;
 
@@ -24,6 +26,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
+import javax.swing.JMenu;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JMenuItem;
+import java.awt.Dimension;
 
 public class UserStories extends JFrame {
 
@@ -125,7 +134,40 @@ public class UserStories extends JFrame {
 		});
 		NavBar.add(homeButton);
 		
+		
+		JPopupMenu popupMenu = new JPopupMenu();
+		popupMenu.setBackground(Color.LIGHT_GRAY);
+		addPopup(NavBar, popupMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Hello Admin!");
+		mntmNewMenuItem.setForeground(Color.WHITE);
+		mntmNewMenuItem.setBackground(Color.BLACK);
+		popupMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem1 = new JMenuItem("View Profile");
+		mntmNewMenuItem1.setBackground(Color.BLACK);
+		mntmNewMenuItem1.setForeground(Color.WHITE);
+		popupMenu.add(mntmNewMenuItem1);
+		mntmNewMenuItem1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateLogin updateLoginScreen = new UpdateLogin();
+		        updateLoginScreen.setVisible(true);
+				dispose();
+			}
+		});
+		
+		JMenuItem mntmNewMenuItem2 = new JMenuItem("Log Out");
+		mntmNewMenuItem2.setForeground(Color.WHITE);
+		mntmNewMenuItem2.setBackground(Color.BLACK);
+		popupMenu.add(mntmNewMenuItem2);
+		
+		
 		JButton profileButton = new JButton("");
+		profileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				popupMenu.show(profileButton, 0, profileButton.getHeight());
+			}
+		});
 		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 		profileButton.setForeground(Color.WHITE);
 		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
@@ -134,30 +176,30 @@ public class UserStories extends JFrame {
 		profileButton.setBounds(1275, 0, 77, 77);
 		NavBar.add(profileButton);
 		
-		JPanel body = new JPanel();
-		body.setBounds(-33, 76, 1417, 457);
-		body.setBackground(Color.BLACK);
-		body.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
-		contentPane.add(body);
-		body.setLayout(null);
+		JPanel Body = new JPanel();
+		Body.setBounds(-33, 76, 1417, 457);
+		Body.setBackground(Color.BLACK);
+		Body.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
+		contentPane.add(Body);
+		Body.setLayout(null);
 		
 		JPanel mainContents = new JPanel();
 		mainContents.setBounds(-43, 38, 1483, 419);
 		mainContents.setBackground(Color.BLACK);
 		mainContents.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
-		body.add(mainContents);
+		Body.add(mainContents);
 		mainContents.setLayout(null);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(440, 0, 602, 418);
-		layeredPane.setBackground(Color.BLACK);
-		layeredPane.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
-		mainContents.add(layeredPane);
-		layeredPane.setLayout(new CardLayout(0, 0));
+		JLayeredPane storyListCarousel = new JLayeredPane();
+		storyListCarousel.setBounds(440, 0, 602, 418);
+		storyListCarousel.setBackground(Color.BLACK);
+		storyListCarousel.setBorder(new LineBorder(new Color(192, 192, 192), 2, true));
+		mainContents.add(storyListCarousel);
+		storyListCarousel.setLayout(new CardLayout(0, 0));
 		
 		JPanel story1 = new JPanel();
 		story1.setBackground(Color.BLACK);
-		layeredPane.add(story1, "name_130843980454285");
+		storyListCarousel.add(story1, "name_130843980454285");
 		story1.setLayout(null);
 		
 		JTextArea txtrStoryId = new JTextArea();
@@ -267,7 +309,7 @@ public class UserStories extends JFrame {
 		
 		JPanel story2 = new JPanel();
 		story2.setBackground(Color.BLACK);
-		layeredPane.add(story2, "name_130866315885737");
+		storyListCarousel.add(story2, "name_130866315885737");
 		story2.setLayout(null);
 		
 		txtStory = new JTextField();
@@ -390,10 +432,10 @@ public class UserStories extends JFrame {
 		JButton btnNewButton = new JButton("story #1");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				layeredPane.repaint();
-				layeredPane.revalidate();
-				layeredPane.add(story1);
+				storyListCarousel.removeAll();
+				storyListCarousel.repaint();
+				storyListCarousel.revalidate();
+				storyListCarousel.add(story1);
 			}
 		});
 		btnNewButton.setBounds(6, 6, 146, 29);
@@ -402,10 +444,10 @@ public class UserStories extends JFrame {
 		JButton btnStory = new JButton("story #2");
 		btnStory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				layeredPane.repaint();
-				layeredPane.revalidate();
-				layeredPane.add(story2);
+				storyListCarousel.removeAll();
+				storyListCarousel.repaint();
+				storyListCarousel.revalidate();
+				storyListCarousel.add(story2);
 			}
 		});
 		btnStory.setBounds(6, 32, 146, 29);
@@ -472,5 +514,7 @@ public class UserStories extends JFrame {
 		btnNewButton_1_3.setBackground(Color.WHITE);
 		btnNewButton_1_3.setBounds(658, 52, 42, 51);
 		Footer.add(btnNewButton_1_3);
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
 	}
 }
