@@ -153,6 +153,13 @@ public class Home extends JFrame {
 		Body.setLayout(null);
 		
 		JButton startGame = new JButton("START GAME");
+		startGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Customizations screen = new Customizations();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
 		startGame.setBounds(591, 443, 164, 42);
 		startGame.setForeground(Color.WHITE);
 		startGame.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));

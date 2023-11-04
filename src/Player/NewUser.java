@@ -50,7 +50,7 @@ public class NewUser extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
 
-		setBounds(100, 100, 1366, 1080);
+		setBounds(100, 100, 1366, 700);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 
@@ -105,6 +105,9 @@ public class NewUser extends JFrame implements ActionListener {
 		button = new JButton("Sign In");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Home screen = new Home();
+				screen.setVisible(true);
+				dispose();
 			}
 		});
 		button.setActionCommand("Sign In");
