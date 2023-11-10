@@ -14,6 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -23,11 +26,14 @@ import Player.Home;
 import Player.UpdateLogin;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
+import javax.swing.JProgressBar;
 
 public class gamePlay extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private Timer timer;
+	private int progressValue = 0;
 
 	/**
 	 * Launch the application.
@@ -62,6 +68,29 @@ public class gamePlay extends JFrame {
 		gameBar.setBackground(new Color(0, 0, 0));
 		gameBar.setBounds(0, 0, 1352, 83);
 		contentPane.add(gameBar);
+		gameBar.setLayout(null);
+		
+		//ProgressBar
+		JProgressBar progressBar = new JProgressBar();
+		gameBar.add(progressBar);
+		progressBar.setValue(0);
+		progressBar.setBounds(900, 10, 240, 60);
+		progressBar.setBackground(Color.GRAY);
+		progressBar.setForeground(new Color(254, 255, 255));
+		progressBar.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		progressBar.setStringPainted(true);
+		timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	if (progressValue <= 100) {
+    	            progressBar.setValue(progressValue);
+    	            progressBar.setString("Sprint Progress: " + progressValue + "%");
+    	            progressValue++;
+    	        } else {
+    	            timer.stop();
+    	        }
+            }
+        });
+		timer.start();
 		
 		//Body
 		JPanel gameBody = new JPanel();
@@ -469,5 +498,10 @@ public class gamePlay extends JFrame {
 		sendTop.setBackground(Color.BLACK);
 		sendTop.setBounds(663, 35, 26, 29);
 		Footer.add(sendTop);
+	}
+
+	private void updateProgressBar() {
+		// TODO Auto-generated method stub
+		
 	}
 }
