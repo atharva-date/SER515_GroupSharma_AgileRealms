@@ -57,93 +57,10 @@ public class gamePlay extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//header
-		Panel NavBar = new Panel();
-		NavBar.setLayout(null);
-		NavBar.setBackground(Color.BLACK);
-		NavBar.setBounds(0, 0, 1352, 77);
-		contentPane.add(NavBar);
-		
-		JLabel gameSubHeading = new JLabel("Heroes of the Backlog");
-		gameSubHeading.setVerticalAlignment(SwingConstants.TOP);
-		gameSubHeading.setHorizontalAlignment(SwingConstants.CENTER);
-		gameSubHeading.setForeground(Color.WHITE);
-		gameSubHeading.setFont(new Font("ArnoldBoeD", Font.PLAIN, 20));
-		gameSubHeading.setBounds(10, 52, 298, 25);
-		NavBar.add(gameSubHeading);
-		
-		JButton guideButton = new JButton("Guide");
-		guideButton.setForeground(Color.WHITE);
-		guideButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		guideButton.setBackground(Color.BLACK);
-		guideButton.setBounds(635, 0, 140, 77);
-		guideButton.setBorder(null);
-		guideButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Guide screen = new Guide();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(guideButton);
-		
-		JButton customizationsButton = new JButton("Customizations");
-		customizationsButton.setForeground(Color.WHITE);
-		customizationsButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		customizationsButton.setBackground(Color.BLACK);
-		customizationsButton.setBounds(803, 0, 252, 77);
-		customizationsButton.setBorder(null);
-		customizationsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Customizations screen = new Customizations();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(customizationsButton);
-		
-		JButton playnowButton = new JButton("Play Now");
-		playnowButton.setForeground(Color.WHITE);
-		playnowButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		playnowButton.setBackground(Color.BLACK);
-		playnowButton.setBounds(1090, 0, 164, 77);
-		playnowButton.setBorder(null);
-		NavBar.add(playnowButton);
-		
-		JButton homeButton = new JButton("AgileRealms");
-		homeButton.setForeground(Color.WHITE);
-		homeButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 45));
-		homeButton.setBackground(Color.BLACK);
-		homeButton.setBounds(10, 0, 298, 56);
-		homeButton.setBorder(null);
-		homeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Home screen = new Home();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		NavBar.add(homeButton);
-		
-		JButton profileButton = new JButton("");
-		profileButton.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-		profileButton.setForeground(Color.WHITE);
-		profileButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UpdateLogin screen = new UpdateLogin();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		profileButton.setFont(new Font("ArnoldBoeD", Font.PLAIN, 30));
-		profileButton.setBorder(null);
-		profileButton.setBackground(Color.BLACK);
-		profileButton.setBounds(1275, 0, 77, 77);
-		NavBar.add(profileButton);
-		
 		JPanel gameBar = new JPanel();
-		gameBar.setBackground(new Color(128, 128, 128));
-		gameBar.setBounds(0, 75, 1352, 83);
+		gameBar.setBorder(new LineBorder(new Color(128, 128, 128)));
+		gameBar.setBackground(new Color(0, 0, 0));
+		gameBar.setBounds(0, 0, 1352, 83);
 		contentPane.add(gameBar);
 		
 		//Body
@@ -151,44 +68,354 @@ public class gamePlay extends JFrame {
 		gameBody.setForeground(Color.BLACK);
 		gameBody.setBorder(new LineBorder(new Color(128, 128, 128), 3));
 		gameBody.setBackground(Color.BLACK);
-		gameBody.setBounds(0, 156, 1352, 427);
+		gameBody.setBounds(0, 82, 1352, 501);
 		contentPane.add(gameBody);
 		gameBody.setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(0, 0, 1352, 427);
+		layeredPane.setBounds(0, 0, 1352, 501);
 		gameBody.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
 		JPanel scen1 = new JPanel();
 		layeredPane.add(scen1, "name_604559671835300");
+		scen1.setLayout(null);
+		
+		JPanel situation = new JPanel();
+		situation.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation.setBackground(new Color(128, 128, 128));
+		situation.setBounds(0, 0, 1352, 173);
+		scen1.add(situation);
+		
+		JPanel option1 = new JPanel();
+		option1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1.setBackground(new Color(0, 0, 0));
+		option1.setBounds(0, 173, 677, 164);
+		scen1.add(option1);
+		
+		JPanel option2 = new JPanel();
+		option2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2.setBackground(new Color(0, 0, 0));
+		option2.setBounds(676, 173, 676, 164);
+		scen1.add(option2);
+		
+		JPanel option4 = new JPanel();
+		option4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4.setBackground(new Color(0, 0, 0));
+		option4.setBounds(676, 338, 676, 163);
+		scen1.add(option4);
+		
+		JPanel option3 = new JPanel();
+		option3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3.setBackground(new Color(0, 0, 0));
+		option3.setBounds(0, 337, 677, 164);
+		scen1.add(option3);
 		
 		JPanel scen2 = new JPanel();
 		layeredPane.add(scen2, "name_604613468509000");
+		scen2.setLayout(null);
+		
+		JPanel situation_1 = new JPanel();
+		situation_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_1.setBackground(Color.GRAY);
+		situation_1.setBounds(0, 0, 1352, 173);
+		scen2.add(situation_1);
+		
+		JPanel option1_1 = new JPanel();
+		option1_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_1.setBackground(Color.BLACK);
+		option1_1.setBounds(0, 173, 677, 164);
+		scen2.add(option1_1);
+		
+		JPanel option2_1 = new JPanel();
+		option2_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_1.setBackground(Color.BLACK);
+		option2_1.setBounds(676, 173, 676, 164);
+		scen2.add(option2_1);
+		
+		JPanel option3_1 = new JPanel();
+		option3_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_1.setBackground(Color.BLACK);
+		option3_1.setBounds(0, 337, 677, 164);
+		scen2.add(option3_1);
+		
+		JPanel option4_1 = new JPanel();
+		option4_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_1.setBackground(Color.BLACK);
+		option4_1.setBounds(676, 338, 676, 163);
+		scen2.add(option4_1);
 		
 		JPanel scen3 = new JPanel();
 		layeredPane.add(scen3, "name_604626520416300");
+		scen3.setLayout(null);
+		
+		JPanel situation_2 = new JPanel();
+		situation_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_2.setBackground(Color.GRAY);
+		situation_2.setBounds(0, 0, 1352, 173);
+		scen3.add(situation_2);
+		
+		JPanel option1_2 = new JPanel();
+		option1_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_2.setBackground(Color.BLACK);
+		option1_2.setBounds(0, 173, 677, 164);
+		scen3.add(option1_2);
+		
+		JPanel option2_2 = new JPanel();
+		option2_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_2.setBackground(Color.BLACK);
+		option2_2.setBounds(676, 173, 676, 164);
+		scen3.add(option2_2);
+		
+		JPanel option3_2 = new JPanel();
+		option3_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_2.setBackground(Color.BLACK);
+		option3_2.setBounds(0, 337, 677, 164);
+		scen3.add(option3_2);
+		
+		JPanel option4_2 = new JPanel();
+		option4_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_2.setBackground(Color.BLACK);
+		option4_2.setBounds(676, 338, 676, 163);
+		scen3.add(option4_2);
 		
 		JPanel scen4 = new JPanel();
 		layeredPane.add(scen4, "name_604628558611100");
+		scen4.setLayout(null);
+		
+		JPanel situation_3 = new JPanel();
+		situation_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_3.setBackground(Color.GRAY);
+		situation_3.setBounds(0, 0, 1352, 173);
+		scen4.add(situation_3);
+		
+		JPanel option1_3 = new JPanel();
+		option1_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_3.setBackground(Color.BLACK);
+		option1_3.setBounds(0, 173, 677, 164);
+		scen4.add(option1_3);
+		
+		JPanel option2_3 = new JPanel();
+		option2_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_3.setBackground(Color.BLACK);
+		option2_3.setBounds(676, 173, 676, 164);
+		scen4.add(option2_3);
+		
+		JPanel option3_3 = new JPanel();
+		option3_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_3.setBackground(Color.BLACK);
+		option3_3.setBounds(0, 337, 677, 164);
+		scen4.add(option3_3);
+		
+		JPanel option4_3 = new JPanel();
+		option4_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_3.setBackground(Color.BLACK);
+		option4_3.setBounds(676, 338, 676, 163);
+		scen4.add(option4_3);
 		
 		JPanel scen5 = new JPanel();
 		layeredPane.add(scen5, "name_604630392724600");
+		scen5.setLayout(null);
+		
+		JPanel situation_4 = new JPanel();
+		situation_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_4.setBackground(Color.GRAY);
+		situation_4.setBounds(0, 0, 1352, 173);
+		scen5.add(situation_4);
+		
+		JPanel option1_4 = new JPanel();
+		option1_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_4.setBackground(Color.BLACK);
+		option1_4.setBounds(0, 173, 677, 164);
+		scen5.add(option1_4);
+		
+		JPanel option2_4 = new JPanel();
+		option2_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_4.setBackground(Color.BLACK);
+		option2_4.setBounds(676, 173, 676, 164);
+		scen5.add(option2_4);
+		
+		JPanel option3_4 = new JPanel();
+		option3_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_4.setBackground(Color.BLACK);
+		option3_4.setBounds(0, 337, 677, 164);
+		scen5.add(option3_4);
+		
+		JPanel option4_4 = new JPanel();
+		option4_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_4.setBackground(Color.BLACK);
+		option4_4.setBounds(676, 338, 676, 163);
+		scen5.add(option4_4);
 		
 		JPanel scen6 = new JPanel();
 		layeredPane.add(scen6, "name_604635380688100");
+		scen6.setLayout(null);
+		
+		JPanel situation_5 = new JPanel();
+		situation_5.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_5.setBackground(Color.GRAY);
+		situation_5.setBounds(0, 0, 1352, 173);
+		scen6.add(situation_5);
+		
+		JPanel option1_5 = new JPanel();
+		option1_5.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_5.setBackground(Color.BLACK);
+		option1_5.setBounds(0, 173, 677, 164);
+		scen6.add(option1_5);
+		
+		JPanel option2_5 = new JPanel();
+		option2_5.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_5.setBackground(Color.BLACK);
+		option2_5.setBounds(676, 173, 676, 164);
+		scen6.add(option2_5);
+		
+		JPanel option3_5 = new JPanel();
+		option3_5.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_5.setBackground(Color.BLACK);
+		option3_5.setBounds(0, 337, 677, 164);
+		scen6.add(option3_5);
+		
+		JPanel option4_5 = new JPanel();
+		option4_5.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_5.setBackground(Color.BLACK);
+		option4_5.setBounds(676, 338, 676, 163);
+		scen6.add(option4_5);
 		
 		JPanel scen7 = new JPanel();
 		layeredPane.add(scen7, "name_604637635726600");
+		scen7.setLayout(null);
+		
+		JPanel situation_6 = new JPanel();
+		situation_6.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_6.setBackground(Color.GRAY);
+		situation_6.setBounds(0, 0, 1352, 173);
+		scen7.add(situation_6);
+		
+		JPanel option1_6 = new JPanel();
+		option1_6.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_6.setBackground(Color.BLACK);
+		option1_6.setBounds(0, 173, 677, 164);
+		scen7.add(option1_6);
+		
+		JPanel option2_6 = new JPanel();
+		option2_6.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_6.setBackground(Color.BLACK);
+		option2_6.setBounds(676, 173, 676, 164);
+		scen7.add(option2_6);
+		
+		JPanel option3_6 = new JPanel();
+		option3_6.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_6.setBackground(Color.BLACK);
+		option3_6.setBounds(0, 337, 677, 164);
+		scen7.add(option3_6);
+		
+		JPanel option4_6 = new JPanel();
+		option4_6.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_6.setBackground(Color.BLACK);
+		option4_6.setBounds(676, 338, 676, 163);
+		scen7.add(option4_6);
 		
 		JPanel scen8 = new JPanel();
 		layeredPane.add(scen8, "name_604639813553500");
+		scen8.setLayout(null);
+		
+		JPanel situation_7 = new JPanel();
+		situation_7.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_7.setBackground(Color.GRAY);
+		situation_7.setBounds(0, 0, 1352, 173);
+		scen8.add(situation_7);
+		
+		JPanel option1_7 = new JPanel();
+		option1_7.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_7.setBackground(Color.BLACK);
+		option1_7.setBounds(0, 173, 677, 164);
+		scen8.add(option1_7);
+		
+		JPanel option2_7 = new JPanel();
+		option2_7.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_7.setBackground(Color.BLACK);
+		option2_7.setBounds(676, 173, 676, 164);
+		scen8.add(option2_7);
+		
+		JPanel option3_7 = new JPanel();
+		option3_7.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_7.setBackground(Color.BLACK);
+		option3_7.setBounds(0, 337, 677, 164);
+		scen8.add(option3_7);
+		
+		JPanel option4_7 = new JPanel();
+		option4_7.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_7.setBackground(Color.BLACK);
+		option4_7.setBounds(676, 338, 676, 163);
+		scen8.add(option4_7);
 		
 		JPanel scen9 = new JPanel();
 		layeredPane.add(scen9, "name_604646810643500");
+		scen9.setLayout(null);
+		
+		JPanel situation_8 = new JPanel();
+		situation_8.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_8.setBackground(Color.GRAY);
+		situation_8.setBounds(0, 0, 1352, 173);
+		scen9.add(situation_8);
+		
+		JPanel option1_8 = new JPanel();
+		option1_8.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_8.setBackground(Color.BLACK);
+		option1_8.setBounds(0, 173, 677, 164);
+		scen9.add(option1_8);
+		
+		JPanel option2_8 = new JPanel();
+		option2_8.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_8.setBackground(Color.BLACK);
+		option2_8.setBounds(676, 173, 676, 164);
+		scen9.add(option2_8);
+		
+		JPanel option3_8 = new JPanel();
+		option3_8.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_8.setBackground(Color.BLACK);
+		option3_8.setBounds(0, 337, 677, 164);
+		scen9.add(option3_8);
+		
+		JPanel option4_8 = new JPanel();
+		option4_8.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_8.setBackground(Color.BLACK);
+		option4_8.setBounds(676, 338, 676, 163);
+		scen9.add(option4_8);
 		
 		JPanel scen10 = new JPanel();
 		layeredPane.add(scen10, "name_604649099355100");
+		scen10.setLayout(null);
+		
+		JPanel situation_9 = new JPanel();
+		situation_9.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		situation_9.setBackground(Color.GRAY);
+		situation_9.setBounds(0, 0, 1352, 173);
+		scen10.add(situation_9);
+		
+		JPanel option1_9 = new JPanel();
+		option1_9.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option1_9.setBackground(Color.BLACK);
+		option1_9.setBounds(0, 173, 677, 164);
+		scen10.add(option1_9);
+		
+		JPanel option2_9 = new JPanel();
+		option2_9.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option2_9.setBackground(Color.BLACK);
+		option2_9.setBounds(676, 173, 676, 164);
+		scen10.add(option2_9);
+		
+		JPanel option3_9 = new JPanel();
+		option3_9.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option3_9.setBackground(Color.BLACK);
+		option3_9.setBounds(0, 337, 677, 164);
+		scen10.add(option3_9);
+		
+		JPanel option4_9 = new JPanel();
+		option4_9.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4_9.setBackground(Color.BLACK);
+		option4_9.setBounds(676, 338, 676, 163);
+		scen10.add(option4_9);
 		
 		
 		//footer
