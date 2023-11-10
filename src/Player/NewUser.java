@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.border.CompoundBorder;
 import java.awt.event.*;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
+
 import java.awt.CardLayout;
 import javax.swing.SwingConstants;
 
@@ -207,9 +212,38 @@ public class NewUser extends JFrame implements ActionListener {
 				button = new JButton("Register");
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+						String firstName = textField_2.getText();
+						String lastName = textField_1.getText();
+						String userName = textField.getText();
+		                char[] password = passwordField.getPassword();
+		                
+		                String msg = "" + firstName;
+		                msg += " \n";
+		                try {
+		                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+
+		                    String query = "INSERT INTO users values('" + firstName + "','" + lastName + "','" + userName + "','" +
+		                        password + "')";
+
+		                    Statement sta = connection.createStatement();
+		                    int x = sta.executeUpdate(query);
+		                    if (x == 0) {
+		                        JOptionPane.showMessageDialog(button, "User alredy exists");
+		                    } else {
+		                        JOptionPane.showMessageDialog(button, "Welcome, " + msg + " to AgileRealms");
+		                    }
+		                    connection.close();
+							layeredPane.removeAll();
+							layeredPane.add(loginPanel);
+							layeredPane.repaint();
+							layeredPane.revalidate();
+		                } catch (Exception exception) {
+		                    exception.printStackTrace();
+		                }
+		            }
+
 					}
-				});
+				);
 				button.setBounds(201, 486, 148, 34);
 				createAccPanel.setLayout(null);
 				button.setForeground(new Color(255, 255, 255));
