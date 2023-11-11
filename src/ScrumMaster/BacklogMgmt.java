@@ -1,5 +1,6 @@
 package ScrumMaster;
 
+import ScrumMaster.StoryTasks;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -310,7 +311,7 @@ public class BacklogMgmt extends JFrame {
 				LayeredPane_PB.revalidate();				
 			}
 		});
-		btnPO.setBounds(590, 425, 209, 43);
+		btnPO.setBounds(467, 426, 209, 43);
 		contentPane.add(btnPO);
 		
 		JButton btnDev = new JButton("Ask Developer");
@@ -391,6 +392,19 @@ public class BacklogMgmt extends JFrame {
 		sendTop.setBackground(Color.BLACK);
 		sendTop.setBounds(663, 35, 26, 29);
 		Footer.add(sendTop);
+		
+		JButton btnCreateTasksFor = new JButton("Create Tasks for Backlog");
+		btnCreateTasksFor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StoryTasks screen = new StoryTasks();
+				screen.setVisible(true);
+				dispose();
+			}
+			
+		});
+		btnCreateTasksFor.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnCreateTasksFor.setBounds(723, 425, 209, 43);
+		contentPane.add(btnCreateTasksFor);
 
 						
 		
