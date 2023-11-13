@@ -115,30 +115,81 @@ public class gamePlay extends JFrame {
 		situation.setBackground(new Color(128, 128, 128));
 		situation.setBounds(0, 0, 1352, 173);
 		scen1.add(situation);
+		situation.setLayout(null);
+		
+		JLabel SM_DailyScrumScenario = new JLabel("<html>You, as the Scrum Master, have noticed that the team has been facing challenges during the Daily Scrum meetings. The team members often seem disengaged, and the discussions do not effectively address the impediments they are facing. Recognizing the need to adapt the Daily Scrum to better suit the team's changing needs, you decide to make adjustments.</html>");
+		SM_DailyScrumScenario.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		SM_DailyScrumScenario.setForeground(new Color(255, 255, 255));
+		SM_DailyScrumScenario.setBounds(66, 11, 1179, 151);
+		situation.add(SM_DailyScrumScenario);
 		
 		JPanel option1 = new JPanel();
 		option1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option1.setBackground(new Color(0, 0, 0));
 		option1.setBounds(0, 173, 677, 164);
 		scen1.add(option1);
+		option1.setLayout(null);
+		
+		JButton btnBest_scen1 = new JButton("<html>You propose a format change in the Daily Scrum, introducing a quick round where each team member highlights the obstacles they are facing. This allows the team to collaboratively find solutions and ensures everyone is on the same page.</html>");
+		btnBest_scen1.setHorizontalAlignment(SwingConstants.LEADING);
+		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnBest_scen1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnBest_scen1.setBounds(64, 28, 565, 81);
+		option1.add(btnBest_scen1);
 		
 		JPanel option2 = new JPanel();
 		option2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option2.setBackground(new Color(0, 0, 0));
 		option2.setBounds(676, 173, 676, 164);
 		scen1.add(option2);
+		option2.setLayout(null);
 		
-		JPanel option4 = new JPanel();
-		option4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
-		option4.setBackground(new Color(0, 0, 0));
-		option4.setBounds(676, 338, 676, 163);
-		scen1.add(option4);
+		JButton btnGood_scen1 = new JButton("<html>You organize a brief retrospective after a few Daily Scrums to gather feedback from the team. Based on their input, you make adjustments to the meeting structure, encouraging more open discussions about impediments.</html>");
+		btnGood_scen1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnGood_scen1.setBounds(26, 31, 557, 75);
+		btnGood_scen1.setHorizontalAlignment(SwingConstants.LEADING);
+		btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		option2.add(btnGood_scen1);
 		
 		JPanel option3 = new JPanel();
 		option3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option3.setBackground(new Color(0, 0, 0));
-		option3.setBounds(0, 337, 677, 164);
+		option3.setBounds(676, 338, 676, 163);
 		scen1.add(option3);
+		option3.setLayout(null);
+		
+		JButton btnWorst_scen1 = new JButton("<html>Ignoring the signs of dissatisfaction, you continue with the existing Daily Scrum format, assuming that it's the team's responsibility to adapt. This results in ongoing disengagement, and team members become increasingly frustrated, impacting both morale and productivity.</html>");
+		btnWorst_scen1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnWorst_scen1.setBounds(26, 24, 553, 65);
+		btnWorst_scen1.setHorizontalAlignment(SwingConstants.LEADING);
+		btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		option3.add(btnWorst_scen1);
+		
+		JPanel option4 = new JPanel();
+		option4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
+		option4.setBackground(new Color(0, 0, 0));
+		option4.setBounds(0, 337, 677, 164);
+		scen1.add(option4);
+		option4.setLayout(null);
+		
+		JButton btnBad_scen1 = new JButton("<html>Without consulting the team, you abruptly change the Daily Scrum format by adding detailed status updates for each team member. This unintentionally makes the meetings longer and more tedious, leading to decreased engagement.</html>");
+		btnBad_scen1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnBad_scen1.setBounds(56, 23, 574, 71);
+		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEADING);
+		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		option4.add(btnBad_scen1);
 		
 		JPanel scen2 = new JPanel();
 		layeredPane.add(scen2, "name_604613468509000");
