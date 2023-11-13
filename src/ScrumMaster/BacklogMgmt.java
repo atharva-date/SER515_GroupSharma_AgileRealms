@@ -31,6 +31,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 import java.awt.CardLayout;
+import javax.swing.JProgressBar;
 
 public class BacklogMgmt extends JFrame {
 
@@ -158,6 +159,16 @@ public class BacklogMgmt extends JFrame {
 		lbl_Scrum_Master.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lbl_Scrum_Master.setBounds(10, 11, 217, 48);
 		panel_SM.add(lbl_Scrum_Master);
+		
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setBounds(924, 34, 303, 25);
+		panel_SM.add(progressBar);
+		progressBar.setStringPainted(true);
+		
+		JLabel progressBarLabel = new JLabel("Backlog Progress");
+		progressBarLabel.setForeground(new Color(255, 255, 255));
+		progressBarLabel.setBounds(924, 9, 110, 19);
+		panel_SM.add(progressBarLabel);
 		
 		
 		JLayeredPane LayeredPane_PB = new JLayeredPane();
