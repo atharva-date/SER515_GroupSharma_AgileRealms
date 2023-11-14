@@ -62,6 +62,8 @@ public class gamePlay extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		Image contact = new ImageIcon(this.getClass().getResource("/images/contact.png")).getImage();
+		Image log = new ImageIcon(this.getClass().getResource("/images/book.png")).getImage();
 		
 		JPanel gameBar = new JPanel();
 		gameBar.setBorder(new LineBorder(new Color(128, 128, 128)));
@@ -70,15 +72,38 @@ public class gamePlay extends JFrame {
 		contentPane.add(gameBar);
 		gameBar.setLayout(null);
 		
+		JLabel Contacticon = new JLabel("Contacticon");
+		Contacticon.setBounds(20, 10, 76, 66);
+		gameBar.add(Contacticon);
+		Contacticon.setIcon(new ImageIcon(contact));
+		
+		JLabel Logicon = new JLabel("Logicon");
+//		Logicon.setForeground(new Color(254, 255, 255));
+		Logicon.setBounds(140, 10, 76, 66);
+		gameBar.add(Logicon);
+		Logicon.setIcon(new ImageIcon(log));
+		
 		//ProgressBar
 		JProgressBar progressBar = new JProgressBar();
+		progressBar.setBounds(896, 26, 240, 42);
 		gameBar.add(progressBar);
 		progressBar.setValue(0);
-		progressBar.setBounds(900, 10, 240, 60);
 		progressBar.setBackground(Color.GRAY);
 		progressBar.setForeground(new Color(254, 255, 255));
-		progressBar.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		progressBar.setFont(new Font("Quill Sword", Font.PLAIN, 8));
 		progressBar.setStringPainted(true);
+		
+		JLabel Sprint = new JLabel("Sprint 1");
+		Sprint.setBounds(1180, 36, 61, 20);
+		Sprint.setFont(new Font("Quill Sword", Font.BOLD, 22));
+		Sprint.setForeground(new Color(254, 255, 255));
+		gameBar.add(Sprint);
+		
+		JLabel Role = new JLabel("SCRUM Master");
+		Role.setBounds(276, 26, 124, 42);
+		Role.setFont(new Font("Quill Sword", Font.BOLD, 22));
+		Role.setForeground(new Color(0, 252, 255));
+		gameBar.add(Role);
 		timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	if (progressValue <= 100) {
