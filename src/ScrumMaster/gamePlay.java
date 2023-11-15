@@ -131,9 +131,31 @@ public class gamePlay extends JFrame {
 		gameBody.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
+		
+		//Scenario 1 starts
 		JPanel scen1 = new JPanel();
 		layeredPane.add(scen1, "name_604559671835300");
 		scen1.setLayout(null);
+		
+		JPanel res1 = new JPanel();
+		res1.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res1.setLayout(null);
+		res1.setForeground(Color.BLACK);
+		res1.setBackground(Color.BLACK);
+		res1.setBounds(0, 0, 1352, 501);
+		gameBody.add(res1);
+		
+		JLabel lblResult = new JLabel("Result:");
+		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblResult.setForeground(new Color(192, 192, 192));
+		lblResult.setBounds(653, 62, 123, 43);
+		res1.add(lblResult);
+		
+		JLabel lblAnswer_Scen1 = new JLabel("");
+		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 33));
+		lblAnswer_Scen1.setForeground(new Color(192, 192, 192));
+		lblAnswer_Scen1.setBounds(227, 166, 970, 226);
+		res1.add(lblAnswer_Scen1);
 		
 		JPanel situation = new JPanel();
 		situation.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -160,6 +182,10 @@ public class gamePlay extends JFrame {
 		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnBest_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html>The impromptu meeting helps the team collaboratively address the technical challenge, fostering a sense of unity. The project stays on track, and the team appreciates your quick response.</html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
 		btnBest_scen1.setBounds(64, 28, 565, 81);
@@ -175,6 +201,10 @@ public class gamePlay extends JFrame {
 		JButton btnGood_scen1 = new JButton("<html>You organize a brief retrospective after a few Daily Scrums to gather feedback from the team. Based on their input, you make adjustments to the meeting structure, encouraging more open discussions about impediments.</html>");
 		btnGood_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html>While the issue is eventually resolved, the delay in addressing it impacts the team's morale slightly. Some team members feel the urgency could have been better communicated.</html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
 		btnGood_scen1.setBounds(26, 31, 557, 75);
@@ -192,6 +222,10 @@ public class gamePlay extends JFrame {
 		JButton btnWorst_scen1 = new JButton("<html>Ignoring the signs of dissatisfaction, you continue with the existing Daily Scrum format, assuming that it's the team's responsibility to adapt. This results in ongoing disengagement, and team members become increasingly frustrated, impacting both morale and productivity.</html>");
 		btnWorst_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html>Panic spreads among team members, causing a breakdown in communication. The technical challenge remains unaddressed for an extended period, significantly delaying the project. The team's trust in your leadership is eroded.</html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
 		btnWorst_scen1.setBounds(26, 24, 553, 65);
@@ -209,13 +243,19 @@ public class gamePlay extends JFrame {
 		JButton btnBad_scen1 = new JButton("<html>Without consulting the team, you abruptly change the Daily Scrum format by adding detailed status updates for each team member. This unintentionally makes the meetings longer and more tedious, leading to decreased engagement.</html>");
 		btnBad_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html>Miscommunication leads to confusion among team members, resulting in a delay in addressing the technical challenge. The impact is felt in a slight setback in the project timeline.</html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
 		btnBad_scen1.setBounds(56, 23, 574, 71);
 		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEADING);
 		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		option4.add(btnBad_scen1);
+		option4.add(btnBad_scen1);		
+				
 		
+		//Scenario 2 starts
 		JPanel scen2 = new JPanel();
 		layeredPane.add(scen2, "name_604613468509000");
 		scen2.setLayout(null);
