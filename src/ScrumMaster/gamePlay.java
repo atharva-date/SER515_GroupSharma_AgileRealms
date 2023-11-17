@@ -148,13 +148,19 @@ public class gamePlay extends JFrame {
 		JLabel lblResult = new JLabel("Result:");
 		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblResult.setForeground(new Color(192, 192, 192));
-		lblResult.setBounds(653, 62, 123, 43);
+		lblResult.setBounds(600, 62, 120, 43);
 		res1.add(lblResult);
 		
+		JButton btnNextScen2 = new JButton("Next Scenario");
+		btnNextScen2.setBounds(1000, 415, 160, 43);
+		btnNextScen2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		res1.add(btnNextScen2);
+
+		
 		JLabel lblAnswer_Scen1 = new JLabel("");
-		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 33));
+		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer_Scen1.setForeground(new Color(192, 192, 192));
-		lblAnswer_Scen1.setBounds(227, 166, 970, 226);
+		lblAnswer_Scen1.setBounds(150, 166, 1000, 326);
 		res1.add(lblAnswer_Scen1);
 		
 		JPanel situation = new JPanel();
@@ -183,7 +189,9 @@ public class gamePlay extends JFrame {
 		btnBest_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html>The impromptu meeting helps the team collaboratively address the technical challenge, fostering a sense of unity. The project stays on track, and the team appreciates your quick response.</html>");
+				lblAnswer_Scen1.setText("<html><center>Well done!!</center>"
+						+ "<br>The impromptu meeting helps the team collaboratively address the technical challenge, fostering a sense of unity. The project stays on track, and the team appreciates your quick response."
+						+ "<br><br><center>Points: +4</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
 			}
@@ -202,7 +210,9 @@ public class gamePlay extends JFrame {
 		btnGood_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html>While the issue is eventually resolved, the delay in addressing it impacts the team's morale slightly. Some team members feel the urgency could have been better communicated.</html>");
+				lblAnswer_Scen1.setText("<html><center>Good effort!!</center>"
+						+ "<br>While the issue is eventually resolved, the delay in addressing it impacts the team's morale slightly. Some team members feel the urgency could have been better communicated."
+						+ "<br><br><center>Points: +3</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
 			}
@@ -223,7 +233,9 @@ public class gamePlay extends JFrame {
 		btnWorst_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html>Panic spreads among team members, causing a breakdown in communication. The technical challenge remains unaddressed for an extended period, significantly delaying the project. The team's trust in your leadership is eroded.</html>");
+				lblAnswer_Scen1.setText("<html><center>Misstep!!</center>"
+						+ "<br>Panic spreads among team members, causing a breakdown in communication. The technical challenge remains unaddressed for an extended period, significantly delaying the project. The team's trust in your leadership is eroded."
+						+ "<br><br><center>Points: +2</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
 			}
@@ -232,7 +244,7 @@ public class gamePlay extends JFrame {
 		btnWorst_scen1.setHorizontalAlignment(SwingConstants.LEADING);
 		btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		option3.add(btnWorst_scen1);
-		
+						
 		JPanel option4 = new JPanel();
 		option4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4.setBackground(new Color(0, 0, 0));
@@ -244,7 +256,9 @@ public class gamePlay extends JFrame {
 		btnBad_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html>Miscommunication leads to confusion among team members, resulting in a delay in addressing the technical challenge. The impact is felt in a slight setback in the project timeline.</html>");
+				lblAnswer_Scen1.setText("<html><center>Critical oversight!!</center>"
+						+ "<br>Miscommunication leads to confusion among team members, resulting in a delay in addressing the technical challenge. The impact is felt in a slight setback in the project timeline."
+						+ "<br><br><center>Points: +1</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
 			}
@@ -252,13 +266,22 @@ public class gamePlay extends JFrame {
 		btnBad_scen1.setBounds(56, 23, 574, 71);
 		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEADING);
 		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		option4.add(btnBad_scen1);		
-				
+		option4.add(btnBad_scen1);
+						
 		
 		//Scenario 2 starts
 		JPanel scen2 = new JPanel();
 		layeredPane.add(scen2, "name_604613468509000");
 		scen2.setLayout(null);
+
+		btnNextScen2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				res1.removeAll();
+				layeredPane.repaint();
+				layeredPane.revalidate();
+				layeredPane.add(scen2);
+			}
+		});
 		
 		JPanel situation_1 = new JPanel();
 		situation_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
