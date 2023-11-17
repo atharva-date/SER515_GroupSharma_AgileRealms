@@ -72,20 +72,22 @@ public class gamePlay extends JFrame {
 		contentPane.add(gameBar);
 		gameBar.setLayout(null);
 		
-		JLabel Contacticon = new JLabel("Contacticon");
-		Contacticon.setBounds(20, 10, 76, 66);
+		JLabel Contacticon = new JLabel("");
+		Contacticon.setHorizontalAlignment(SwingConstants.CENTER);
+		Contacticon.setBounds(10, 10, 76, 66);
 		gameBar.add(Contacticon);
 		Contacticon.setIcon(new ImageIcon(contact));
 		
-		JLabel Logicon = new JLabel("Logicon");
+		JLabel Logicon = new JLabel("");
+		Logicon.setHorizontalAlignment(SwingConstants.CENTER);
 //		Logicon.setForeground(new Color(254, 255, 255));
-		Logicon.setBounds(140, 10, 76, 66);
+		Logicon.setBounds(79, 10, 61, 66);
 		gameBar.add(Logicon);
 		Logicon.setIcon(new ImageIcon(log));
 		
 		//ProgressBar
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(896, 26, 240, 42);
+		progressBar.setBounds(783, 18, 367, 47);
 		gameBar.add(progressBar);
 		progressBar.setValue(0);
 		progressBar.setBackground(Color.GRAY);
@@ -94,14 +96,15 @@ public class gamePlay extends JFrame {
 		progressBar.setStringPainted(true);
 		
 		JLabel Sprint = new JLabel("Sprint 1");
-		Sprint.setBounds(1180, 36, 61, 20);
-		Sprint.setFont(new Font("Quill Sword", Font.BOLD, 22));
+		Sprint.setHorizontalAlignment(SwingConstants.CENTER);
+		Sprint.setBounds(1160, 10, 182, 66);
+		Sprint.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		Sprint.setForeground(new Color(254, 255, 255));
 		gameBar.add(Sprint);
 		
 		JLabel Role = new JLabel("SCRUM Master");
-		Role.setBounds(276, 26, 124, 42);
-		Role.setFont(new Font("Quill Sword", Font.BOLD, 22));
+		Role.setBounds(150, 18, 408, 55);
+		Role.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		Role.setForeground(new Color(0, 252, 255));
 		gameBar.add(Role);
 		timer = new Timer(1000, new ActionListener() {
@@ -146,21 +149,23 @@ public class gamePlay extends JFrame {
 		gameBody.add(res1);
 		
 		JLabel lblResult = new JLabel("Result:");
-		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblResult.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblResult.setForeground(new Color(192, 192, 192));
-		lblResult.setBounds(600, 62, 120, 43);
+		lblResult.setBounds(494, 10, 365, 75);
 		res1.add(lblResult);
 		
 		JButton btnNextScen2 = new JButton("Next Scenario");
-		btnNextScen2.setBounds(1000, 415, 160, 43);
-		btnNextScen2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNextScen2.setBounds(1000, 415, 231, 55);
+		btnNextScen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		res1.add(btnNextScen2);
 
 		
 		JLabel lblAnswer_Scen1 = new JLabel("");
+		lblAnswer_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer_Scen1.setForeground(new Color(192, 192, 192));
-		lblAnswer_Scen1.setBounds(150, 166, 1000, 326);
+		lblAnswer_Scen1.setBounds(78, 90, 1200, 326);
 		res1.add(lblAnswer_Scen1);
 		
 		JPanel situation = new JPanel();
@@ -184,8 +189,9 @@ public class gamePlay extends JFrame {
 		option1.setLayout(null);
 		
 		JButton btnBest_scen1 = new JButton("<html>You propose a format change in the Daily Scrum, introducing a quick round where each team member highlights the obstacles they are facing. This allows the team to collaboratively find solutions and ensures everyone is on the same page.</html>");
-		btnBest_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnBest_scen1.setVerticalAlignment(SwingConstants.TOP);
+		btnBest_scen1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnBest_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -196,7 +202,7 @@ public class gamePlay extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		btnBest_scen1.setBounds(64, 28, 565, 81);
+		btnBest_scen1.setBounds(10, 10, 657, 144);
 		option1.add(btnBest_scen1);
 		
 		JPanel option2 = new JPanel();
@@ -207,6 +213,7 @@ public class gamePlay extends JFrame {
 		option2.setLayout(null);
 		
 		JButton btnGood_scen1 = new JButton("<html>You organize a brief retrospective after a few Daily Scrums to gather feedback from the team. Based on their input, you make adjustments to the meeting structure, encouraging more open discussions about impediments.</html>");
+		btnGood_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnGood_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -217,9 +224,9 @@ public class gamePlay extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		btnGood_scen1.setBounds(26, 31, 557, 75);
-		btnGood_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnGood_scen1.setBounds(10, 10, 656, 144);
+		btnGood_scen1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option2.add(btnGood_scen1);
 		
 		JPanel option3 = new JPanel();
@@ -230,6 +237,7 @@ public class gamePlay extends JFrame {
 		option3.setLayout(null);
 		
 		JButton btnWorst_scen1 = new JButton("<html>Ignoring the signs of dissatisfaction, you continue with the existing Daily Scrum format, assuming that it's the team's responsibility to adapt. This results in ongoing disengagement, and team members become increasingly frustrated, impacting both morale and productivity.</html>");
+		btnWorst_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnWorst_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -240,9 +248,9 @@ public class gamePlay extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		btnWorst_scen1.setBounds(26, 24, 553, 65);
-		btnWorst_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnWorst_scen1.setBounds(10, 10, 656, 143);
+		btnWorst_scen1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option3.add(btnWorst_scen1);
 						
 		JPanel option4 = new JPanel();
@@ -253,6 +261,8 @@ public class gamePlay extends JFrame {
 		option4.setLayout(null);
 		
 		JButton btnBad_scen1 = new JButton("<html>Without consulting the team, you abruptly change the Daily Scrum format by adding detailed status updates for each team member. This unintentionally makes the meetings longer and more tedious, leading to decreased engagement.</html>");
+		btnBad_scen1.setVerticalAlignment(SwingConstants.TOP);
+		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBad_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -263,9 +273,8 @@ public class gamePlay extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		btnBad_scen1.setBounds(56, 23, 574, 71);
-		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnBad_scen1.setBounds(10, 10, 657, 144);
+		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option4.add(btnBad_scen1);
 						
 		
@@ -595,39 +604,45 @@ public class gamePlay extends JFrame {
 		contentPane.add(Footer);
 		
 		JLabel About = new JLabel("About");
+		About.setHorizontalAlignment(SwingConstants.CENTER);
 		About.setForeground(Color.WHITE);
 		About.setFont(new Font("Arial", Font.PLAIN, 13));
-		About.setBounds(297, 101, 33, 13);
+		About.setBounds(297, 101, 77, 13);
 		Footer.add(About);
 		
 		JLabel termsOfUse = new JLabel("Terms of Use");
+		termsOfUse.setHorizontalAlignment(SwingConstants.CENTER);
 		termsOfUse.setForeground(Color.WHITE);
 		termsOfUse.setFont(new Font("Arial", Font.PLAIN, 13));
-		termsOfUse.setBounds(442, 101, 84, 13);
+		termsOfUse.setBounds(425, 101, 129, 13);
 		Footer.add(termsOfUse);
 		
 		JLabel rulesOfPlay = new JLabel("Rules of Play");
+		rulesOfPlay.setHorizontalAlignment(SwingConstants.CENTER);
 		rulesOfPlay.setForeground(Color.WHITE);
 		rulesOfPlay.setFont(new Font("Arial", Font.PLAIN, 13));
-		rulesOfPlay.setBounds(638, 101, 77, 13);
+		rulesOfPlay.setBounds(593, 101, 163, 13);
 		Footer.add(rulesOfPlay);
 		
 		JLabel privacyPolicy = new JLabel("Privacy Policy");
+		privacyPolicy.setHorizontalAlignment(SwingConstants.CENTER);
 		privacyPolicy.setForeground(Color.WHITE);
 		privacyPolicy.setFont(new Font("Arial", Font.PLAIN, 13));
-		privacyPolicy.setBounds(824, 101, 84, 13);
+		privacyPolicy.setBounds(800, 101, 129, 13);
 		Footer.add(privacyPolicy);
 		
 		JLabel credits = new JLabel("Credits");
+		credits.setHorizontalAlignment(SwingConstants.CENTER);
 		credits.setForeground(Color.WHITE);
 		credits.setFont(new Font("Arial", Font.PLAIN, 13));
-		credits.setBounds(998, 101, 41, 13);
+		credits.setBounds(990, 101, 77, 13);
 		Footer.add(credits);
 		
 		JLabel lblgroupS = new JLabel("©2023 Group Sharma LLC. All rights reserved.");
+		lblgroupS.setHorizontalAlignment(SwingConstants.CENTER);
 		lblgroupS.setForeground(Color.WHITE);
 		lblgroupS.setFont(new Font("Arial", Font.PLAIN, 13));
-		lblgroupS.setBounds(543, 136, 269, 13);
+		lblgroupS.setBounds(513, 136, 323, 13);
 		Footer.add(lblgroupS);
 		
 		JButton sendTop = new JButton("");
