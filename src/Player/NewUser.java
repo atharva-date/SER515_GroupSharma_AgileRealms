@@ -122,15 +122,12 @@ public class NewUser extends JFrame implements ActionListener {
 				
 				try {
 			        // Establish the database connection
-//					System.out.println("Hiiiiiiii");
 					try {
 					    Class.forName("com.mysql.jdbc.Driver");
-//					    System.out.println("uooooooooooo");
 					} catch (ClassNotFoundException e1) {
 					    e1.printStackTrace();
 					}
 					
-//					System.out.println("mmmmmmmmmmmmmmmm");
 			        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
 
 			        Statement stm = connection.createStatement();
