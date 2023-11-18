@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 import ProductOwner.UserStories;
 import ScrumMaster.SprintDuration;
+import ScrumMaster.gamePlay;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -351,7 +352,7 @@ public class Customizations extends JFrame {
 					dispose();							
 				}
 				else {
-					SprintDuration screen = new SprintDuration();
+					gamePlay screen = new gamePlay();
 					screen.setVisible(true);
 					dispose();
 				}
