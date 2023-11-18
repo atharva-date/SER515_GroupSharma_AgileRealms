@@ -112,17 +112,12 @@ public class NewUser extends JFrame implements ActionListener {
 		
 		button = new JButton("Sign In");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				Home screen = new Home();
-//				screen.setVisible(true);
-//				dispose();
-				
+			public void actionPerformed(ActionEvent e) {				
 				String userName = textField.getText();
 				String password = passwordField.getText();
 				
 				System.out.println("iiii " + userName + " " + password);
 				try {
-			        // Establish the database connection
 					try {
 					    Class.forName("com.mysql.jdbc.Driver");
 					} catch (ClassNotFoundException e1) {
@@ -167,7 +162,6 @@ public class NewUser extends JFrame implements ActionListener {
 		button_1 = new JButton("Register");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				layeredPane.removeAll();
 				layeredPane.add(createAccPanel);
 				layeredPane.repaint();
