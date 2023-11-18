@@ -34,3 +34,12 @@ Import database and its tables into MySQL WorkBench -
 4. In the first tab "Import from Disk" select the import option "Import from Dump Project Folder" and choose the database folder of your project as the path in the field.
 
 5. Proceed to the next tab "Import Progress" and press "Start Import". Make sure all tables are included within "Agile_Realms" database.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Help with reaching the Gameplay!
+1. After logging in, go to the customizations page.
+2. Make sure the selected role is "Scrum Master".
+3. Click on "Play Now".
+4. Gameplay has started now. (Depending on the scenario choose the best option that you feel.)
+5. Click on "Next Scenario" to proceed to the next situation. (3 scenarios have been implemented so far, so the next scenario button will not work after the 3rd scenario.)
+6. Refer to the demo incase theres an issue that has not been mentioned here.
