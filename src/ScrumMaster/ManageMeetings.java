@@ -44,9 +44,9 @@ public class ManageMeetings extends JFrame {
 	private JTextField txtName_3;
 	private JTextField txtName_4;
 	private JTextField txtAgendaForThe;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtName_5;
+	private JTextField txtLocation;
+	private JTextField txtMmddyyyy;
 	private JTextField textField_3;
 
 	/**
@@ -230,14 +230,14 @@ public class ManageMeetings extends JFrame {
 		txtrAgenda_1.setBounds(6, 152, 64, 16);
 		panel.add(txtrAgenda_1);
 		
-		textField = new JTextField();
-		textField.setText("Name 1");
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setForeground(Color.WHITE);
-		textField.setColumns(10);
-		textField.setBackground(Color.BLACK);
-		textField.setBounds(67, 152, 319, 26);
-		panel.add(textField);
+		txtName_5 = new JTextField();
+		txtName_5.setText("Name");
+		txtName_5.setHorizontalAlignment(SwingConstants.CENTER);
+		txtName_5.setForeground(Color.WHITE);
+		txtName_5.setColumns(10);
+		txtName_5.setBackground(Color.BLACK);
+		txtName_5.setBounds(67, 152, 319, 26);
+		panel.add(txtName_5);
 		
 		JTextArea txtrAgenda_1_1 = new JTextArea();
 		txtrAgenda_1_1.setText("Venue :");
@@ -255,23 +255,23 @@ public class ManageMeetings extends JFrame {
 		txtrAgenda_1_2.setBounds(6, 233, 64, 16);
 		panel.add(txtrAgenda_1_2);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("Name 1");
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setForeground(Color.WHITE);
-		textField_1.setColumns(10);
-		textField_1.setBackground(Color.BLACK);
-		textField_1.setBounds(67, 190, 319, 26);
-		panel.add(textField_1);
+		txtLocation = new JTextField();
+		txtLocation.setText("Location");
+		txtLocation.setHorizontalAlignment(SwingConstants.CENTER);
+		txtLocation.setForeground(Color.WHITE);
+		txtLocation.setColumns(10);
+		txtLocation.setBackground(Color.BLACK);
+		txtLocation.setBounds(67, 190, 319, 26);
+		panel.add(txtLocation);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("Name 1");
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setForeground(Color.WHITE);
-		textField_2.setColumns(10);
-		textField_2.setBackground(Color.BLACK);
-		textField_2.setBounds(67, 233, 319, 26);
-		panel.add(textField_2);
+		txtMmddyyyy = new JTextField();
+		txtMmddyyyy.setText("mm/dd/yyyy");
+		txtMmddyyyy.setHorizontalAlignment(SwingConstants.CENTER);
+		txtMmddyyyy.setForeground(Color.WHITE);
+		txtMmddyyyy.setColumns(10);
+		txtMmddyyyy.setBackground(Color.BLACK);
+		txtMmddyyyy.setBounds(67, 233, 319, 26);
+		panel.add(txtMmddyyyy);
 		
 		JTextArea txtrAgenda_1_2_1 = new JTextArea();
 		txtrAgenda_1_2_1.setText("Time :");
@@ -282,7 +282,6 @@ public class ManageMeetings extends JFrame {
 		panel.add(txtrAgenda_1_2_1);
 		
 		textField_3 = new JTextField();
-		textField_3.setText("Name 1");
 		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_3.setForeground(Color.WHITE);
 		textField_3.setColumns(10);
