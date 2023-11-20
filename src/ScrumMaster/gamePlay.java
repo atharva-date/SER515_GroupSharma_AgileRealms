@@ -62,6 +62,8 @@ public class gamePlay extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		Image contact = new ImageIcon(this.getClass().getResource("/images/contact.png")).getImage();
+		Image log = new ImageIcon(this.getClass().getResource("/images/book.png")).getImage();
 		
 		JPanel gameBar = new JPanel();
 		gameBar.setBorder(new LineBorder(new Color(128, 128, 128)));
@@ -70,15 +72,41 @@ public class gamePlay extends JFrame {
 		contentPane.add(gameBar);
 		gameBar.setLayout(null);
 		
+		JLabel Contacticon = new JLabel("");
+		Contacticon.setHorizontalAlignment(SwingConstants.CENTER);
+		Contacticon.setBounds(10, 10, 76, 66);
+		gameBar.add(Contacticon);
+		Contacticon.setIcon(new ImageIcon(contact));
+		
+		JLabel Logicon = new JLabel("");
+		Logicon.setHorizontalAlignment(SwingConstants.CENTER);
+//		Logicon.setForeground(new Color(254, 255, 255));
+		Logicon.setBounds(79, 10, 61, 66);
+		gameBar.add(Logicon);
+		Logicon.setIcon(new ImageIcon(log));
+		
 		//ProgressBar
 		JProgressBar progressBar = new JProgressBar();
+		progressBar.setBounds(783, 18, 367, 47);
 		gameBar.add(progressBar);
 		progressBar.setValue(0);
-		progressBar.setBounds(900, 10, 240, 60);
 		progressBar.setBackground(Color.GRAY);
 		progressBar.setForeground(new Color(254, 255, 255));
-		progressBar.setFont(new Font("Quill Sword", Font.PLAIN, 20));
+		progressBar.setFont(new Font("Quill Sword", Font.PLAIN, 8));
 		progressBar.setStringPainted(true);
+		
+		JLabel Sprint = new JLabel("Sprint 1");
+		Sprint.setHorizontalAlignment(SwingConstants.CENTER);
+		Sprint.setBounds(1160, 10, 182, 66);
+		Sprint.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		Sprint.setForeground(new Color(254, 255, 255));
+		gameBar.add(Sprint);
+		
+		JLabel Role = new JLabel("SCRUM Master");
+		Role.setBounds(150, 18, 408, 55);
+		Role.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		Role.setForeground(new Color(0, 252, 255));
+		gameBar.add(Role);
 		timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	if (progressValue <= 100) {
@@ -106,9 +134,39 @@ public class gamePlay extends JFrame {
 		gameBody.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
+		
+		//Scenario 1 starts
 		JPanel scen1 = new JPanel();
 		layeredPane.add(scen1, "name_604559671835300");
 		scen1.setLayout(null);
+		
+		JPanel res1 = new JPanel();
+		res1.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res1.setLayout(null);
+		res1.setForeground(Color.BLACK);
+		res1.setBackground(Color.BLACK);
+		res1.setBounds(0, 0, 1352, 501);
+		gameBody.add(res1);
+		
+		JLabel lblResult1 = new JLabel("Result:");
+		lblResult1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResult1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResult1.setForeground(new Color(192, 192, 192));
+		lblResult1.setBounds(494, 10, 365, 75);
+		res1.add(lblResult1);
+		
+		JButton btnNextScen2 = new JButton("Next Scenario");
+		btnNextScen2.setBounds(1000, 415, 231, 55);
+		btnNextScen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		res1.add(btnNextScen2);
+
+		
+		JLabel lblAnswer_Scen1 = new JLabel("");
+		lblAnswer_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblAnswer_Scen1.setForeground(new Color(192, 192, 192));
+		lblAnswer_Scen1.setBounds(78, 90, 1200, 326);
+		res1.add(lblAnswer_Scen1);
 		
 		JPanel situation = new JPanel();
 		situation.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -131,13 +189,20 @@ public class gamePlay extends JFrame {
 		option1.setLayout(null);
 		
 		JButton btnBest_scen1 = new JButton("<html>You propose a format change in the Daily Scrum, introducing a quick round where each team member highlights the obstacles they are facing. This allows the team to collaboratively find solutions and ensures everyone is on the same page.</html>");
-		btnBest_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnBest_scen1.setVerticalAlignment(SwingConstants.TOP);
+		btnBest_scen1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnBest_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html><center>Well done!!</center>"
+						+ "<br>The impromptu meeting helps the team collaboratively address the technical challenge, fostering a sense of unity. The project stays on track, and the team appreciates your quick response."
+						+ "<br><br><center>Points: +4</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
-		btnBest_scen1.setBounds(64, 28, 565, 81);
+		btnBest_scen1.setBounds(10, 10, 657, 144);
 		option1.add(btnBest_scen1);
 		
 		JPanel option2 = new JPanel();
@@ -148,13 +213,20 @@ public class gamePlay extends JFrame {
 		option2.setLayout(null);
 		
 		JButton btnGood_scen1 = new JButton("<html>You organize a brief retrospective after a few Daily Scrums to gather feedback from the team. Based on their input, you make adjustments to the meeting structure, encouraging more open discussions about impediments.</html>");
+		btnGood_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnGood_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html><center>Good effort!!</center>"
+						+ "<br>While the issue is eventually resolved, the delay in addressing it impacts the team's morale slightly. Some team members feel the urgency could have been better communicated."
+						+ "<br><br><center>Points: +3</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
-		btnGood_scen1.setBounds(26, 31, 557, 75);
-		btnGood_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnGood_scen1.setBounds(10, 10, 656, 144);
+		btnGood_scen1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option2.add(btnGood_scen1);
 		
 		JPanel option3 = new JPanel();
@@ -165,15 +237,22 @@ public class gamePlay extends JFrame {
 		option3.setLayout(null);
 		
 		JButton btnWorst_scen1 = new JButton("<html>Ignoring the signs of dissatisfaction, you continue with the existing Daily Scrum format, assuming that it's the team's responsibility to adapt. This results in ongoing disengagement, and team members become increasingly frustrated, impacting both morale and productivity.</html>");
+		btnWorst_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnWorst_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html><center>Misstep!!</center>"
+						+ "<br>Panic spreads among team members, causing a breakdown in communication. The technical challenge remains unaddressed for an extended period, significantly delaying the project. The team's trust in your leadership is eroded."
+						+ "<br><br><center>Points: +1</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
-		btnWorst_scen1.setBounds(26, 24, 553, 65);
-		btnWorst_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnWorst_scen1.setBounds(10, 10, 656, 143);
+		btnWorst_scen1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option3.add(btnWorst_scen1);
-		
+						
 		JPanel option4 = new JPanel();
 		option4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4.setBackground(new Color(0, 0, 0));
@@ -182,83 +261,326 @@ public class gamePlay extends JFrame {
 		option4.setLayout(null);
 		
 		JButton btnBad_scen1 = new JButton("<html>Without consulting the team, you abruptly change the Daily Scrum format by adding detailed status updates for each team member. This unintentionally makes the meetings longer and more tedious, leading to decreased engagement.</html>");
+		btnBad_scen1.setVerticalAlignment(SwingConstants.TOP);
+		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBad_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen1.setText("<html><center>Critical oversight!!</center>"
+						+ "<br>Miscommunication leads to confusion among team members, resulting in a delay in addressing the technical challenge. The impact is felt in a slight setback in the project timeline."
+						+ "<br><br><center>Points: +2</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
 			}
 		});
-		btnBad_scen1.setBounds(56, 23, 574, 71);
-		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEADING);
-		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnBad_scen1.setBounds(10, 10, 657, 144);
+		btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option4.add(btnBad_scen1);
+						
 		
+		//Scenario 2 starts
 		JPanel scen2 = new JPanel();
 		layeredPane.add(scen2, "name_604613468509000");
 		scen2.setLayout(null);
+
+		btnNextScen2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				res1.removeAll();
+				layeredPane.repaint();
+				layeredPane.revalidate();
+				layeredPane.add(scen2);
+			}
+		});
+		
+		//Result 2
+		JPanel res2 = new JPanel();
+		res2.setLayout(null);
+		res2.setForeground(Color.BLACK);
+		res2.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res2.setBackground(Color.BLACK);
+		res2.setBounds(0, 0, 1352, 501);
+		gameBody.add(res2);
+		
+		JLabel lblResult2 = new JLabel("Result:");
+		lblResult2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResult2.setForeground(Color.LIGHT_GRAY);
+		lblResult2.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResult2.setBounds(494, 10, 365, 75);
+		res2.add(lblResult2);
+		
+		JButton btnNextScen3 = new JButton("Next Scenario");
+		btnNextScen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNextScen3.setBounds(1000, 415, 231, 55);
+		res2.add(btnNextScen3);
+		
+		JLabel lblAnswer_Scen2 = new JLabel("");
+		lblAnswer_Scen2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnswer_Scen2.setForeground(Color.LIGHT_GRAY);
+		lblAnswer_Scen2.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblAnswer_Scen2.setBounds(78, 90, 1200, 326);
+		res2.add(lblAnswer_Scen2);
 		
 		JPanel situation_1 = new JPanel();
 		situation_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		situation_1.setBackground(Color.GRAY);
 		situation_1.setBounds(0, 0, 1352, 173);
 		scen2.add(situation_1);
+		situation_1.setLayout(null);
+		
+		JLabel SM_ProjectProgress = new JLabel("<html>In the midst of a complex software development project, you, as the Scrum Master, recognize the need to keep stakeholders well-informed about the team's progress. The stakeholders, including executives, clients, and decision-makers, eagerly anticipate your regular updates. You've scheduled a stakeholder education session for today to discuss the project's current status, showcase recent accomplishments, and address any concerns they might have.</html>");
+		SM_ProjectProgress.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		SM_ProjectProgress.setForeground(new Color(255, 255, 255));
+		SM_ProjectProgress.setBounds(16, 10, 1326, 156);
+		situation_1.add(SM_ProjectProgress);
 		
 		JPanel option1_1 = new JPanel();
 		option1_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option1_1.setBackground(Color.BLACK);
 		option1_1.setBounds(0, 173, 677, 164);
 		scen2.add(option1_1);
+		option1_1.setLayout(null);
+		
+		JButton btnBest_scen2 = new JButton("<html>You meticulously prepare a comprehensive presentation that covers the project's progress, major milestones, and upcoming plans. You incorporate interactive elements, such as a live demonstration of the latest features, to keep stakeholders engaged. You actively encourage questions and discussions throughout the session.</html>");
+		btnBest_scen2.setVerticalAlignment(SwingConstants.TOP);
+		btnBest_scen2.setBounds(10, 10, 657, 144);
+		option1_1.add(btnBest_scen2);
+		btnBest_scen2.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBest_scen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnBest_scen2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen2.setText("<html><center>Well done!!</center>"
+						+ "<br>Stakeholders leave the session feeling well-informed and confident in the team's progress, fostering trust and collaboration."
+						+ "<br><br><center>Points: +4</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
 		
 		JPanel option2_1 = new JPanel();
 		option2_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option2_1.setBackground(Color.BLACK);
 		option2_1.setBounds(676, 173, 676, 164);
 		scen2.add(option2_1);
+		option2_1.setLayout(null);
+		
+		JButton btnWorst_scen2 = new JButton("<html>Feeling pressured by time constraints, you decide to streamline the presentation, omitting some of the key metrics and interactive elements. While you still provide an overview of the project, stakeholders may feel slightly uninformed and miss out on crucial details.</html>");
+		btnWorst_scen2.setVerticalAlignment(SwingConstants.TOP);
+		btnWorst_scen2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen2.setText("<html><center>Misstep!!</center>"
+						+ "<br>Stakeholders receive a high-level overview, leaving some questions unanswered. This may result in a sense of partial understanding and potentially cause some stakeholders to seek additional clarifications."
+						+ "<br><br><center>Points: +1</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnWorst_scen2.setBounds(10, 10, 656, 143);
+		btnWorst_scen2.setHorizontalAlignment(SwingConstants.LEFT);
+		btnWorst_scen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option2_1.add(btnWorst_scen2);
 		
 		JPanel option3_1 = new JPanel();
 		option3_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option3_1.setBackground(Color.BLACK);
 		option3_1.setBounds(0, 337, 677, 164);
 		scen2.add(option3_1);
+		option3_1.setLayout(null);
+		
+		JButton btnBad_scen2 = new JButton("<html>Recognizing that you haven't gathered all the necessary metrics and updates, you decide to delay the detailed presentation to a later date. You opt to provide a brief high-level overview today and promise a more in-depth session in the near future. This may leave stakeholders with some lingering uncertainties.</html>");
+		btnBad_scen2.setVerticalAlignment(SwingConstants.TOP);
+		btnBad_scen2.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBad_scen2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen2.setText("<html><center>Critical oversight!!</center>"
+						+ "<br>Delaying the detailed presentation might cause a bit of anxiety among stakeholders who were anticipating more comprehensive insights. Trust may be mildly impacted due to the delay, but the promise of a future detailed session helps mitigate concerns."
+						+ "<br><br><center>Points: +2</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBad_scen2.setBounds(10, 10, 657, 144);
+		btnBad_scen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option3_1.add(btnBad_scen2);
 		
 		JPanel option4_1 = new JPanel();
 		option4_1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4_1.setBackground(Color.BLACK);
 		option4_1.setBounds(676, 338, 676, 163);
-		scen2.add(option4_1);
+		scen2.add(option4_1);		
+		option4_1.setLayout(null);
 		
+		JButton btnGood_scen2 = new JButton("<html>Understanding the time constraints of stakeholders, you focus on highlighting the most significant achievements and progress. You provide a condensed overview of completed user stories, emphasizing improvements in team velocity. Towards the end, you allocate time for a brief Q&A session to address specific concerns.</html>");
+		btnGood_scen2.setVerticalAlignment(SwingConstants.TOP);
+		btnGood_scen2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen2.setText("<html><center>Good effort!!</center>"
+						+ "<br>Stakeholders gain a solid understanding of key achievements, but some may express a desire for more detailed information. Overall, they appreciate the effort to keep them in the loop."
+						+ "<br><br><center>Points: +3</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnGood_scen2.setBounds(10, 10, 656, 144);
+		btnGood_scen2.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGood_scen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option4_1.add(btnGood_scen2);
+		
+		//Scenario 3		
 		JPanel scen3 = new JPanel();
 		layeredPane.add(scen3, "name_604626520416300");
 		scen3.setLayout(null);
 		
+		btnNextScen3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				res2.removeAll();
+				layeredPane.repaint();
+				layeredPane.revalidate();
+				layeredPane.add(scen3);
+			}
+		});
+		
+		JPanel res3 = new JPanel();
+		res3.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res3.setLayout(null);
+		res3.setForeground(Color.BLACK);
+		res3.setBackground(Color.BLACK);
+		res3.setBounds(0, 0, 1352, 501);
+		gameBody.add(res3);
+		
+		JLabel lblResult3 = new JLabel("Result:");
+		lblResult3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResult3.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResult3.setForeground(new Color(192, 192, 192));
+		lblResult3.setBounds(494, 10, 365, 75);
+		res3.add(lblResult3);
+		
+		JButton btnNextScen4 = new JButton("Next Scenario");
+		btnNextScen4.setBounds(1000, 415, 231, 55);
+		btnNextScen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		res3.add(btnNextScen4);
+		
+		JLabel lblAnswer_Scen3 = new JLabel("");
+		lblAnswer_Scen3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnswer_Scen3.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblAnswer_Scen3.setForeground(new Color(192, 192, 192));
+		lblAnswer_Scen3.setBounds(78, 90, 1200, 326);
+		res3.add(lblAnswer_Scen3);
+
 		JPanel situation_2 = new JPanel();
 		situation_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		situation_2.setBackground(Color.GRAY);
 		situation_2.setBounds(0, 0, 1352, 173);
 		scen3.add(situation_2);
+		situation_2.setLayout(null);
+		
+		JLabel SM_UnforeseenTechnicalHurdle = new JLabel("<html>You, as the Scrum Master, have been diligently working to ensure the timely completion of sprint tasks. The team is progressing well, and everyone seems focused. However, a few days before the deadline, a team member discovers a critical technical issue that could potentially delay the completion of a key user story.</html>");
+		SM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		SM_UnforeseenTechnicalHurdle.setForeground(new Color(255, 255, 255));
+		SM_UnforeseenTechnicalHurdle.setBounds(66, 11, 1179, 151);
+		situation_2.add(SM_UnforeseenTechnicalHurdle);
 		
 		JPanel option1_2 = new JPanel();
 		option1_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option1_2.setBackground(Color.BLACK);
 		option1_2.setBounds(0, 173, 677, 164);
 		scen3.add(option1_2);
+		option1_2.setLayout(null);
+		
+		JButton btnBest_scen3 = new JButton("<html>Collaborate with the team to assess and address a technical issue, maintain transparency with the Product Owner, and prioritize trust, resulting in a minor delay with preserved morale.</html>");
+		btnBest_scen3.setVerticalAlignment(SwingConstants.TOP);
+		btnBest_scen3.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBest_scen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnBest_scen3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen3.setText("<html><center>Well done!!</center>"
+						+ "<br>A slight timeline extension with maintained team morale and trust, achieved through collaborative problem-solving and transparent communication."
+						+ "<br><br><center>Points: +4</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBest_scen3.setBounds(10, 10, 657, 144);
+		option1_2.add(btnBest_scen3);
+
 		
 		JPanel option2_2 = new JPanel();
 		option2_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option2_2.setBackground(Color.BLACK);
 		option2_2.setBounds(676, 173, 676, 164);
 		scen3.add(option2_2);
+		option2_2.setLayout(null);
+		
+		JButton btnGood_scen3 = new JButton("<html>Independently investigate, consult team experts, and keep the Product Owner informed, taking a proactive approach to minimize project impact.</html>");
+		btnGood_scen3.setVerticalAlignment(SwingConstants.TOP);
+		btnGood_scen3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen3.setText("<html><center>Good effort!!</center>"
+						+ "<br>Proactive management of a technical challenge, ensuring minimal project impact through comprehensive investigation and informed stakeholders."
+						+ "<br><br><center>Points: +3</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnGood_scen3.setBounds(10, 10, 656, 144);
+		btnGood_scen3.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGood_scen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option2_2.add(btnGood_scen3);
 		
 		JPanel option3_2 = new JPanel();
 		option3_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option3_2.setBackground(Color.BLACK);
 		option3_2.setBounds(0, 337, 677, 164);
 		scen3.add(option3_2);
+		option3_2.setLayout(null);
+		
+		JButton btnWorst_scen3 = new JButton("<html>Ignore the issue, withhold information, and proceed as usual, leading to last-minute discovery, significant setbacks, and severe damage to team trust.</html>");
+		btnWorst_scen3.setVerticalAlignment(SwingConstants.TOP);
+		btnWorst_scen3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen3.setText("<html><center>Misstep!!</center>"
+						+ "<br>Last-minute issue revelation, substantial setbacks, and a severe erosion of team trust, highlighting the critical importance of timely communication and collaboration."
+						+ "<br><br><center>Points: +2</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnWorst_scen3.setBounds(10, 10, 656, 143);
+		btnWorst_scen3.setHorizontalAlignment(SwingConstants.LEFT);
+		btnWorst_scen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option3_2.add(btnWorst_scen3);
 		
 		JPanel option4_2 = new JPanel();
 		option4_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4_2.setBackground(Color.BLACK);
 		option4_2.setBounds(676, 338, 676, 163);
 		scen3.add(option4_2);
+		option4_2.setLayout(null);
 		
+		JButton btnBad_scen3 = new JButton("<html>Downplay the issue, solve it solo, and delay informing the Product Owner, causing frustration and a moderate project delay.</html>");
+		btnBad_scen3.setVerticalAlignment(SwingConstants.TOP);
+		btnBad_scen3.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBad_scen3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen3.setText("<html><center>Critical oversight!!</center>"
+						+ "<br>Moderate project delay and team frustration resulting from a lack of transparency regarding a technical issue."
+						+ "<br><br><center>Points: +1</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBad_scen3.setBounds(10, 10, 657, 144);
+		btnBad_scen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option4_2.add(btnBad_scen3);
+		
+		//Scenario 4 starts
 		JPanel scen4 = new JPanel();
 		layeredPane.add(scen4, "name_604628558611100");
 		scen4.setLayout(null);
@@ -507,39 +829,45 @@ public class gamePlay extends JFrame {
 		contentPane.add(Footer);
 		
 		JLabel About = new JLabel("About");
+		About.setHorizontalAlignment(SwingConstants.CENTER);
 		About.setForeground(Color.WHITE);
 		About.setFont(new Font("Arial", Font.PLAIN, 13));
-		About.setBounds(297, 101, 33, 13);
+		About.setBounds(297, 101, 77, 13);
 		Footer.add(About);
 		
 		JLabel termsOfUse = new JLabel("Terms of Use");
+		termsOfUse.setHorizontalAlignment(SwingConstants.CENTER);
 		termsOfUse.setForeground(Color.WHITE);
 		termsOfUse.setFont(new Font("Arial", Font.PLAIN, 13));
-		termsOfUse.setBounds(442, 101, 84, 13);
+		termsOfUse.setBounds(425, 101, 129, 13);
 		Footer.add(termsOfUse);
 		
 		JLabel rulesOfPlay = new JLabel("Rules of Play");
+		rulesOfPlay.setHorizontalAlignment(SwingConstants.CENTER);
 		rulesOfPlay.setForeground(Color.WHITE);
 		rulesOfPlay.setFont(new Font("Arial", Font.PLAIN, 13));
-		rulesOfPlay.setBounds(638, 101, 77, 13);
+		rulesOfPlay.setBounds(593, 101, 163, 13);
 		Footer.add(rulesOfPlay);
 		
 		JLabel privacyPolicy = new JLabel("Privacy Policy");
+		privacyPolicy.setHorizontalAlignment(SwingConstants.CENTER);
 		privacyPolicy.setForeground(Color.WHITE);
 		privacyPolicy.setFont(new Font("Arial", Font.PLAIN, 13));
-		privacyPolicy.setBounds(824, 101, 84, 13);
+		privacyPolicy.setBounds(800, 101, 129, 13);
 		Footer.add(privacyPolicy);
 		
 		JLabel credits = new JLabel("Credits");
+		credits.setHorizontalAlignment(SwingConstants.CENTER);
 		credits.setForeground(Color.WHITE);
 		credits.setFont(new Font("Arial", Font.PLAIN, 13));
-		credits.setBounds(998, 101, 41, 13);
+		credits.setBounds(990, 101, 77, 13);
 		Footer.add(credits);
 		
 		JLabel lblgroupS = new JLabel("©2023 Group Sharma LLC. All rights reserved.");
+		lblgroupS.setHorizontalAlignment(SwingConstants.CENTER);
 		lblgroupS.setForeground(Color.WHITE);
 		lblgroupS.setFont(new Font("Arial", Font.PLAIN, 13));
-		lblgroupS.setBounds(543, 136, 269, 13);
+		lblgroupS.setBounds(513, 136, 323, 13);
 		Footer.add(lblgroupS);
 		
 		JButton sendTop = new JButton("");

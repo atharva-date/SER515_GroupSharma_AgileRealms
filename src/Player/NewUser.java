@@ -32,7 +32,7 @@ public class NewUser extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane, createAccPanel, loginPanel;
-	private JPasswordField passwordField;
+	private JTextField passwordField;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -106,31 +106,24 @@ public class NewUser extends JFrame implements ActionListener {
 		lblNewLabel_6.setFont(QuillSwordB2);
 		loginPanel.add(lblNewLabel_6);
 		
-		passwordField = new JPasswordField();
+		passwordField = new JTextField();
 		passwordField.setBounds(104, 286, 315, 34);
 		loginPanel.add(passwordField);
 		
 		button = new JButton("Sign In");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				Home screen = new Home();
-//				screen.setVisible(true);
-//				dispose();
-				
+			public void actionPerformed(ActionEvent e) {				
 				String userName = textField.getText();
-				char[] password = passwordField.getPassword();
+				String password = passwordField.getText();
 				
+				System.out.println("iiii " + userName + " " + password);
 				try {
-			        // Establish the database connection
-//					System.out.println("Hiiiiiiii");
 					try {
 					    Class.forName("com.mysql.jdbc.Driver");
-//					    System.out.println("uooooooooooo");
 					} catch (ClassNotFoundException e1) {
 					    e1.printStackTrace();
 					}
 					
-//					System.out.println("mmmmmmmmmmmmmmmm");
 			        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
 
 			        Statement stm = connection.createStatement();
@@ -169,7 +162,6 @@ public class NewUser extends JFrame implements ActionListener {
 		button_1 = new JButton("Register");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				layeredPane.removeAll();
 				layeredPane.add(createAccPanel);
 				layeredPane.repaint();
@@ -243,7 +235,7 @@ public class NewUser extends JFrame implements ActionListener {
 		lblNewLabel_1.setFont(QuillSwordB2);
 		createAccPanel.add(lblNewLabel_1);
 		
-		passwordField = new JPasswordField();
+		passwordField = new JTextField();
 		passwordField.setBounds(104, 415, 315, 34);
 		createAccPanel.add(passwordField);
 		
@@ -253,7 +245,7 @@ public class NewUser extends JFrame implements ActionListener {
 				String firstName = textField_2.getText();
 				String lastName = textField_1.getText();
 				String userName = textField.getText();
-                char[] password = passwordField.getPassword();
+                String password = passwordField.getText();
                 
                 String msg = "" + firstName;
                 msg += " \n";
