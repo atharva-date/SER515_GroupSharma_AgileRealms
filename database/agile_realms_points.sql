@@ -16,27 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `points`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `points`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `first_name` varchar(250) NOT NULL,
-  `last_name` varchar(250) NOT NULL,
-  `user_name` varchar(250) NOT NULL,
-  `password` varchar(250) DEFAULT NULL
+CREATE TABLE `points` (
+  `p_id` int NOT NULL,
+  `rating` varchar(10) DEFAULT NULL,
+  `marks` int DEFAULT NULL,
+  `remark` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `points`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `points` WRITE;
+/*!40000 ALTER TABLE `points` DISABLE KEYS */;
+INSERT INTO `points` VALUES (1,'worst',1,'Misstep!!'),(2,'bad',2,'Critical Overstep!!'),(3,'good',3,'Good effort!!'),(4,'best',4,'Well done!!');
+/*!40000 ALTER TABLE `points` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
