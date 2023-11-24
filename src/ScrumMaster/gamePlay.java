@@ -716,35 +716,152 @@ public class gamePlay extends JFrame {
 		layeredPane.add(scen4, "name_604628558611100");
 		scen4.setLayout(null);
 		
+		btnNextScen4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				res3.removeAll();
+				layeredPane.repaint();
+				layeredPane.revalidate();
+				layeredPane.add(scen4);
+			}
+		});
+		
+		//Result 4
+		JPanel res4 = new JPanel();
+		res4.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res4.setForeground(Color.BLACK);
+		res4.setBackground(Color.BLACK);
+		res4.setBounds(0, 0, 1352, 501);
+		gameBody.add(res4);
+		res4.setLayout(null);
+		
+		JLabel lblResult4 = new JLabel("Result:");
+		lblResult4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResult4.setForeground(Color.LIGHT_GRAY);
+		lblResult4.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResult4.setBounds(494, 10, 365, 75);
+		res4.add(lblResult4);
+		
+		JButton btnNextScen5 = new JButton("Next Scenario");
+		btnNextScen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNextScen5.setBounds(1000, 415, 231, 55);
+		res4.add(btnNextScen5);
+		
+		JLabel lblAnswer_Scen4 = new JLabel("");
+		lblAnswer_Scen4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnswer_Scen4.setForeground(Color.LIGHT_GRAY);
+		lblAnswer_Scen4.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblAnswer_Scen4.setBounds(78, 90, 1200, 326);
+		res4.add(lblAnswer_Scen4);
+		
+		
 		JPanel situation_3 = new JPanel();
 		situation_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		situation_3.setBackground(Color.GRAY);
 		situation_3.setBounds(0, 0, 1352, 173);
 		scen4.add(situation_3);
+		situation_3.setLayout(null);
+		
+		JLabel SM_GatherStakeHolderFeedback = new JLabel("<html>As the Scrum Master for a dynamic software development team, you understand the importance of actively seeking and incorporating stakeholder feedback. Your team has recently delivered a sprint increment, and it's time to gather insights from stakeholders, including clients, end-users, and business representatives. You schedule a feedback session to discuss the latest features and enhancements with the stakeholders. The goal is to collect valuable input that can guide the team's future work and ensure alignment with stakeholders' expectations.</html>");
+		SM_GatherStakeHolderFeedback.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		SM_GatherStakeHolderFeedback.setForeground(new Color(255, 255, 255));
+		SM_GatherStakeHolderFeedback.setBounds(66, 11, 1179, 151);
+		situation_3.add(SM_GatherStakeHolderFeedback);
 		
 		JPanel option1_3 = new JPanel();
 		option1_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option1_3.setBackground(Color.BLACK);
 		option1_3.setBounds(0, 173, 677, 164);
 		scen4.add(option1_3);
+		option1_3.setLayout(null);
+		
+		JButton btnWorst_scen4 = new JButton("<html>Feeling pressed for time, you conduct a brief feedback session with minimal preparation. You touch on a few features without delving into comprehensive discussions. Stakeholders provide feedback, but the session lacks depth, potentially leaving some important insights undiscovered.</html>");
+		btnWorst_scen4.setVerticalAlignment(SwingConstants.TOP);
+		btnWorst_scen4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen4.setText("<html><center>Misstep!!</center>"
+						+ "<br>While feedback is collected, stakeholders may feel that their opinions were not thoroughly explored. This could lead to missed opportunities for improvement and potentially create a sense of unmet expectations."
+						+ "<br><br><center>Points: +2</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnWorst_scen4.setBounds(10, 10, 656, 143);
+		btnWorst_scen4.setHorizontalAlignment(SwingConstants.LEFT);
+		btnWorst_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option1_3.add(btnWorst_scen4);
 		
 		JPanel option2_3 = new JPanel();
 		option2_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option2_3.setBackground(Color.BLACK);
 		option2_3.setBounds(676, 173, 676, 164);
 		scen4.add(option2_3);
+		option2_3.setLayout(null);
+		
+		JButton btnBest_scen4 = new JButton("<html>You plan a well-structured feedback session, providing stakeholders with a clear agenda and context for each feature. You actively facilitate discussions, encouraging participants to share both positive aspects and areas for improvement. You take detailed notes and ensure that everyone's opinions are heard and valued.</html>");
+		btnBest_scen4.setVerticalAlignment(SwingConstants.TOP);
+		btnBest_scen4.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBest_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnBest_scen4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen4.setText("<html><center>Well done!!</center>"
+						+ "<br>Stakeholders appreciate the organized and inclusive feedback session, strengthening collaboration. The team gains valuable insights for refinement, and stakeholders feel heard and respected."
+						+ "<br><br><center>Points: +4</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBest_scen4.setBounds(10, 10, 657, 144);
+		option2_3.add(btnBest_scen4);
 		
 		JPanel option3_3 = new JPanel();
 		option3_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option3_3.setBackground(Color.BLACK);
 		option3_3.setBounds(0, 337, 677, 164);
 		scen4.add(option3_3);
+		option3_3.setLayout(null);
+		
+		JButton btnBad_scen4 = new JButton("<html>Recognizing a busy schedule, you delegate the responsibility of gathering feedback to a team member without providing clear guidelines. This option might result in uneven feedback collection, missing some critical perspectives and causing stakeholders to feel their input wasn't adequately valued.</html>");
+		btnBad_scen4.setVerticalAlignment(SwingConstants.TOP);
+		btnBad_scen4.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBad_scen4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen4.setText("<html><center>Critical oversight!!</center>"
+						+ "<br>Delegating the feedback collection without clear guidance may result in uneven feedback. Stakeholders may notice the lack of consistency and feel that their input wasn't given the attention it deserved, potentially affecting trust and collaboration."
+						+ "<br><br><center>Points: +1</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBad_scen4.setBounds(10, 10, 657, 144);
+		btnBad_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option3_3.add(btnBad_scen4);
 		
 		JPanel option4_3 = new JPanel();
 		option4_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4_3.setBackground(Color.BLACK);
 		option4_3.setBounds(676, 338, 676, 163);
 		scen4.add(option4_3);
+		option4_3.setLayout(null);
+		
+		JButton btnGood_scen4 = new JButton("<html>You initiate open-ended discussions, allowing stakeholders to express their thoughts freely. While you have a general agenda, you prioritize flexibility to explore unexpected feedback. You capture key points and concerns raised during the session, promoting an open and collaborative atmosphere.</html>");
+		btnGood_scen4.setVerticalAlignment(SwingConstants.TOP);
+		btnGood_scen4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen4.setText("<html><center>Good effort!!</center>"
+						+ "<br>The open-ended discussions foster a sense of collaboration, and stakeholders appreciate the flexibility. Some valuable insights may arise unexpectedly, contributing to a more comprehensive understanding of stakeholder needs."
+						+ "<br><br><center>Points: +3</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnGood_scen4.setBounds(10, 10, 656, 144);
+		btnGood_scen4.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGood_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option4_3.add(btnGood_scen4);
 		
 		JPanel scen5 = new JPanel();
 		layeredPane.add(scen5, "name_604630392724600");
