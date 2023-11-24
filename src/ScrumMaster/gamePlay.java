@@ -175,14 +175,14 @@ public class gamePlay extends JFrame {
 		lblAnswer_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer_Scen1.setForeground(new Color(192, 192, 192));
-		lblAnswer_Scen1.setBounds(45, 90, 1200, 326);
+		lblAnswer_Scen1.setBounds(45, 120, 1200, 326);
 		res1.add(lblAnswer_Scen1);
 		
 		JLabel lblPoints_Scen1 = new JLabel("");
 		lblPoints_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPoints_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblPoints_Scen1.setForeground(new Color(192, 192, 192));
-		lblPoints_Scen1.setBounds(78, 180, 1200, 326);
+		lblPoints_Scen1.setBounds(78, 200, 1200, 326);
 		res1.add(lblPoints_Scen1);
 		
 		
@@ -233,18 +233,10 @@ public class gamePlay extends JFrame {
 					
 					if(rs.next() && rs1.next() && rs2.next()) {
 						
-						String remark = rs.getString("remark");
-						String result = rs1.getString("best_result");
-						JLabel samp = new JLabel("Points: +");
-						samp.setFont(new Font("Tahoma", Font.PLAIN, 30));
-						samp.setForeground(new Color(192, 192, 192));
-						samp.setBounds(90, 180, 1200, 326);
-						String points = rs2.getString("marks");
 						layeredPane.removeAll();
-						lblAnswer_Scen1.setText(result);
-						lblRemark_Scen1.setText(remark);
-						lblPoints_Scen1.setText(points);
-						layeredPane.add(samp);
+						lblRemark_Scen1.setText(rs.getString("remark"));
+						lblAnswer_Scen1.setText("<html>" + rs1.getString("best_result") + "</html>");
+						lblPoints_Scen1.setText(rs2.getString("marks"));
 						layeredPane.repaint();
 						layeredPane.revalidate();
 					}
@@ -291,15 +283,10 @@ public class gamePlay extends JFrame {
 					
 					if(rs.next() && rs1.next() && rs2.next()) {
 						
-						String remark = rs.getString("remark");
-						String result = rs1.getString("good_result");
-						JLabel samp = new JLabel("Points: +");
-						String points = rs2.getString("marks");
 						layeredPane.removeAll();
-						lblAnswer_Scen1.setText(result);
-						lblRemark_Scen1.setText(remark);
-						lblPoints_Scen1.setText(points);
-						layeredPane.add(samp);
+						lblRemark_Scen1.setText(rs.getString("remark"));
+						lblAnswer_Scen1.setText("<html>" + rs1.getString("good_result") + "</html>");
+						lblPoints_Scen1.setText(rs2.getString("marks"));
 						layeredPane.repaint();
 						layeredPane.revalidate();
 					}
@@ -348,15 +335,10 @@ public class gamePlay extends JFrame {
 					
 					if(rs.next() && rs1.next() && rs2.next()) {
 						
-						String remark = rs.getString("remark");
-						String result = rs1.getString("worst_result");
-						JLabel samp = new JLabel("Points: +");
-						String points = rs2.getString("marks");
 						layeredPane.removeAll();
-						lblAnswer_Scen1.setText(result);
-						lblRemark_Scen1.setText(remark);
-						lblPoints_Scen1.setText(points);
-						layeredPane.add(samp);
+						lblRemark_Scen1.setText(rs.getString("remark"));
+						lblAnswer_Scen1.setText("<html>" + rs1.getString("worst_result") + "</html>");
+						lblPoints_Scen1.setText(rs2.getString("marks"));
 						layeredPane.repaint();
 						layeredPane.revalidate();
 					}
@@ -406,18 +388,10 @@ public class gamePlay extends JFrame {
 					
 					if(rs.next() && rs1.next() && rs2.next()) {
 						
-						String remark = rs.getString("remark");
-						String result = rs1.getString("bad_result");
-						JLabel samp = new JLabel("Points: +");
-						samp.setFont(new Font("Tahoma", Font.PLAIN, 30));
-						samp.setForeground(new Color(192, 192, 192));
-						samp.setBounds(90, 180, 1200, 326);
-						String points = rs2.getString("marks");
 						layeredPane.removeAll();
-						lblAnswer_Scen1.setText(result);
-						lblRemark_Scen1.setText(remark);
-						lblPoints_Scen1.setText(points);
-						layeredPane.add(samp);
+						lblRemark_Scen1.setText(rs.getString("remark"));
+						lblAnswer_Scen1.setText("<html>" + rs1.getString("bad_result") + "</html>");
+						lblPoints_Scen1.setText(rs2.getString("marks"));
 						layeredPane.repaint();
 						layeredPane.revalidate();
 					}
