@@ -7,6 +7,10 @@ import java.awt.Image;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -160,13 +164,27 @@ public class gamePlay extends JFrame {
 		btnNextScen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		res1.add(btnNextScen2);
 
+		JLabel lblRemark_Scen1 = new JLabel("");
+		lblRemark_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRemark_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblRemark_Scen1.setForeground(new Color(192, 192, 192));
+		lblRemark_Scen1.setBounds(72, 0, 1200, 326);
+		res1.add(lblRemark_Scen1);
 		
 		JLabel lblAnswer_Scen1 = new JLabel("");
 		lblAnswer_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer_Scen1.setForeground(new Color(192, 192, 192));
-		lblAnswer_Scen1.setBounds(78, 90, 1200, 326);
+		lblAnswer_Scen1.setBounds(45, 90, 1200, 326);
 		res1.add(lblAnswer_Scen1);
+		
+		JLabel lblPoints_Scen1 = new JLabel("");
+		lblPoints_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPoints_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblPoints_Scen1.setForeground(new Color(192, 192, 192));
+		lblPoints_Scen1.setBounds(78, 180, 1200, 326);
+		res1.add(lblPoints_Scen1);
+		
 		
 		JPanel situation = new JPanel();
 		situation.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -194,12 +212,49 @@ public class gamePlay extends JFrame {
 		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnBest_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html><center>Well done!!</center>"
-						+ "<br>The impromptu meeting helps the team collaboratively address the technical challenge, fostering a sense of unity. The project stays on track, and the team appreciates your quick response."
-						+ "<br><br><center>Points: +4</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 4";
+					ResultSet rs = st.executeQuery(sql);
+					
+					
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT best_result FROM results WHERE r_id = 1";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					
+					
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 4";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					
+					
+					if(rs.next() && rs1.next() && rs2.next()) {
+						
+						String remark = rs.getString("remark");
+						String result = rs1.getString("best_result");
+						JLabel samp = new JLabel("Points: +");
+						samp.setFont(new Font("Tahoma", Font.PLAIN, 30));
+						samp.setForeground(new Color(192, 192, 192));
+						samp.setBounds(90, 180, 1200, 326);
+						String points = rs2.getString("marks");
+						layeredPane.removeAll();
+						lblAnswer_Scen1.setText(result);
+						lblRemark_Scen1.setText(remark);
+						lblPoints_Scen1.setText(points);
+						layeredPane.add(samp);
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}	
 			}
 		});
 		btnBest_scen1.setBounds(10, 10, 657, 144);
@@ -216,12 +271,45 @@ public class gamePlay extends JFrame {
 		btnGood_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnGood_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html><center>Good effort!!</center>"
-						+ "<br>While the issue is eventually resolved, the delay in addressing it impacts the team's morale slightly. Some team members feel the urgency could have been better communicated."
-						+ "<br><br><center>Points: +3</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 3";
+					ResultSet rs = st.executeQuery(sql);
+					
+					
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT good_result FROM results WHERE r_id = 1";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					
+					
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 3";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					
+					if(rs.next() && rs1.next() && rs2.next()) {
+						
+						String remark = rs.getString("remark");
+						String result = rs1.getString("good_result");
+						JLabel samp = new JLabel("Points: +");
+						String points = rs2.getString("marks");
+						layeredPane.removeAll();
+						lblAnswer_Scen1.setText(result);
+						lblRemark_Scen1.setText(remark);
+						lblPoints_Scen1.setText(points);
+						layeredPane.add(samp);
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}
 			}
 		});
 		btnGood_scen1.setBounds(10, 10, 656, 144);
@@ -240,12 +328,45 @@ public class gamePlay extends JFrame {
 		btnWorst_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnWorst_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html><center>Misstep!!</center>"
-						+ "<br>Panic spreads among team members, causing a breakdown in communication. The technical challenge remains unaddressed for an extended period, significantly delaying the project. The team's trust in your leadership is eroded."
-						+ "<br><br><center>Points: +1</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 1";
+					ResultSet rs = st.executeQuery(sql);
+					
+					
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT worst_result FROM results WHERE r_id = 1";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					
+					
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 1";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					
+					if(rs.next() && rs1.next() && rs2.next()) {
+						
+						String remark = rs.getString("remark");
+						String result = rs1.getString("worst_result");
+						JLabel samp = new JLabel("Points: +");
+						String points = rs2.getString("marks");
+						layeredPane.removeAll();
+						lblAnswer_Scen1.setText(result);
+						lblRemark_Scen1.setText(remark);
+						lblPoints_Scen1.setText(points);
+						layeredPane.add(samp);
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}
 			}
 		});
 		btnWorst_scen1.setBounds(10, 10, 656, 143);
