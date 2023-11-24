@@ -386,12 +386,48 @@ public class gamePlay extends JFrame {
 		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBad_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen1.setText("<html><center>Critical oversight!!</center>"
-						+ "<br>Miscommunication leads to confusion among team members, resulting in a delay in addressing the technical challenge. The impact is felt in a slight setback in the project timeline."
-						+ "<br><br><center>Points: +2</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 2";
+					ResultSet rs = st.executeQuery(sql);
+					
+					
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT bad_result FROM results WHERE r_id = 1";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					
+					
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 2";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					
+					
+					if(rs.next() && rs1.next() && rs2.next()) {
+						
+						String remark = rs.getString("remark");
+						String result = rs1.getString("bad_result");
+						JLabel samp = new JLabel("Points: +");
+						samp.setFont(new Font("Tahoma", Font.PLAIN, 30));
+						samp.setForeground(new Color(192, 192, 192));
+						samp.setBounds(90, 180, 1200, 326);
+						String points = rs2.getString("marks");
+						layeredPane.removeAll();
+						lblAnswer_Scen1.setText(result);
+						lblRemark_Scen1.setText(remark);
+						lblPoints_Scen1.setText(points);
+						layeredPane.add(samp);
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}
 			}
 		});
 		btnBad_scen1.setBounds(10, 10, 657, 144);
