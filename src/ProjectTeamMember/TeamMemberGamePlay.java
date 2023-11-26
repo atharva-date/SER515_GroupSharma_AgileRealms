@@ -28,7 +28,7 @@ import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 import javax.swing.JProgressBar;
 
-public class NumberOfSprints extends JFrame {
+public class TeamMemberGamePlay extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -42,7 +42,7 @@ public class NumberOfSprints extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NumberOfSprints frame = new NumberOfSprints();
+					TeamMemberGamePlay frame = new TeamMemberGamePlay();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +54,7 @@ public class NumberOfSprints extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NumberOfSprints() {
+	public TeamMemberGamePlay() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 800);
 		contentPane = new JPanel();
@@ -175,11 +175,11 @@ public class NumberOfSprints extends JFrame {
 		scen1.add(situation);
 		situation.setLayout(null);
 		
-		JLabel SM_DailyScrumScenario = new JLabel("<html>You, as the Scrum Master, have noticed that the team has been facing challenges during the Daily Scrum meetings. The team members often seem disengaged, and the discussions do not effectively address the impediments they are facing. Recognizing the need to adapt the Daily Scrum to better suit the team's changing needs, you decide to make adjustments.</html>");
-		SM_DailyScrumScenario.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		SM_DailyScrumScenario.setForeground(new Color(255, 255, 255));
-		SM_DailyScrumScenario.setBounds(66, 11, 1179, 151);
-		situation.add(SM_DailyScrumScenario);
+		JLabel TM_TaskStuckDilemma = new JLabel("<html>You, as a Project Team Member, encounter a situation where one of your tasks is stuck, and the sprint progress is at risk. The team is looking to you for a solution to keep things moving.</html>");
+		TM_TaskStuckDilemma.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		TM_TaskStuckDilemma.setForeground(new Color(255, 255, 255));
+		TM_TaskStuckDilemma.setBounds(66, 11, 1179, 151);
+		situation.add(TM_TaskStuckDilemma);
 		
 		JPanel option1 = new JPanel();
 		option1.setBorder(new LineBorder(new Color(128, 128, 128), 2));
@@ -188,7 +188,7 @@ public class NumberOfSprints extends JFrame {
 		scen1.add(option1);
 		option1.setLayout(null);
 		
-		JButton btnBest_scen1 = new JButton("<html>You propose a format change in the Daily Scrum, introducing a quick round where each team member highlights the obstacles they are facing. This allows the team to collaboratively find solutions and ensures everyone is on the same page.</html>");
+		JButton btnBest_scen1 = new JButton("<html>You proactively reach out to the team during the Daily Scrum and openly discuss the impediment. Collaboratively, the team brainstorms solutions, and together you decide on a course of action. This ensures transparency and fosters a sense of collective ownership.</html>");
 		btnBest_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnBest_scen1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -196,7 +196,7 @@ public class NumberOfSprints extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen1.setText("<html><center>Well done!!</center>"
-						+ "<br>The impromptu meeting helps the team collaboratively address the technical challenge, fostering a sense of unity. The project stays on track, and the team appreciates your quick response."
+						+ "<br>The team appreciates your openness and problem-solving approach. By collectively addressing the impediment, not only is the stuck task resolved, but the team also gains valuable insights for preventing similar issues in the future."
 						+ "<br><br><center>Points: +4</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -212,13 +212,13 @@ public class NumberOfSprints extends JFrame {
 		scen1.add(option2);
 		option2.setLayout(null);
 		
-		JButton btnGood_scen1 = new JButton("<html>You organize a brief retrospective after a few Daily Scrums to gather feedback from the team. Based on their input, you make adjustments to the meeting structure, encouraging more open discussions about impediments.</html>");
+		JButton btnGood_scen1 = new JButton("<html>You decide to directly communicate with the team, either through a dedicated Slack channel or a quick huddle. While not as collaborative as the best option, it still allows for timely problem-solving and maintains a reasonable level of transparency.</html>");
 		btnGood_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnGood_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen1.setText("<html><center>Good effort!!</center>"
-						+ "<br>While the issue is eventually resolved, the delay in addressing it impacts the team's morale slightly. Some team members feel the urgency could have been better communicated."
+						+ "<br>While the resolution might not be as efficient as the best option, the team acknowledges your efforts to communicate and resolve the impediment. It leads to a successful resolution and reinforces the importance of sharing challenges."
 						+ "<br><br><center>Points: +3</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -236,13 +236,13 @@ public class NumberOfSprints extends JFrame {
 		scen1.add(option3);
 		option3.setLayout(null);
 		
-		JButton btnWorst_scen1 = new JButton("<html>Ignoring the signs of dissatisfaction, you continue with the existing Daily Scrum format, assuming that it's the team's responsibility to adapt. This results in ongoing disengagement, and team members become increasingly frustrated, impacting both morale and productivity.</html>");
+		JButton btnWorst_scen1 = new JButton("<html>Feeling overwhelmed by the situation, you decide to keep the task impediment to yourself, hoping it will resolve on its own. This lack of communication may lead to a delay in the sprint and negatively impact the overall team progress.</html>");
 		btnWorst_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnWorst_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen1.setText("<html><center>Misstep!!</center>"
-						+ "<br>Panic spreads among team members, causing a breakdown in communication. The technical challenge remains unaddressed for an extended period, significantly delaying the project. The team's trust in your leadership is eroded."
+						+ "<br>The impediment persists, causing delays in the sprint. When it eventually comes to light, the team expresses frustration about the lack of communication. This scenario emphasizes the negative consequences of avoiding transparency."
 						+ "<br><br><center>Points: +1</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -260,14 +260,14 @@ public class NumberOfSprints extends JFrame {
 		scen1.add(option4);
 		option4.setLayout(null);
 		
-		JButton btnBad_scen1 = new JButton("<html>Without consulting the team, you abruptly change the Daily Scrum format by adding detailed status updates for each team member. This unintentionally makes the meetings longer and more tedious, leading to decreased engagement.</html>");
+		JButton btnBad_scen1 = new JButton("<html>Frustrated with the stuck task, you choose to address the issue individually by finding a workaround without involving the team. This might lead to a temporary solution but lacks the collective input, potentially resulting in suboptimal outcomes.</html>");
 		btnBad_scen1.setVerticalAlignment(SwingConstants.TOP);
 		btnBad_scen1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBad_scen1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen1.setText("<html><center>Critical oversight!!</center>"
-						+ "<br>Miscommunication leads to confusion among team members, resulting in a delay in addressing the technical challenge. The impact is felt in a slight setback in the project timeline."
+						+ "<br>The workaround you implemented solves the immediate issue, but the team feels left out of the decision-making process. It highlights the importance of collaborative problem-solving and prompts a discussion about improving communication."
 						+ "<br><br><center>Points: +2</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -477,11 +477,11 @@ public class NumberOfSprints extends JFrame {
 		scen3.add(situation_2);
 		situation_2.setLayout(null);
 		
-		JLabel SM_UnforeseenTechnicalHurdle = new JLabel("<html>You, as the Scrum Master, have been diligently working to ensure the timely completion of sprint tasks. The team is progressing well, and everyone seems focused. However, a few days before the deadline, a team member discovers a critical technical issue that could potentially delay the completion of a key user story.</html>");
-		SM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		SM_UnforeseenTechnicalHurdle.setForeground(new Color(255, 255, 255));
-		SM_UnforeseenTechnicalHurdle.setBounds(66, 11, 1179, 151);
-		situation_2.add(SM_UnforeseenTechnicalHurdle);
+		JLabel TM_UnforeseenTechnicalHurdle = new JLabel("<html>You, as the Scrum Master, have been diligently working to ensure the timely completion of sprint tasks. The team is progressing well, and everyone seems focused. However, a few days before the deadline, a team member discovers a critical technical issue that could potentially delay the completion of a key user story.</html>");
+		TM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		TM_UnforeseenTechnicalHurdle.setForeground(new Color(255, 255, 255));
+		TM_UnforeseenTechnicalHurdle.setBounds(66, 11, 1179, 151);
+		situation_2.add(TM_UnforeseenTechnicalHurdle);
 		
 		JPanel option1_2 = new JPanel();
 		option1_2.setBorder(new LineBorder(new Color(128, 128, 128), 2));
