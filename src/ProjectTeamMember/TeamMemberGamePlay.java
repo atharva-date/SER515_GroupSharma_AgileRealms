@@ -958,12 +958,26 @@ public class TeamMemberGamePlay extends JFrame {
 		btnNextScen6.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		res5.add(btnNextScen6);
 		
+		JLabel lblRemark_Scen5 = new JLabel("");
+		lblRemark_Scen5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRemark_Scen5.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblRemark_Scen5.setForeground(new Color(192, 192, 192));
+		lblRemark_Scen5.setBounds(72, 0, 1200, 326);
+		res5.add(lblRemark_Scen5);
+		
 		JLabel lblAnswer_Scen5 = new JLabel("");
 		lblAnswer_Scen5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer_Scen5.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer_Scen5.setForeground(new Color(192, 192, 192));
-		lblAnswer_Scen5.setBounds(78, 90, 1200, 326);
+		lblAnswer_Scen5.setBounds(45, 120, 1200, 326);
 		res5.add(lblAnswer_Scen5);
+		
+		JLabel lblPoints_Scen5 = new JLabel("");
+		lblPoints_Scen5.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblPoints_Scen5.setForeground(new Color(192, 192, 192));
+		lblPoints_Scen5.setBounds(730, 230, 1200, 326);
+		res5.add(lblPoints_Scen5);
+		
 		
 		JPanel situation_4 = new JPanel();
 		situation_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -972,11 +986,24 @@ public class TeamMemberGamePlay extends JFrame {
 		scen5.add(situation_4);
 		situation_4.setLayout(null);
 		
-		JLabel TM_Collaboration_Conundrum = new JLabel("<html>As a Project Team Member, you find yourself working on a complex task that requires collaboration with other team members.</html>");
-		TM_Collaboration_Conundrum.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		TM_Collaboration_Conundrum.setForeground(new Color(255, 255, 255));
-		TM_Collaboration_Conundrum.setBounds(66, 11, 1179, 151);
-		situation_4.add(TM_Collaboration_Conundrum);
+		JLabel TM_Collaboration_Conundrum = new JLabel("");
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+			  Statement stm = connection.createStatement(); 
+			  String sql = "SELECT s_title FROM scenarios WHERE s_id=5"; 
+			  ResultSet res = stm.executeQuery(sql);
+			  while(res.next()) {
+				  TM_Collaboration_Conundrum.setText("<html>" + res.getString("s_title") + "</html>"); 
+				  TM_Collaboration_Conundrum.setFont(new Font("Tahoma", Font.PLAIN, 25)); 
+				  TM_Collaboration_Conundrum.setForeground(new Color(255, 255, 255)); 
+				  TM_Collaboration_Conundrum.setBounds(66, 11, 1179, 151);
+				  situation_4.add(TM_Collaboration_Conundrum);
+			  }
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace(); 
+		} 
 		
 		JPanel option1_4 = new JPanel();
 		option1_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
@@ -985,18 +1012,53 @@ public class TeamMemberGamePlay extends JFrame {
 		scen5.add(option1_4);
 		option1_4.setLayout(null);
 		
-		JButton btnBest_scen5 = new JButton("<html>You initiate a collaborative session during a planned team meeting or a dedicated collaboration session. You openly share your progress, discuss challenges, and seek input from other team members. This fosters a sense of teamwork and ensures that everyone is on the same page.</html>");
-		btnBest_scen5.setVerticalAlignment(SwingConstants.TOP);
-		btnBest_scen5.setHorizontalAlignment(SwingConstants.LEFT);
-		btnBest_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		JButton btnBest_scen5 = new JButton("");
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+			  Statement stm = connection.createStatement();
+			  String sql = "SELECT best_option FROM scenarios WHERE s_id=1"; 
+			  ResultSet res = stm.executeQuery(sql);
+			  
+			  while(res.next()) {
+				  btnBest_scen5.setText("<html>" + res.getString("best_option") + "</html>");
+				  btnBest_scen5.setVerticalAlignment(SwingConstants.CENTER);
+				  btnBest_scen5.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnBest_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			  } 
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace(); 
+		}
+
 		btnBest_scen5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen5.setText("<html><center>Well done!!</center>"
-						+ "<br>"
-						+ "<br><br><center>Points: +4</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 4";
+					ResultSet rs = st.executeQuery(sql);
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT best_result FROM results WHERE r_id = 5";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 4";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					if(rs.next() && rs1.next() && rs2.next()) {
+						layeredPane.removeAll();
+						lblRemark_Scen5.setText(rs.getString("remark"));
+						lblAnswer_Scen5.setText("<html>" + rs1.getString("best_result") + "</html>");
+						lblPoints_Scen5.setText("<html><br>Points: " + rs2.getString("marks") + "</html>");
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}	
 			}
 		});
 		btnBest_scen5.setBounds(10, 10, 657, 144);
@@ -1009,16 +1071,51 @@ public class TeamMemberGamePlay extends JFrame {
 		scen5.add(option2_4);
 		option2_4.setLayout(null);
 		
-		JButton btnGood_scen5 = new JButton("<html>Recognizing the need for collaboration, you reach out to specific team members individually, discussing your progress and seeking their input. While not as inclusive as the best option, it still allows for effective collaboration and problem-solving.</html>");
-		btnGood_scen5.setVerticalAlignment(SwingConstants.TOP);
+		JButton btnGood_scen5 = new JButton("");
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+			  Statement stm = connection.createStatement(); 
+			  String sql = "SELECT good_option FROM scenarios WHERE s_id=5"; 
+			  ResultSet res = stm.executeQuery(sql); 
+			  while(res.next()) {
+				  btnGood_scen5.setText("<html>" + res.getString("good_option") + "</html>");
+				  btnGood_scen5.setVerticalAlignment(SwingConstants.CENTER);
+				  btnGood_scen5.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnGood_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			  } 
+			} 
+			catch (Exception e)
+			{
+				e.printStackTrace(); 
+			}
 		btnGood_scen5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen5.setText("<html><center>Critical oversight!!</center>"
-						+ "<br>"
-						+ "<br><br><center>Points: +1</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 3";
+					ResultSet rs = st.executeQuery(sql);
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT good_result FROM results WHERE r_id = 5";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 3";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					if(rs.next() && rs1.next() && rs2.next()) {			
+						layeredPane.removeAll();
+						lblRemark_Scen5.setText(rs.getString("remark"));
+						lblAnswer_Scen5.setText("<html>" + rs1.getString("good_result") + "</html>");
+						lblPoints_Scen5.setText("<html><br>Points: " + rs2.getString("marks") + "</html>");
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}
 			}
 		});
 		btnGood_scen5.setBounds(10, 10, 656, 144);
@@ -1033,16 +1130,51 @@ public class TeamMemberGamePlay extends JFrame {
 		scen5.add(option3_4);
 		option3_4.setLayout(null);
 		
-		JButton btnWorst_scen5 = new JButton("<html>In an attempt to avoid bothering others, you choose to keep your progress to yourself and struggle in silence. This decision hinders collaboration and may lead to suboptimal outcomes, as others are unaware of your challenges and may not provide necessary support.</html>");
-		btnWorst_scen5.setVerticalAlignment(SwingConstants.TOP);
+		JButton btnWorst_scen5 = new JButton("");
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+			  Statement stm = connection.createStatement();
+			  String sql = "SELECT worst_option FROM scenarios WHERE s_id=5"; 
+			  ResultSet res = stm.executeQuery(sql);
+			  while(res.next()) {
+				  btnWorst_scen5.setText("<html>" + res.getString("worst_option") + "</html>");
+				  btnWorst_scen5.setVerticalAlignment(SwingConstants.CENTER);
+				  btnWorst_scen5.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnWorst_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			  } 
+			} 
+			catch (Exception e) 
+			{ 
+				e.printStackTrace(); 
+			}
 		btnWorst_scen5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen5.setText("<html><center>Misstep!!</center>"
-						+ "<br>"
-						+ "<br><br><center>Points: +2</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 1";
+					ResultSet rs = st.executeQuery(sql);
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT worst_result FROM results WHERE r_id = 5";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 1";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					if(rs.next() && rs1.next() && rs2.next()) {
+						layeredPane.removeAll();
+						lblRemark_Scen5.setText(rs.getString("remark"));
+						lblAnswer_Scen5.setText("<html>" + rs1.getString("worst_result") + "</html>");
+						lblPoints_Scen5.setText("<html><br>Points: " + rs2.getString("marks") + "</html>");
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}
 			}
 		});
 		btnWorst_scen5.setBounds(10, 10, 656, 143);
@@ -1057,17 +1189,52 @@ public class TeamMemberGamePlay extends JFrame {
 		scen5.add(option4_4);
 		option4_4.setLayout(null);
 		
-		JButton btnBad_scen5 = new JButton("<html>Feeling confident in your abilities, you decide to continue working on the task independently without actively seeking input from others. While this may lead to progress, it misses the opportunity for collective problem-solving and leveraging diverse skills.</html>");
-		btnBad_scen5.setVerticalAlignment(SwingConstants.TOP);
-		btnBad_scen5.setHorizontalAlignment(SwingConstants.LEFT);
+		JButton btnBad_scen5 = new JButton("");
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+			  Statement stm = connection.createStatement(); 
+			  String sql = "SELECT bad_option FROM scenarios WHERE s_id=5"; 
+			  ResultSet res = stm.executeQuery(sql); 
+			  while(res.next()) {
+				  btnBad_scen5.setText("<html>" + res.getString("bad_option") + "</html>");
+				  btnBad_scen5.setVerticalAlignment(SwingConstants.CENTER);
+				  btnBad_scen5.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnBad_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			  } 
+			} 
+			catch (Exception e) 
+			{ 
+				e.printStackTrace(); 
+			}
+
 		btnBad_scen5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				lblAnswer_Scen5.setText("<html><center>Good Effort!!</center>"
-						+ "<br>"
-						+ "<br><br><center>Points: +3</center></html>");
-				layeredPane.repaint();
-				layeredPane.revalidate();
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
+					Statement st = conn.createStatement();
+					String sql = "SELECT remark from points WHERE p_id = 2";
+					ResultSet rs = st.executeQuery(sql);
+					Statement st1 = conn.createStatement();
+					String sql1 = "SELECT bad_result FROM results WHERE r_id = 5";
+					ResultSet rs1 = st1.executeQuery(sql1);
+					Statement st2 = conn.createStatement();
+					String sql2 = "SELECT marks FROM points WHERE p_id = 2";
+					ResultSet rs2 = st2.executeQuery(sql2);
+					if(rs.next() && rs1.next() && rs2.next()) {
+						layeredPane.removeAll();
+						lblRemark_Scen5.setText(rs.getString("remark"));
+						lblAnswer_Scen5.setText("<html>" + rs1.getString("bad_result") + "</html>");
+						lblPoints_Scen5.setText("<html><br>Points: " + rs2.getString("marks") + "</html>");
+						layeredPane.repaint();
+						layeredPane.revalidate();
+					}
+					else {
+						System.out.println("Failure!! ");
+					}
+ 				}
+				catch (Exception ex) {
+					System.out.println("ERROR: " + ex.getMessage());
+				}
 			}
 		});
 		btnBad_scen5.setBounds(10, 10, 657, 144);
