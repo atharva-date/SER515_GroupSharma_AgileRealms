@@ -924,42 +924,157 @@ public class TeamMemberGamePlay extends JFrame {
 		btnBad_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option4_3.add(btnBad_scen4);
 		
-		// Scen5 starts
-		
+		// Scenario 5 starts
 		JPanel scen5 = new JPanel();
-		layeredPane.add(scen5, "name_604630392724600");
+		layeredPane.add(scen5, "scenario_5");
 		scen5.setLayout(null);
+		
+		btnNextScen5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				res4.removeAll();
+				layeredPane.repaint();
+				layeredPane.revalidate();
+				layeredPane.add(scen5);
+			}
+		});
+		
+		JPanel res5 = new JPanel();
+		res5.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res5.setLayout(null);
+		res5.setForeground(Color.BLACK);
+		res5.setBackground(Color.BLACK);
+		res5.setBounds(0, 0, 1352, 501);
+		gameBody.add(res5);
+		
+		JLabel lblResult5 = new JLabel("Result:");
+		lblResult5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResult5.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResult5.setForeground(new Color(192, 192, 192));
+		lblResult5.setBounds(494, 10, 365, 75);
+		res5.add(lblResult5);
+		
+		JButton btnNextScen6 = new JButton("Next Scenario");
+		btnNextScen6.setBounds(1000, 415, 231, 55);
+		btnNextScen6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		res5.add(btnNextScen6);
+		
+		JLabel lblAnswer_Scen5 = new JLabel("");
+		lblAnswer_Scen5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnswer_Scen5.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblAnswer_Scen5.setForeground(new Color(192, 192, 192));
+		lblAnswer_Scen5.setBounds(78, 90, 1200, 326);
+		res5.add(lblAnswer_Scen5);
 		
 		JPanel situation_4 = new JPanel();
 		situation_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		situation_4.setBackground(Color.GRAY);
 		situation_4.setBounds(0, 0, 1352, 173);
 		scen5.add(situation_4);
+		situation_4.setLayout(null);
+		
+		JLabel TM_Collaboration_Conundrum = new JLabel("<html>As a Project Team Member, you find yourself working on a complex task that requires collaboration with other team members.</html>");
+		TM_Collaboration_Conundrum.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		TM_Collaboration_Conundrum.setForeground(new Color(255, 255, 255));
+		TM_Collaboration_Conundrum.setBounds(66, 11, 1179, 151);
+		situation_4.add(TM_Collaboration_Conundrum);
 		
 		JPanel option1_4 = new JPanel();
 		option1_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option1_4.setBackground(Color.BLACK);
 		option1_4.setBounds(0, 173, 677, 164);
 		scen5.add(option1_4);
+		option1_4.setLayout(null);
+		
+		JButton btnBest_scen5 = new JButton("<html>You initiate a collaborative session during a planned team meeting or a dedicated collaboration session. You openly share your progress, discuss challenges, and seek input from other team members. This fosters a sense of teamwork and ensures that everyone is on the same page.</html>");
+		btnBest_scen5.setVerticalAlignment(SwingConstants.TOP);
+		btnBest_scen5.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBest_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnBest_scen5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen5.setText("<html><center>Well done!!</center>"
+						+ "<br>"
+						+ "<br><br><center>Points: +4</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBest_scen5.setBounds(10, 10, 657, 144);
+		option1_4.add(btnBest_scen5);
 		
 		JPanel option2_4 = new JPanel();
 		option2_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option2_4.setBackground(Color.BLACK);
 		option2_4.setBounds(676, 173, 676, 164);
 		scen5.add(option2_4);
+		option2_4.setLayout(null);
+		
+		JButton btnGood_scen5 = new JButton("<html>Recognizing the need for collaboration, you reach out to specific team members individually, discussing your progress and seeking their input. While not as inclusive as the best option, it still allows for effective collaboration and problem-solving.</html>");
+		btnGood_scen5.setVerticalAlignment(SwingConstants.TOP);
+		btnGood_scen5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen5.setText("<html><center>Critical oversight!!</center>"
+						+ "<br>"
+						+ "<br><br><center>Points: +1</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnGood_scen5.setBounds(10, 10, 656, 144);
+		btnGood_scen5.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGood_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option2_4.add(btnGood_scen5);
 		
 		JPanel option3_4 = new JPanel();
 		option3_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option3_4.setBackground(Color.BLACK);
 		option3_4.setBounds(0, 337, 677, 164);
 		scen5.add(option3_4);
+		option3_4.setLayout(null);
+		
+		JButton btnWorst_scen5 = new JButton("<html>In an attempt to avoid bothering others, you choose to keep your progress to yourself and struggle in silence. This decision hinders collaboration and may lead to suboptimal outcomes, as others are unaware of your challenges and may not provide necessary support.</html>");
+		btnWorst_scen5.setVerticalAlignment(SwingConstants.TOP);
+		btnWorst_scen5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen5.setText("<html><center>Misstep!!</center>"
+						+ "<br>"
+						+ "<br><br><center>Points: +2</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnWorst_scen5.setBounds(10, 10, 656, 143);
+		btnWorst_scen5.setHorizontalAlignment(SwingConstants.LEFT);
+		btnWorst_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option3_4.add(btnWorst_scen5);
 		
 		JPanel option4_4 = new JPanel();
 		option4_4.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4_4.setBackground(Color.BLACK);
 		option4_4.setBounds(676, 338, 676, 163);
 		scen5.add(option4_4);
+		option4_4.setLayout(null);
 		
+		JButton btnBad_scen5 = new JButton("<html>Feeling confident in your abilities, you decide to continue working on the task independently without actively seeking input from others. While this may lead to progress, it misses the opportunity for collective problem-solving and leveraging diverse skills.</html>");
+		btnBad_scen5.setVerticalAlignment(SwingConstants.TOP);
+		btnBad_scen5.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBad_scen5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				lblAnswer_Scen5.setText("<html><center>Good Effort!!</center>"
+						+ "<br>"
+						+ "<br><br><center>Points: +3</center></html>");
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBad_scen5.setBounds(10, 10, 657, 144);
+		btnBad_scen5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		option4_4.add(btnBad_scen5);
+		
+		//Scenario 6 starts
 		JPanel scen6 = new JPanel();
 		layeredPane.add(scen6, "name_604635380688100");
 		scen6.setLayout(null);
