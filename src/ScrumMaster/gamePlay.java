@@ -180,11 +180,16 @@ public class gamePlay extends JFrame {
 		res1.add(lblAnswer_Scen1);
 		
 		JLabel lblPoints_Scen1 = new JLabel("");
-		lblPoints_Scen1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPoints_Scen1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblPoints_Scen1.setForeground(new Color(192, 192, 192));
-		lblPoints_Scen1.setBounds(78, 200, 1200, 326);
+		lblPoints_Scen1.setBounds(730, 230, 1200, 326);
 		res1.add(lblPoints_Scen1);
+		
+		JLabel points = new JLabel("Points: +");
+		points.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		points.setForeground(new Color(192, 192, 192));
+		points.setBounds(607, 230, 1200, 326);
+		res1.add(points);
 		
 		JPanel situation = new JPanel();
 		situation.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -244,21 +249,17 @@ public class gamePlay extends JFrame {
 				
 				try {
 					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
-					
 					Statement st = conn.createStatement();
 					String sql = "SELECT remark from points WHERE p_id = 4";
 					ResultSet rs = st.executeQuery(sql);
-					
 					
 					Statement st1 = conn.createStatement();
 					String sql1 = "SELECT best_result FROM results WHERE r_id = 1";
 					ResultSet rs1 = st1.executeQuery(sql1);
 					
-					
 					Statement st2 = conn.createStatement();
 					String sql2 = "SELECT marks FROM points WHERE p_id = 4";
 					ResultSet rs2 = st2.executeQuery(sql2);
-					
 					
 					if(rs.next() && rs1.next() && rs2.next()) {
 						
@@ -516,11 +517,16 @@ public class gamePlay extends JFrame {
 		res2.add(lblRemark_Scen2);
 
 		JLabel lblPoints_Scen2 = new JLabel("");
-		lblPoints_Scen2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPoints_Scen2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblPoints_Scen2.setForeground(new Color(192, 192, 192));
-		lblPoints_Scen2.setBounds(78, 200, 1200, 326);
+		lblPoints_Scen2.setBounds(730, 230, 1200, 326);
 		res2.add(lblPoints_Scen2);
+		
+		JLabel points2 = new JLabel("Points: +");
+		points2.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		points2.setForeground(new Color(192, 192, 192));
+		points2.setBounds(607, 230, 1200, 326);
+		res2.add(points2);
 		
 		JButton btnNextScen3 = new JButton("Next Scenario");
 		btnNextScen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -842,11 +848,16 @@ public class gamePlay extends JFrame {
 		res3.add(lblRemark_Scen3);
 
 		JLabel lblPoints_Scen3 = new JLabel("");
-		lblPoints_Scen3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPoints_Scen3.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblPoints_Scen3.setForeground(new Color(192, 192, 192));
-		lblPoints_Scen3.setBounds(78, 200, 1200, 326);
+		lblPoints_Scen3.setBounds(730, 230, 1200, 326);
 		res3.add(lblPoints_Scen3);
+		
+		JLabel points3 = new JLabel("Points: +");
+		points3.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		points3.setForeground(new Color(192, 192, 192));
+		points3.setBounds(607, 230, 1200, 326);
+		res3.add(points3);
 		
 		JLabel lblResult3 = new JLabel("Result:");
 		lblResult3.setHorizontalAlignment(SwingConstants.CENTER);
