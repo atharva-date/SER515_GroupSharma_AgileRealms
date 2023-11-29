@@ -672,7 +672,7 @@ public class TeamMemberGamePlay extends JFrame {
 		situation_2.setLayout(null);
 		
 		JLabel TM_UnforeseenTechnicalHurdle = new JLabel("<html>You, as a project team member, have to brainstorm before deciding the number of sprints with other members of the team. How do you plan to brainstorm, what practices will you adopt?</html>");
-		TM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+    TM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		TM_UnforeseenTechnicalHurdle.setForeground(new Color(255, 255, 255));
 		TM_UnforeseenTechnicalHurdle.setBounds(66, 11, 1179, 151);
 		situation_2.add(TM_UnforeseenTechnicalHurdle);
