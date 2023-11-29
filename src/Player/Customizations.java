@@ -1,5 +1,8 @@
 package Player;
 import java.awt.EventQueue;
+
+import ProjectTeamMember.TeamMemberGamePlay;
+
 import java.io.InputStream;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -350,6 +353,11 @@ public class Customizations extends JFrame {
 					UserStories screen = new UserStories();
 					screen.setVisible(true);
 					dispose();							
+				}
+				if ( button_num == 3) {
+					TeamMemberGamePlay screen3 = new TeamMemberGamePlay();
+					screen3.setVisible(true);
+					dispose();				
 				}
 				else {
 					gamePlay screen = new gamePlay();

@@ -671,8 +671,8 @@ public class TeamMemberGamePlay extends JFrame {
 		scen3.add(situation_2);
 		situation_2.setLayout(null);
 		
-		JLabel TM_UnforeseenTechnicalHurdle = new JLabel("<html>You, as the Scrum Master, have been diligently working to ensure the timely completion of sprint tasks. The team is progressing well, and everyone seems focused. However, a few days before the deadline, a team member discovers a critical technical issue that could potentially delay the completion of a key user story.</html>");
-		TM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		JLabel TM_UnforeseenTechnicalHurdle = new JLabel("<html>You, as a project team member, have to brainstorm before deciding the number of sprints with other members of the team. How do you plan to brainstorm, what practices will you adopt?</html>");
+    TM_UnforeseenTechnicalHurdle.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		TM_UnforeseenTechnicalHurdle.setForeground(new Color(255, 255, 255));
 		TM_UnforeseenTechnicalHurdle.setBounds(66, 11, 1179, 151);
 		situation_2.add(TM_UnforeseenTechnicalHurdle);
@@ -684,7 +684,7 @@ public class TeamMemberGamePlay extends JFrame {
 		scen3.add(option1_2);
 		option1_2.setLayout(null);
 		
-		JButton btnBest_scen3 = new JButton("<html>Collaborate with the team to assess and address a technical issue, maintain transparency with the Product Owner, and prioritize trust, resulting in a minor delay with preserved morale.</html>");
+		JButton btnBest_scen3 = new JButton("<html>To determine the optimal number of sprints for the project, you follow a comprehensive and collaborative approach. The collaborative sessions will involve round-robin sharing, SWOT analysis to identify key factors and ensure diverse inputs. This structured approach aims to leverage the collective intelligence of the team for an informed and consensus-driven decision on the number of sprints.\n</html>");
 		btnBest_scen3.setVerticalAlignment(SwingConstants.TOP);
 		btnBest_scen3.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBest_scen3.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -692,7 +692,7 @@ public class TeamMemberGamePlay extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen3.setText("<html><center>Well done!!</center>"
-						+ "<br>A slight timeline extension with maintained team morale and trust, achieved through collaborative problem-solving and transparent communication."
+						+ "<br>Your approach to determining the optimal number of sprints for the project is commendable. By integrating a comprehensive and collaborative strategy, you foster a transparent and inclusive decision-making process. This method ensures that various factors and potential challenges are taken into account, contributing to the overall success and efficiency of the project."
 						+ "<br><br><center>Points: +4</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -709,13 +709,13 @@ public class TeamMemberGamePlay extends JFrame {
 		scen3.add(option2_2);
 		option2_2.setLayout(null);
 		
-		JButton btnGood_scen3 = new JButton("<html>Independently investigate, consult team experts, and keep the Product Owner informed, taking a proactive approach to minimize project impact.</html>");
+		JButton btnGood_scen3 = new JButton("<html>To decide on the number of sprints for the project, you adopt a straightforward approach where team members share their individual thoughts in a round-robin fashion. The decision-making process will be informal, leaning towards a quick consensus, and follow up with a brief summary of the chosen sprint strategy. This option aims for simplicity and speed in arriving at a decision regarding the project's sprint structure.\n</html>");
 		btnGood_scen3.setVerticalAlignment(SwingConstants.TOP);
 		btnGood_scen3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen3.setText("<html><center>Good effort!!</center>"
-						+ "<br>Proactive management of a technical challenge, ensuring minimal project impact through comprehensive investigation and informed stakeholders."
+						+ "<br>Your approach to deciding on the number of sprints demonstrates a focus on simplicity and efficiency. While this option may lack some of the formalities of a more structured approach, its emphasis on speed and simplicity can be advantageous in certain dynamic project environments, allowing for a swift adaptation to changing circumstances."
 						+ "<br><br><center>Points: +3</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -733,13 +733,13 @@ public class TeamMemberGamePlay extends JFrame {
 		scen3.add(option3_2);
 		option3_2.setLayout(null);
 		
-		JButton btnWorst_scen3 = new JButton("<html>Ignore the issue, withhold information, and proceed as usual, leading to last-minute discovery, significant setbacks, and severe damage to team trust.</html>");
+		JButton btnWorst_scen3 = new JButton("<html>For determining the number of sprints, you adopt a casual approach where team members express their opinions without a structured agenda. There won't be any specific preparation or emphasis on data-driven insights. The session may lack visual aids or formal documentation, making it challenging to track the rationale behind the chosen sprint strategy.</html>");
 		btnWorst_scen3.setVerticalAlignment(SwingConstants.TOP);
 		btnWorst_scen3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen3.setText("<html><center>Misstep!!</center>"
-						+ "<br>Last-minute issue revelation, substantial setbacks, and a severe erosion of team trust, highlighting the critical importance of timely communication and collaboration."
+						+ "<br>In opting for a casual approach to determining the number of sprints, there is a risk of overlooking crucial considerations. This approach, while fostering a relaxed atmosphere, may compromise the depth of the decision-making process and the ability to address potential complexities in the project."
 						+ "<br><br><center>Points: +2</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
@@ -757,14 +757,14 @@ public class TeamMemberGamePlay extends JFrame {
 		scen3.add(option4_2);
 		option4_2.setLayout(null);
 		
-		JButton btnBad_scen3 = new JButton("<html>Downplay the issue, solve it solo, and delay informing the Product Owner, causing frustration and a moderate project delay.</html>");
+		JButton btnBad_scen3 = new JButton("<html>To decide on the number of sprints for the project, you could opt for an entirely unstructured and haphazard approach. There would be no defined goal, agenda, or preparation, and team members might randomly express their opinions without any clear framework. There would be no consideration of data, constraints, or dependencies, and the decision-making process would be entirely ad-hoc, potentially resulting in a choice based on personal biases rather than objective analysis.</html>");
 		btnBad_scen3.setVerticalAlignment(SwingConstants.TOP);
 		btnBad_scen3.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBad_scen3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				lblAnswer_Scen3.setText("<html><center>Critical oversight!!</center>"
-						+ "<br>Moderate project delay and team frustration resulting from a lack of transparency regarding a technical issue."
+						+ "<br>This worst-case scenario could lead to a lack of alignment, potential inefficiencies, and increased project risks due to the absence of a systematic and thoughtful approach to sprint planning."
 						+ "<br><br><center>Points: +1</center></html>");
 				layeredPane.repaint();
 				layeredPane.revalidate();
