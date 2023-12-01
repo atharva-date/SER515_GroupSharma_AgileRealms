@@ -32,7 +32,7 @@ public class NewUser extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane, createAccPanel, loginPanel;
-	private JTextField passwordField;
+	private JPasswordField passwordField;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -106,17 +106,17 @@ public class NewUser extends JFrame implements ActionListener {
 		lblNewLabel_6.setFont(QuillSwordB2);
 		loginPanel.add(lblNewLabel_6);
 		
-		passwordField = new JTextField();
+		passwordField = new JPasswordField();
 		passwordField.setBounds(104, 286, 315, 34);
 		loginPanel.add(passwordField);
 		
 		button = new JButton("Sign In");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				String userName = textField.getText();
-				String password = passwordField.getText();
+//				String userName = textField.getText();
+//				String password = passwordField.getText();
 				
-				System.out.println("iiii " + userName + " " + password);
+//				System.out.println("iiii " + userName + " " + password);
 				try {
 					try {
 					    Class.forName("com.mysql.jdbc.Driver");
@@ -127,7 +127,7 @@ public class NewUser extends JFrame implements ActionListener {
 			        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
 
 			        Statement stm = connection.createStatement();
-			    	String sql = "SELECT * FROM users WHERE user_name='"+userName+"' and password='"+password+"'";
+			    	String sql = "SELECT * FROM users WHERE user_name='"+textField.getText()+"' and password='"+passwordField.getText().toString()+"'";
 			    	ResultSet res = stm.executeQuery(sql);
 			    	
 			    	if(res.next()) {
@@ -235,7 +235,7 @@ public class NewUser extends JFrame implements ActionListener {
 		lblNewLabel_1.setFont(QuillSwordB2);
 		createAccPanel.add(lblNewLabel_1);
 		
-		passwordField = new JTextField();
+		passwordField = new JPasswordField();
 		passwordField.setBounds(104, 415, 315, 34);
 		createAccPanel.add(passwordField);
 		
@@ -244,16 +244,16 @@ public class NewUser extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				String firstName = textField_2.getText();
 				String lastName = textField_1.getText();
-				String userName = textField.getText();
-                String password = passwordField.getText();
+//				String userName = textField.getText();
+//                String password = passwordField.getText();
                 
                 String msg = "" + firstName;
                 msg += " \n";
                 try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agile_Realms", "root", "agilerealms");
 
-                    String query = "INSERT INTO users values('" + firstName + "','" + lastName + "','" + userName + "','" +
-                        password + "')";
+                    String query = "INSERT INTO users values('" + firstName + "','" + lastName + "','" + textField.getText() + "','" +
+                        passwordField.getText().toString() + "')";
 
                     Statement sta = connection.createStatement();
                     int x = sta.executeUpdate(query);
