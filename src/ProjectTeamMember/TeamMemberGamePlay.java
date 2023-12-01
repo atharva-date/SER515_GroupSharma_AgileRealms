@@ -189,18 +189,17 @@ public class TeamMemberGamePlay extends JFrame {
 		situation.setLayout(null);
 		
 		JLabel TM_TaskStuckDilemma = new JLabel("");
-		try { //connection to database
-			  Connection connection =
-			  DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
 			  String sql = "SELECT s_title FROM scenarios WHERE s_id=4"; 
 			  ResultSet res = stm.executeQuery(sql); 
 			  while(res.next()) {
-			  TM_TaskStuckDilemma.setText("<html>" + res.getString("s_title") + "</html>"); 
-			  TM_TaskStuckDilemma.setFont(new Font("Tahoma", Font.PLAIN, 25)); 
-			  TM_TaskStuckDilemma.setForeground(new Color(255, 255, 255)); 
-			  TM_TaskStuckDilemma.setBounds(66, 11, 1179, 151);
-			  situation.add(TM_TaskStuckDilemma);
+				  TM_TaskStuckDilemma.setText("<html>" + res.getString("s_title") + "</html>"); 
+				  TM_TaskStuckDilemma.setFont(new Font("Tahoma", Font.PLAIN, 25)); 
+				  TM_TaskStuckDilemma.setForeground(new Color(255, 255, 255)); 
+				  TM_TaskStuckDilemma.setBounds(66, 11, 1179, 151);
+				  situation.add(TM_TaskStuckDilemma);
 			  } 
 			} 
 			catch (Exception e) 
@@ -215,17 +214,16 @@ public class TeamMemberGamePlay extends JFrame {
 		option1.setLayout(null);
 		
 		JButton btnBest_scen1 = new JButton("");
-		try { //connection to database
-			  Connection connection =
-			  DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
 			  String sql = "SELECT best_option FROM scenarios WHERE s_id=4"; 
 			  ResultSet res = stm.executeQuery(sql); 
 			  while(res.next()) {
-			  btnBest_scen1.setText("<html>" + res.getString("best_option") + "</html>");
-			  btnBest_scen1.setVerticalAlignment(SwingConstants.CENTER);
-			  btnBest_scen1.setHorizontalAlignment(SwingConstants.CENTER);
-			  btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				  btnBest_scen1.setText("<html>" + res.getString("best_option") + "</html>");
+				  btnBest_scen1.setVerticalAlignment(SwingConstants.CENTER);
+				  btnBest_scen1.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnBest_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			  } 
 		} 
 		catch (Exception e) 
@@ -281,17 +279,16 @@ public class TeamMemberGamePlay extends JFrame {
 		option2.setLayout(null);
 		
 		JButton btnGood_scen1 = new JButton("");
-		try { //connection to database
-			  Connection connection =
-			  DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
 			  String sql = "SELECT good_option FROM scenarios WHERE s_id=4"; 
 			  ResultSet res = stm.executeQuery(sql); 
 			  while(res.next()) {
-			  btnGood_scen1.setText("<html>" + res.getString("good_option") + "</html>");
-			  btnGood_scen1.setVerticalAlignment(SwingConstants.CENTER);
-			  btnGood_scen1.setHorizontalAlignment(SwingConstants.CENTER);
-			  btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				  btnGood_scen1.setText("<html>" + res.getString("good_option") + "</html>");
+				  btnGood_scen1.setVerticalAlignment(SwingConstants.CENTER);
+				  btnGood_scen1.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnGood_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			  } 
 			} 
 			catch (Exception e) 
@@ -347,17 +344,16 @@ public class TeamMemberGamePlay extends JFrame {
 		option3.setLayout(null);
 		
 		JButton btnWorst_scen1 = new JButton("");
-		try { //connection to database
-			  Connection connection =
-			  DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
 			  String sql = "SELECT worst_option FROM scenarios WHERE s_id=4"; 
 			  ResultSet res = stm.executeQuery(sql); 
 			  while(res.next()) {
-			  btnWorst_scen1.setText("<html>" + res.getString("worst_option") + "</html>");
-			  btnWorst_scen1.setVerticalAlignment(SwingConstants.CENTER);
-			  btnWorst_scen1.setHorizontalAlignment(SwingConstants.CENTER);
-			  btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				  btnWorst_scen1.setText("<html>" + res.getString("worst_option") + "</html>");
+				  btnWorst_scen1.setVerticalAlignment(SwingConstants.CENTER);
+				  btnWorst_scen1.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnWorst_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			  } 
 			} 
 			catch (Exception e) 
@@ -413,17 +409,16 @@ public class TeamMemberGamePlay extends JFrame {
 		option4.setLayout(null);
 		
 		JButton btnBad_scen1 = new JButton("");
-		try { //connection to database
-			  Connection connection =
-			  DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
+		try {
+			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
 			  String sql = "SELECT bad_option FROM scenarios WHERE s_id=4"; 
 			  ResultSet res = stm.executeQuery(sql); 
 			  while(res.next()) {
-			  btnBad_scen1.setText("<html>" + res.getString("bad_option") + "</html>");
-			  btnBad_scen1.setVerticalAlignment(SwingConstants.CENTER);
-			  btnBad_scen1.setHorizontalAlignment(SwingConstants.CENTER);
-			  btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				  btnBad_scen1.setText("<html>" + res.getString("bad_option") + "</html>");
+				  btnBad_scen1.setVerticalAlignment(SwingConstants.CENTER);
+				  btnBad_scen1.setHorizontalAlignment(SwingConstants.CENTER);
+				  btnBad_scen1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			  } 
 			} 
 			catch (Exception e) 
@@ -1556,7 +1551,7 @@ public class TeamMemberGamePlay extends JFrame {
  				}
 				catch (Exception ex) {
 					System.out.println("ERROR: " + ex.getMessage());
-				}	
+				}
 			}
 		});
 		btnBest_scen6.setBounds(10, 10, 657, 144);
