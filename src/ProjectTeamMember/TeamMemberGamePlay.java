@@ -1449,32 +1449,32 @@ public class TeamMemberGamePlay extends JFrame {
 		lblResult6.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblResult6.setForeground(new Color(192, 192, 192));
 		lblResult6.setBounds(494, 10, 365, 75);
-		res5.add(lblResult6);
+		res6.add(lblResult6);
 		
 		JButton btnNextScen7 = new JButton("Next Scenario");
 		btnNextScen7.setBounds(1000, 415, 231, 55);
 		btnNextScen7.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		res5.add(btnNextScen7);
+		res6.add(btnNextScen7);
 		
 		JLabel lblRemark_Scen6 = new JLabel("");
 		lblRemark_Scen6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRemark_Scen6.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblRemark_Scen6.setForeground(new Color(192, 192, 192));
 		lblRemark_Scen6.setBounds(72, 0, 1200, 326);
-		res5.add(lblRemark_Scen6);
+		res6.add(lblRemark_Scen6);
 		
 		JLabel lblAnswer_Scen6 = new JLabel("");
 		lblAnswer_Scen6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer_Scen6.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer_Scen6.setForeground(new Color(192, 192, 192));
 		lblAnswer_Scen6.setBounds(45, 120, 1200, 326);
-		res5.add(lblAnswer_Scen6);
+		res6.add(lblAnswer_Scen6);
 		
 		JLabel lblPoints_Scen6 = new JLabel("");
 		lblPoints_Scen6.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblPoints_Scen6.setForeground(new Color(192, 192, 192));
-		lblPoints_Scen6.setBounds(730, 230, 1200, 326);
-		res5.add(lblPoints_Scen6);
+		lblPoints_Scen6.setBounds(610, 230, 1200, 326);
+		res6.add(lblPoints_Scen6);
 		
 		JPanel situation_5 = new JPanel();
 		situation_5.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -1520,7 +1520,7 @@ public class TeamMemberGamePlay extends JFrame {
 				  btnBest_scen6.setVerticalAlignment(SwingConstants.CENTER);
 				  btnBest_scen6.setHorizontalAlignment(SwingConstants.CENTER);
 				  btnBest_scen6.setFont(new Font("Tahoma", Font.PLAIN, 20));
-			  } 
+			  }
 		} 
 		catch (Exception e)
 		{
