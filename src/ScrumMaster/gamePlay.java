@@ -1371,7 +1371,7 @@ public class gamePlay extends JFrame {
 		try {
 			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
-			  String sql = "SELECT s_title FROM scenarios WHERE s_id=5"; 
+			  String sql = "SELECT s_title FROM scenarios WHERE s_id=11"; 
 			  ResultSet res = stm.executeQuery(sql);
 			  while(res.next()) {
 				  SM_SprintDuration.setText("<html>" + res.getString("s_title") + "</html>"); 
@@ -1397,7 +1397,7 @@ public class gamePlay extends JFrame {
 		try {
 			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement();
-			  String sql = "SELECT best_option FROM scenarios WHERE s_id=1"; 
+			  String sql = "SELECT best_option FROM scenarios WHERE s_id=11"; 
 			  ResultSet res = stm.executeQuery(sql);
 			  
 			  while(res.next()) {
@@ -1420,7 +1420,7 @@ public class gamePlay extends JFrame {
 					String sql = "SELECT remark from points WHERE p_id = 4";
 					ResultSet rs = st.executeQuery(sql);
 					Statement st1 = conn.createStatement();
-					String sql1 = "SELECT best_result FROM results WHERE r_id = 5";
+					String sql1 = "SELECT best_result FROM results WHERE r_id = 11";
 					ResultSet rs1 = st1.executeQuery(sql1);
 					Statement st2 = conn.createStatement();
 					String sql2 = "SELECT marks FROM points WHERE p_id = 4";
@@ -1456,7 +1456,7 @@ public class gamePlay extends JFrame {
 		try {
 			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement(); 
-			  String sql = "SELECT good_option FROM scenarios WHERE s_id=5"; 
+			  String sql = "SELECT good_option FROM scenarios WHERE s_id=11"; 
 			  ResultSet res = stm.executeQuery(sql); 
 			  while(res.next()) {
 				  btnGood_scen5.setText("<html>" + res.getString("good_option") + "</html>");
@@ -1477,7 +1477,7 @@ public class gamePlay extends JFrame {
 					String sql = "SELECT remark from points WHERE p_id = 3";
 					ResultSet rs = st.executeQuery(sql);
 					Statement st1 = conn.createStatement();
-					String sql1 = "SELECT good_result FROM results WHERE r_id = 5";
+					String sql1 = "SELECT good_result FROM results WHERE r_id = 11";
 					ResultSet rs1 = st1.executeQuery(sql1);
 					Statement st2 = conn.createStatement();
 					String sql2 = "SELECT marks FROM points WHERE p_id = 3";
@@ -1515,7 +1515,7 @@ public class gamePlay extends JFrame {
 		try {
 			  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agile_realms", "root", "agilerealms"); 
 			  Statement stm = connection.createStatement();
-			  String sql = "SELECT worst_option FROM scenarios WHERE s_id=5"; 
+			  String sql = "SELECT worst_option FROM scenarios WHERE s_id=11"; 
 			  ResultSet res = stm.executeQuery(sql);
 			  while(res.next()) {
 				  btnWorst_scen5.setText("<html>" + res.getString("worst_option") + "</html>");
@@ -1536,7 +1536,7 @@ public class gamePlay extends JFrame {
 					String sql = "SELECT remark from points WHERE p_id = 1";
 					ResultSet rs = st.executeQuery(sql);
 					Statement st1 = conn.createStatement();
-					String sql1 = "SELECT worst_result FROM results WHERE r_id = 5";
+					String sql1 = "SELECT worst_result FROM results WHERE r_id = 11";
 					ResultSet rs1 = st1.executeQuery(sql1);
 					Statement st2 = conn.createStatement();
 					String sql2 = "SELECT marks FROM points WHERE p_id = 1";
@@ -1596,7 +1596,7 @@ public class gamePlay extends JFrame {
 					String sql = "SELECT remark from points WHERE p_id = 2";
 					ResultSet rs = st.executeQuery(sql);
 					Statement st1 = conn.createStatement();
-					String sql1 = "SELECT bad_result FROM results WHERE r_id = 5";
+					String sql1 = "SELECT bad_result FROM results WHERE r_id = 11";
 					ResultSet rs1 = st1.executeQuery(sql1);
 					Statement st2 = conn.createStatement();
 					String sql2 = "SELECT marks FROM points WHERE p_id = 2";
