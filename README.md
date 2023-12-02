@@ -37,9 +37,22 @@ Import database and its tables into MySQL WorkBench -
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Help with reaching the Gameplay!
-1. After logging in, go to the customizations page.
-2. Make sure the selected role is "Scrum Master".
-3. Click on "Play Now".
-4. Gameplay has started now. (Depending on the scenario choose the best option that you feel.)
-5. Click on "Next Scenario" to proceed to the next situation. (3 scenarios have been implemented so far, so the next scenario button will not work after the 3rd scenario.)
-6. Refer to the demo incase theres an issue that has not been mentioned here.
+- Start the game by opening the AgileRealms.jar file.
+- Once youre in the login page, click on the register button to create a new account.
+- Enter the account details and then click on register, you will be guided to the login page.
+- Login using the same credentials you used to register.
+- After logging in, you will be taken to the homepage.
+- From here you can go to other pages in the using the nav bar.
+- To start a gameplay instance, either click on play now or the customizations page from
+  the nav bar or the start a new game button in the home page.
+- Once you are in the customizations page, select a role (scrum master or team member)
+- Click on start a new game, once the role has been selected.
+- A new gameplay has been initiated, where you will be given a realistic situation that
+  the role you selected may encounter during a sprint. Using the information present in the
+  scenario, select one of the four given options.
+- Each option corresponds to a different result, affecting not only you, but also your team
+  differently.
+- These options have give you points ranging from 1-4, 1 being the worst, and 4 being the best.
+- For the role of scrum master there are 5 scenarios, and for the role of team member, there are
+  6 scenarios.
+
