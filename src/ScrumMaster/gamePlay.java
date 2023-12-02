@@ -1170,16 +1170,16 @@ public class gamePlay extends JFrame {
 		//Result 4
 		JPanel res4 = new JPanel();
 		res4.setBorder(new LineBorder(new Color(192, 192, 192), 2));
+		res4.setLayout(null);
 		res4.setForeground(Color.BLACK);
 		res4.setBackground(Color.BLACK);
 		res4.setBounds(0, 0, 1352, 501);
 		gameBody.add(res4);
-		res4.setLayout(null);
 		
 		JLabel lblResult4 = new JLabel("Result:");
 		lblResult4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblResult4.setForeground(Color.LIGHT_GRAY);
 		lblResult4.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResult4.setForeground(new Color(192, 192, 192));
 		lblResult4.setBounds(494, 10, 365, 75);
 		res4.add(lblResult4);
 		
@@ -1192,7 +1192,7 @@ public class gamePlay extends JFrame {
 		lblRemark_Scen4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRemark_Scen4.setForeground(Color.LIGHT_GRAY);
 		lblRemark_Scen4.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblRemark_Scen4.setBounds(78, 90, 1200, 326);
+		lblRemark_Scen4.setBounds(72, 0, 1200, 326);
 		res4.add(lblRemark_Scen4);
 		
 		JLabel lblAnswer_Scen4 = new JLabel("");
@@ -1223,7 +1223,7 @@ public class gamePlay extends JFrame {
 	        ResultSet res = stm.executeQuery(sql);
 	        while(res.next()) {
 	            SM_GatherStakeHolderFeedback.setText("<html>" + res.getString("s_title") + "</html>"); 
-	            SM_GatherStakeHolderFeedback.setFont(new Font("Tahoma", Font.PLAIN, 25)); 
+	            SM_GatherStakeHolderFeedback.setFont(new Font("Tahoma", Font.PLAIN, 22)); 
 	            SM_GatherStakeHolderFeedback.setForeground(new Color(255, 255, 255)); 
 	            SM_GatherStakeHolderFeedback.setBounds(66, 11, 1179, 151);
 	            situation_3.add(SM_GatherStakeHolderFeedback);
@@ -1407,14 +1407,14 @@ public class gamePlay extends JFrame {
 		        }
 		    }
 		});
-		btnBad_scen4.setBounds(10, 10, 657, 144);
+		btnBad_scen4.setBounds(10, 10, 656, 143);
 		btnBad_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option3_3.add(btnBad_scen4);
 		
 		JPanel option4_3 = new JPanel();
 		option4_3.setBorder(new LineBorder(new Color(128, 128, 128), 2));
 		option4_3.setBackground(Color.BLACK);
-		option4_3.setBounds(0, 337, 677, 164);
+		option4_3.setBounds(676, 338, 676, 163);
 		scen4.add(option4_3);
 		option4_3.setLayout(null);
 		
@@ -1465,7 +1465,7 @@ public class gamePlay extends JFrame {
 		        }
 		    }
 		});
-		btnGood_scen4.setBounds(10, 10, 656, 144);
+		btnGood_scen4.setBounds(10, 10, 657, 144);
 		btnGood_scen4.setHorizontalAlignment(SwingConstants.LEFT);
 		btnGood_scen4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		option4_3.add(btnGood_scen4);
